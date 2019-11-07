@@ -9,3 +9,43 @@
 
 <%= link_to"編集",   edit_user_schedule_path(@schedule), class:"btn btn-default" %>
 
+
+
+<%= form_for([@schedule,@comment],url: user_schedule_comments_path(@schedule.id)) do |f| %>
+
+　<h4>タイトル</h4>
+　　<%= f.text_field :title %>
+
+　　<h4>コメント</h4>
+　　　<%= f.text_area :comment %>
+
+　　　<%= f.submit "登録" %>
+  <% end %>
+
+
+  <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="text-align:center;">タイトル</th>
+            <th style="text-align:center;">コメント</th>
+            <th style="text-align:center;"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @schedule.comments.each do |comment| %>
+          <tr>
+            <td align="center"> <%=comment.title%> </td>
+            <td align="center"> <%=comment.comment%> </td>
+
+
+
+
+            <td align="center">
+             <% if current_user.id == comment.user.id || current_user.id == @schedule.user.id%>
+              <%= link_to '削除',user_schedule_comment_path(comment.id),method: :delete,class:"btn btn-default" %>
+             <% end %>
+           </td>
+          <% end %>
+          </tr>
+        </tbody>
+      </table>

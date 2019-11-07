@@ -4,7 +4,8 @@ class User::SchedulesController < ApplicationController
   end
 
   def show
-  	@schedule= Schedule.find(params[:id])
+  	@schedule = Schedule.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit

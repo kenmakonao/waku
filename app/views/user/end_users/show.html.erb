@@ -50,10 +50,14 @@
       <%= @user. email %><h2>
     </div>
 
+<%= render 'relationships/follow_button', user: @user %>
+
+
 <div>
   <%= link_to"マイページ編集",  edit_user_end_user_path(@user), class:"btn btn-default" %>
 </div>
 <%=link_to"ログアウト", destroy_user_session_path, method: :delete %>
+
 
 
 <%# end %>

@@ -1,6 +1,6 @@
 class Schedule < ApplicationRecord
-	has_many :article, dependent: :destroy
-	has_many :comment, dependent: :destroy
+	has_many :articles, dependent: :destroy
+	has_many :comments, dependent: :destroy ,foreign_key: "user_id", primary_key: "user_id"
 	belongs_to :user
 	belongs_to :country
 	validates :start_day, presence: true

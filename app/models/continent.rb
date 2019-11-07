@@ -1,4 +1,4 @@
 class Continent < ApplicationRecord
-	has_many :country, dependent: :destroy
+	has_many :countrys, dependent: :destroy
 	# validates :continent, presence: true
 end
