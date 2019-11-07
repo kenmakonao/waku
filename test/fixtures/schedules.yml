@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  article_id: 1
+  country_id: 1
+  title: MyString
+  period: 2019-11-04
+  theme: MyString
+  memo: MyText
+  photo: MyText
+  complete: false
+  deleted_at: 2019-11-04 06:00:37
+
+two:
+  user_id: 1
+  article_id: 1
+  country_id: 1
+  title: MyString
+  period: 2019-11-04
+  theme: MyString
+  memo: MyText
+  photo: MyText
+  complete: false
+  deleted_at: 2019-11-04 06:00:37

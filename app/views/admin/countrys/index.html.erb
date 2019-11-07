@@ -1,0 +1,21 @@
+<thead>
+		　<tr>
+			<th style="text-align:center;">ID</th>
+			<th style="text-align:center;">国名</th>
+		　</tr>
+	    </thead>
+
+	    <tbody>
+	      <% @country.each do |country| %>
+	        <tr>
+	        <td align="center"><%= link_to country.id,admin_country_path(country.id) %>
+		    </td>
+		    <td align="center"><%=  country.name %>
+		    </td>
+			<td align="center"><%= link_to "編集", edit_admin_country_path(country.id) ,class:"glyphicon glyphicon-headphones btn btn-default" %></td>
+			<td align="center"><%= link_to"削除", admin_country_path(country.id),method: :delete %></td>
+	        </tr>
+          <%end%>
+         </tbody>
+    </table>
+    <%= link_to"追加", new_admin_country_path %>

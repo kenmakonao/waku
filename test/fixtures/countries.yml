@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country_id: 1
+  schedule_id: 1
+  name: MyString
+  latitude: MyString
+  longitude: MyString
+  money: MyString
+  time_difference: MyString
+  world_heritage: MyString
+  deleted_at: 2019-11-04 06:09:01
+
+two:
+  country_id: 1
+  schedule_id: 1
+  name: MyString
+  latitude: MyString
+  longitude: MyString
+  money: MyString
+  time_difference: MyString
+  world_heritage: MyString
+  deleted_at: 2019-11-04 06:09:01

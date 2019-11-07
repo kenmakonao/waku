@@ -1,0 +1,27 @@
+<h1 class="text-center">ユーザ一覧</h1>
+	<div class="container">
+  		<table class="table table-bordered">
+    		<thead>
+     			 <tr>
+     			   <th style="text-align:center;">ID</th>
+     			   <th style="text-align:center;">ニックネーム</th>
+     			   <th style="text-align:center;">退会確認</th>
+    			  </tr>
+    		</thead>
+   			 <tbody>
+    			<% @users.each do |user| %>
+	    		    <tr>
+	      			 	<td align="center">
+		   		  	  		<%= link_to user.id,admin_user_path(user.id) %>
+	      				</td>
+	       				</td>
+	       			 	<td align="center">
+	       			   		<%= user.nickname%>
+	       			 	</td>
+	       			 	<td>
+	       			 	</td>
+	  			    </tr>
+    			<% end %>
+    		</tbody>
+  		</table>
+	</div>

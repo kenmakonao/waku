@@ -1,0 +1,4 @@
+<%= attachment_image_tag @category, :icon, :fill, 100, 100, format: 'jpeg' %>
+<%= @category.explanation %>
+
+<%= link_to"一覧に行く",  admin_categorys_path(@category), class:"btn btn-default" %>

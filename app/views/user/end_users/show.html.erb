@@ -1,0 +1,59 @@
+<h1>User::EndUsers#show</h1>
+<p>Find me in app/views/user/users/show.html.erb</p>
+<%#= form_for(@user, url: edit_user_user_path) do |f| %>
+
+<p>画像</p>
+  <%= attachment_image_tag @user, :photo, :fill, 100, 100, format: 'jpeg' %>
+
+
+
+ <div class="field">
+      <h2 class="text-center">
+      ニックネーム <br />
+      <%= @user.nickname %><h2>
+    </div>
+
+   <div class="field">
+      <h2 class="text-center">
+    名前 <br>
+      <%= @user.kanzi_last_name %><%= @user.kanzi_first_name %><h2>
+    </div>
+
+　　　<div class="field">
+      <h2 class="text-center">
+      かナ<br />
+      <%= @user.kana_last_name+""+@user.kana_first_name %><h2>
+    </div>
+
+
+    <div class="field">
+      <h2 class="text-center">
+      性別<br />
+      <%= @user.sex %><h2>
+    </div>
+
+    <div class="field">
+      <h2 class="text-center">
+      好きな国<br />
+      <%= @user. like_country %><h2>
+    </div>
+
+　　　<div class="field">
+      <h2 class="text-center">
+      自己紹介<br />
+      <%= @user. self_introduction %><h2>
+    </div>
+ 
+ <div class="field">
+      <h2 class="text-center">
+      メールアドレス<br />
+      <%= @user. email %><h2>
+    </div>
+
+<div>
+  <%= link_to"マイページ編集",  edit_user_end_user_path(@user), class:"btn btn-default" %>
+</div>
+<%=link_to"ログアウト", destroy_user_session_path, method: :delete %>
+
+
+<%# end %>

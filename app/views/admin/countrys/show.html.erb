@@ -1,0 +1,11 @@
+<%= attachment_image_tag @country, :photo, :fill, 100, 100, format: 'jpeg' %>
+<%= @country.continent_id %>
+<%= @country.name %>
+<%= @country.latitude %>
+<%= @country.longitude%>
+<%= @country.money%>
+<%= @country.time_difference %>
+<%= @country.world_heritage %>
+<%= @country.language %>
+
+<%= link_to"一覧に行く",   admin_countrys_path(@country), class:"btn btn-default" %>

@@ -1,0 +1,11 @@
+<%= attachment_image_tag @schedule, :photo, :fill, 100, 100, format: 'jpeg' %>
+<%= @schedule.country_id %>
+<%= @schedule.start_day %>
+<%= @schedule.finish_day %>
+<%= @schedule.date %>
+<%= @schedule.title %>
+<%= @schedule.memo %>
+<%= @schedule.theme %>
+
+<%= link_to"編集",   edit_user_schedule_path(@schedule), class:"btn btn-default" %>
+

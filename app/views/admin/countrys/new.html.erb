@@ -1,0 +1,36 @@
+<%= form_for(@country,url: admin_countrys_path) do |f| %>
+
+　　<h4>大陸</h4>
+　　　<%= f.collection_select :continent_id, Continent.all,:id,:continent %>
+
+    <h4>写真</h4>
+    <%= f.attachment_field :photo %>
+
+    <h4>名前</h4>
+    <%= f.text_field :name %>
+
+     <h4>緯度</h4>
+    <%= f.text_field :latitude %>
+
+     <h4>軽度</h4>
+    <%= f.text_field :longitude %>
+
+     <h4>通過</h4>
+    <%= f.text_field :money %>
+
+     <h4>時差</h4>
+    <%= f.text_field :time_difference %>
+
+     <h4>首都</h4>
+    <%= f.text_field :world_heritage %>
+
+     <h4>言語</h4>
+    <%= f.text_field :language %>
+
+
+
+      <div class="actions">
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
+
