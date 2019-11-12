@@ -1,56 +1,58 @@
-<p>画像</p>
-  <%= attachment_image_tag @user, :photo, :fill, 100, 100, format: 'jpeg' %>
+<h1 class="text-center">ユーザ　詳細</h1>
+  <div class="container">
+    <h2 class="text-center">
+    <%= attachment_image_tag @user, :photo, :fill, 100, 100, format: 'jpeg' %>
+    </h2>
 
+    <table class= "table table-bordered">
+                    <tr>
+                        <th style="text-align:center;">ニックネーム</th>
+                        <td align="center"><%= @user.nickname %></td>
+                    </tr>
 
+                    <tr>
+                        <th style="text-align:center;">名前</th>
+                        <td align="center"><%= @user.kanzi_last_name %><%= @user.kanzi_first_name %></td>
+                    </tr>
 
- <div class="field">
-      <h2 class="text-center">
-      ニックネーム <br />
-      <%= @user.nickname %><h2>
-    </div>
+                    <tr>
+                        <th style="text-align:center;">カナ</th>
+                        <td align="center"><%= @user.kana_last_name+""+@user.kana_first_name %></td>
+                    </tr>
 
-   <div class="field">
-      <h2 class="text-center">
-    名前 <br>
-      <%= @user.kanzi_last_name %><%= @user.kanzi_first_name %><h2>
-    </div>
+                    <tr>
+                        <th style="text-align:center;">性別</th>
+                        <td align="center"><%= @user. sex %></td>
+                    </tr>
 
-　　　<div class="field">
-      <h2 class="text-center">
-      かナ<br />
-      <%= @user.kana_last_name+""+@user.kana_first_name %><h2>
-    </div>
+                    <tr>
+                        <th style="text-align:center;">好きな国</th>
+                        <td align="center"><%= @user. like_country %></td>
+                        </tr>
 
+                    <tr>
+                        <th style="text-align:center;">自己紹介</th>
+                        <td align="center"><%= @user. self_introduction %></td>
+                    </tr>
 
-    <div class="field">
-      <h2 class="text-center">
-      性別<br />
-      <%= @user.sex %><h2>
-    </div>
+                    <tr>
+                        <th style="text-align:center;">メールアドレス</th>
+                        <td align="center"> <%= @user. email %></td>
+                    </tr>
 
-    <div class="field">
-      <h2 class="text-center">
-      好きな国<br />
-      <%= @user. like_country %><h2>
-    </div>
+            </table>
 
-　　　<div class="field">
-      <h2 class="text-center">
-      自己紹介<br />
-      <%= @user. self_introduction %><h2>
-    </div>
- 
- <div class="field">
-      <h2 class="text-center">
-      メールアドレス<br />
-      <%= @user. email %><h2>
-    </div>
+            <div class="text-center">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default">
+                        <%= link_to"マイページ編集",  edit_admin_user_path(@user) %>
+                    </button>
+                    <button type="button" class="btn btn-default">
+                        <%= link_to"一覧に戻る",  admin_users_path(@user) %>
+                    </button>
+                    <button type="button" class="btn btn-default">
+                        <%= link_to"削除", admin_users_path(@user),method: :delete%>
+                 </div>
+            </div>
 
-    <div>
-  <%= link_to"マイページ編集",  edit_admin_user_path(@user), class:"btn btn-default" %>
-</div>
- <div>
-  <%= link_to"一覧に戻る",  admin_users_path(@user), class:"btn btn-default" %>
-</div>
-<%= link_to"削除", admin_users_path(@user),method: :delete, class:"btn btn-default" %>
 

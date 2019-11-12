@@ -5,6 +5,7 @@ class User::SchedulesController < ApplicationController
 
   def show
   	@schedule = Schedule.find(params[:id])
+    @article = @schedule.articles
     @comment = Comment.new
   end
 

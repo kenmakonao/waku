@@ -1,65 +1,58 @@
+<h1 class="text-center">マイページ編集</h1>
+	<div class="container">
+		<%= form_for(@user,url: admin_user_path) do |f| %>
 
-<%= form_for(@user,url: admin_user_path) do |f| %>
-<div class="field">
+			<table class= "table table-bordered">
+				<tr>
+          			<th style="text-align:center;">写真</th>
+          			<td align="center"><%= f.attachment_field :photo %></td>
+        		</tr>
 
-	<div class="field">
-      <h2 class="text-center">
-      写真 <br />
-      <%= f.attachment_field :photo %><h2>
-    </div>
+		        <tr>
+		          <th style="text-align:center;">ニックネーム</th>
+		          <td align="center"><%= f.text_field :nickname %></td>
+		        </tr>
 
-	<div class="address">
-		<h2 class="text-center">ニックネーム</br>
-		<%= f.text_field :nickname %>
-		</h2>
-	</div>
+		        <tr>
+		          <th style="text-align:center;">姓</th>
+		          <td align="center"><%= f.text_field :kanzi_last_name %></td>
+		        </tr>
 
-	<div class="address">
-		<h2 class="text-center">姓</br>
-		<%= f.text_field :kanzi_last_name %>
-		</h2>
-	</div>
+		        <tr>
+		          <th style="text-align:center;">名</th>
+		          <td align="center"><%= f.text_field :kanzi_first_name %></td>
+		        </tr>
 
-	<div class="address">
-		<h2 class="text-center">名</br>
-		<%= f.text_field :kanzi_first_name %>
-		</h2>
-	</div>
+		        <tr>
+		          <th style="text-align:center;">セイ</th>
+		          <td align="center"><%= f.text_field :kana_last_name %></td>
+		        </tr>
 
-	<div class="address">
-		<h2 class="text-center">セイ</br>
-		<%= f.text_field :kana_last_name %>
-		</h2>
-	</div>
+		         <tr>
+		            <th style="text-align:center;">メイ</th>
+		            <td align="center"><%= f.text_field :kana_first_name %></td>
+		         </tr>
 
-	<div class="address">
-		<h2 class="text-center">メイ</br>
-		<%= f.text_field :kana_first_name %>
-		</h2>
-	</div>
+		         <tr>
+		            <th style="text-align:center;">性別</th>
+		            <td align="center"><%= f.select :sex, [["男性","男性"],["女性", "女性"]] ,class:"form-control" %></td>
+		         </tr>
 
-	<div class="address">
-		<h2 class="text-center">性別</br>
-		<%= f.text_field :sex %>
-		</h2>
-	</div>
+		         <tr>
+		            <th style="text-align:center;">好きな国</th>
+		            <td align="center"><%= f.text_field :like_country %></td>
+		         </tr>
 
-	<div class="address">
-		<h2 class="text-center">好きな国</br>
-		<%= f.text_field :like_country %>
-		</h2>
-	</div>
+		         <tr>
+		            <th style="text-align:center;">自己紹介</th>
+		            <td align="center"><%= f.text_field :self_introduction %></td>
+		         </tr>
 
-<div class="address">
-		<h2 class="text-center">自己紹介</br>
-		<%= f.text_field :self_introduction %>
-		</h2>
-	</div>
-	<div class="address">
-		<h2 class="text-center">メールアドレス</br>
-		<%= f.text_field :email %>
-		</h2>
-	</div>
+		         <tr>
+		            <th style="text-align:center;">メールアドレス</th>
+		            <td align="center"><%= f.text_field :email %></td>
+		         </tr>
+		      </table>
 
 
 

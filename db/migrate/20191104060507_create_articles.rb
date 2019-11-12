@@ -8,7 +8,7 @@ class CreateArticles < ActiveRecord::Migration[5.2]
       t.time :finish_time
       t.string :title, null: false
       t.text :memo
-      t.string :evaluation
+      t.float :evaluation
       t.text :photo_id
       t.boolean :complete
       t.datetime :deleted_at

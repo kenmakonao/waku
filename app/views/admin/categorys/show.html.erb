@@ -1,4 +1,33 @@
-<%= attachment_image_tag @category, :icon, :fill, 100, 100, format: 'jpeg' %>
-<%= @category.explanation %>
+<h1 class="text-center">カテゴリ詳細</h1>
 
-<%= link_to"一覧に行く",  admin_categorys_path(@category), class:"btn btn-default" %>
+	<div class="container">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th style="text-align:center;">アイコン</th>
+					<th style="text-align:center;">説明</th>
+		　		</tr>
+	    	</thead>
+
+	    	<tbody>
+	      			<tr>
+	        			<td align="center"><%= attachment_image_tag @category, :icon, :fill, 100, 100, format: 'jpeg' %></td>
+		    			<td align="center">
+		    				<div class="text_size"><%= @category.explanation %></div></td>
+
+	        		</tr>
+        	</tbody>
+    	</table>
+
+    	<button type="button" class="btn btn-default center-block btn-lg">
+    	<%= link_to"一覧に行く",  admin_categorys_path(@category) %>
+    	</button>
+	</div>
+
+
+
+	<style>
+.text_size{
+	font-size: 80px;
+		}
+	</style>

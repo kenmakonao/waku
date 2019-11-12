@@ -16,8 +16,9 @@ class Admin::CountrysController < ApplicationController
   end
 
   def create
+    #binding.pry
   	 @country = Country.new(country_params)
-  	 if @country.save
+  	 if @country.save!
   		redirect_to admin_country_path(@country.id)
   	 else
   		render :new
@@ -33,7 +34,7 @@ class Admin::CountrysController < ApplicationController
   def destroy
      @country = Country.find(params[:id])
      @country.destroy
-     redirect_to admin_country_index_path
+     redirect_to admin_countrys_path
   end
 
     private

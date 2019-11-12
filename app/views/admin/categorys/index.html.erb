@@ -1,22 +1,31 @@
- <table class="table table-bordered">
-		<thead>
-		　<tr>
-			<th style="text-align:center;">アイコン</th>
-			<th style="text-align:center;">説明</th>
-			<th style="text-align:center;"></th>
-			<th style="text-align:center;"></th>
-		　</tr>
-	    </thead>
+<h1 class="text-center">カテゴリ一覧</h1>
+	<div class="container">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th style="text-align:center;">ID</th>
+					<th style="text-align:center;">アイコン</th>
+					<th style="text-align:center;">説明</th>
+					<th style="text-align:center;">編集</th>
+					<th style="text-align:center;">削除</th>
+		　		</tr>
+	    	</thead>
 
-	    <tbody>
-	      <% @categorys.each do |category| %>
-	        <tr>
-	        <td align="center"> <%= attachment_image_tag category, :icon, :fill, 20, 20, format: 'jpeg' %></td>
-		    <td align="center"><%=  category.explanation %></td>
-			<td align="center"><%= link_to "編集", edit_admin_category_path(category.id) ,class:"glyphicon glyphicon-headphones btn btn-default" %></td>
-			<td align="center"><%= link_to"削除", admin_categorys_path(category.id),method: :delete %></td>
-	        </tr>
-          <%end%>
-         </tbody>
-    </table>
-    <%= link_to "追加", new_admin_category_path %>
+	    	<tbody>
+	      		<% @categorys.each do |category| %>
+	      			<tr>
+	      				<td align="center"> <%= link_to category.id,admin_category_path(category.id) %>
+        				</td>
+	        			<td align="center"> <%= attachment_image_tag category, :icon, :fill, 20, 20, format: 'jpeg' %></td>
+		    			<td align="center"><%=  category.explanation %></td>
+						<td align="center"><%= link_to "編集", edit_admin_category_path(category.id) ,class:" btn btn-default" %></td>
+						<td align="center"><%= link_to"削除", admin_category_path(category.id),method: :delete,class:" btn btn-default" %></td>
+	        		</tr>
+          		<%end%>
+        	</tbody>
+    	</table>
+
+    	<button type="button" class="btn btn-default center-block btn-lg">
+    	<%= link_to "追加", new_admin_category_path %>
+    	</button>
+</div>

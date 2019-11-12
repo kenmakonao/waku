@@ -17,14 +17,17 @@ Rails.application.routes.draw do
     resources :continents,only: [:index, :show, :edit, :update, :destroy, :new, :create, :country]do
     get '/continents' => 'continents#country', as: 'country'
   end
-    resources :aricles,only: [:show, :edit, :update, :destroy, :new, :create]
+    #resources :aricles,only: [:show, :edit]
+
     resources :schedules,only: [:index, :show, :edit, :update, :destroy, :new, :create]do
-     resources :comments,only: [:create,:destroy]
-   end
+      resources :aricles,only: [:index, :show, :edit, :new, :update, :destroy, :create]
+      resources :comments,only: [:create,:destroy]
+      resources :nices,only: [:create, :destroy]
+    end
 
     resources :about,only: [:show]
     resources :favrites,only: [:index,:create, :update, :destroy]
-    resources :nices,only: [:index, :create, :update, :destroy]
+    resources :nices,only: [:index]
     resources :comments,only: [:index]
     resources :end_users,only: [:show, :edit, :update, :destroy]
     get '/checks' => 'users#check', as: 'check'
@@ -36,8 +39,9 @@ Rails.application.routes.draw do
     resources :countrys,only: [:index, :show, :edit, :update, :destroy,:new, :create]
     resources :users,only: [:index, :show, :edit, :update, :destroy]
     #resources :comments,only: [:index, :destroy]
-    resources :aricles,only: [:index, :show, :edit, :update, :destroy]
+    #resources :aricles,only: [:index, :show, :edit, :update, :destroy]
     resources :schedules,only: [:index, :show, :edit, :update, :destroy]do
+    resources :aricles,only: [:index, :show, :edit, :update, :destroy]
      resources :comments,only: [:destroy]
   end
     resources :tops,only: [:index]

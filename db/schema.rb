@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_045023) do
     t.time "finish_time"
     t.string "title", null: false
     t.text "memo"
-    t.string "evaluation"
+    t.float "evaluation"
     t.text "photo_id"
     t.boolean "complete"
     t.datetime "deleted_at"
@@ -66,10 +66,10 @@ ActiveRecord::Schema.define(version: 2019_11_07_045023) do
     t.integer "continent_id"
     t.text "photo_id", null: false
     t.string "name", null: false
-    t.string "latitude", null: false
-    t.string "longitude", null: false
+    t.string "latitude"
+    t.string "longitude"
     t.string "money", null: false
-    t.string "time_difference", null: false
+    t.string "time_difference"
     t.string "world_heritage", null: false
     t.string "language", null: false
     t.datetime "created_at", null: false
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_045023) do
   end
 
   create_table "nices", force: :cascade do |t|
-    t.integer "article_id"
+    t.integer "schedule_id"
     t.integer "user_id"
     t.integer "nice"
     t.datetime "created_at", null: false

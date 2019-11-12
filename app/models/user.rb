@@ -27,6 +27,7 @@ class User < ApplicationRecord
 
 	has_many :schedules, dependent: :destroy
 	has_many :comments, dependent: :destroy
+	has_many :nices, dependent: :destroy
 	#has_many :favorites, dependent: :destroy
 	validates :nickname, presence: true
 	validates :email, presence: true

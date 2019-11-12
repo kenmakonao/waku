@@ -42,7 +42,7 @@
     <div class="field">
       <h2 class="text-center">
       <%= f.label :性別 %><br />
-      <%= f.text_field :sex, autofocus: true %><h2>
+      <%= f.select :sex, [["男性","男性"],["女性", "女性"]] ,class:"form-control" %><h2>
     </div>
 
     <div class="field">
@@ -64,20 +64,24 @@
     </div>
 
     <div class="field">
+      <h2 class="text-center">
       <%= f.label :パスワード %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password" %></h2>
     </div>
 
     <div class="field">
+      <h2 class="text-center">
       <%= f.label :パスワード確認 %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %></h2>
     </div>
 
     <div class="actions">
+      <h2 class="text-center">
       <%= f.submit "登録" %>
+      </h2>
     </div>
   <% end %>
 
