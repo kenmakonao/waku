@@ -5,7 +5,11 @@ class User::SchedulesController < ApplicationController
 
   def show
   	@schedule = Schedule.find(params[:id])
-    @article = @schedule.articles
+    @articles_by_date = @schedule.articles.order(:date).group_by{|a| a.date}
+    @articles_by_date.each do |key,articles|
+      articles.sort_by{|a| a.start_time}
+    end
+
     @comment = Comment.new
   end
 

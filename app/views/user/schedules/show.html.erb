@@ -7,7 +7,7 @@
     <table class= "table table-bordered">
                     <tr>
                         <th style="text-align:center;">国</th>
-                        <td align="center"><%= @schedule.country_id %></td>
+                        <td align="center"><%= @schedule.country.name %></td>
                     </tr>
 
                     <tr>
@@ -50,6 +50,7 @@
 
     <h1 class="text-center">スケジュール</h1>
       <div class="container">
+         <% @articles_by_date.each do |key, articles| %>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -63,14 +64,14 @@
             </thead>
 
             <tbody>
-              <% @article.each do |article| %>
+                <% articles.each do |article| %>
                   <tr>
                     <td align="center"><%= article.start_time.strftime('%H時%M分') %>
                     </td>
                     <td align="center"><%= article.finish_time.strftime('%H時%M分') %>
                     </td>
 
-                    <td align="center"><%= attachment_image_tag article.category, :icon, :fill, 100, 100, format: 'jpeg' %></td>
+                    <td align="center"><%= attachment_image_tag article.category, :icon, :fill, 50, 50, format: 'jpeg' %></td>
 
                     <td align="center"><%= article.title %></td>
 
@@ -80,11 +81,9 @@
 
                   </tr>
                   <%end%>
+                <%end%>
               </tbody>
           </table>
-
-
-
 
 
 
