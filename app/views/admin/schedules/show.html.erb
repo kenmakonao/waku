@@ -1,2 +1,116 @@
-<h1>Admin::Schedules#show</h1>
-<p>Find me in app/views/admin/schedules/show.html.erb</p>
+<h1 class="text-center">スケジュール　詳細</h1>
+  <div class="container">
+    <h2 class="text-center">写真<br>
+    <%= attachment_image_tag @schedule, :photo, :fill, 100, 100, format: 'jpeg' %>
+    </h2>
+
+    <table class= "table table-bordered">
+                    <tr>
+                        <th style="text-align:center;">国</th>
+                        <td align="center"><%= @schedule.country.name %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">旅行開始日</th>
+                        <td align="center"><%= @schedule.start_day %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">旅行終了日</th>
+                        <td align="center"><%= @schedule.finish_day %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">期間</th>
+                        <td align="center"><%= @schedule.date %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">タイトル</th>
+                        <td align="center"><%= @schedule.title %></td>
+                        </tr>
+
+                    <tr>
+                        <th style="text-align:center;">説明</th>
+                        <td align="center"><%= @schedule.memo %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">テーマ</th>
+                        <td align="center"><%= @schedule.theme %></td>
+                    </tr>
+
+            </table>
+
+<%= link_to"編集",   edit_admin_schedule_path(@schedule), class:"btn btn-default" %>
+
+
+
+
+<h1 class="text-center">スケジュール</h1>
+      <div class="container">
+         <% @articles_by_date.each do |key, articles| %>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th style="text-align:center;">開始時間</th>
+              <th style="text-align:center;">終了時間</th>
+              <th style="text-align:center;">アイコン</th>
+              <th style="text-align:center;">タイトル</th>
+              <th style="text-align:center;">説明</th>
+              <th style="text-align:center;">編集</th>
+        　   </tr>
+            </thead>
+
+            <tbody>
+                <% articles.each do |article| %>
+                  <tr>
+                    <td align="center"><%= article.start_time.strftime('%H時%M分') %>
+                    </td>
+                    <td align="center"><%= article.finish_time.strftime('%H時%M分') %>
+                    </td>
+
+                    <td align="center"><%= attachment_image_tag article.category, :icon, :fill, 50, 50, format: 'jpeg' %></td>
+
+                    <td align="center"><%= article.title %></td>
+
+                    <td align="center"><%= article.memo %></td>
+
+                    <td align="center"><%= link_to"編集",  edit_admin_schedule_aricle_path(article.schedule.id,article.id) %></td>
+
+                  </tr>
+                  <%end%>
+                <%end%>
+              </tbody>
+          </table>
+
+
+
+    
+
+
+
+  <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="text-align:center;">タイトル</th>
+            <th style="text-align:center;">コメント</th>
+            <th style="text-align:center;"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @schedule.comments.each do |comment| %>
+          <tr>
+            <td align="center"> <%=comment.title%> </td>
+            <td align="center"> <%=comment.comment%> </td>
+
+
+
+
+            <td align="center">
+              <%= link_to '削除', admin_schedule_comment_path(@schedule.id,comment.id),method: :delete,class:"btn btn-default" %>
+           </td>
+          <% end %>
+          </tr>
+        </tbody>
+      </table>

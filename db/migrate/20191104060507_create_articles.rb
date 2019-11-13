@@ -5,7 +5,7 @@ class CreateArticles < ActiveRecord::Migration[5.2]
       t.integer :category_id
       t.string :date, null: false
       t.time :start_time, null: false
-      t.time :finish_time
+      t.time :finish_time, null: false
       t.string :title, null: false
       t.text :memo
       t.float :evaluation

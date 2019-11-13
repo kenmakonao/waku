@@ -7,9 +7,8 @@ class User::SchedulesController < ApplicationController
   	@schedule = Schedule.find(params[:id])
     @articles_by_date = @schedule.articles.order(:date).group_by{|a| a.date}
     @articles_by_date.each do |key,articles|
-      articles.sort_by{|a| a.start_time}
+    articles.sort_by{|a| a.start_time}
     end
-
     @comment = Comment.new
   end
 
@@ -32,16 +31,17 @@ class User::SchedulesController < ApplicationController
   end
 
   def update
-   	@schedule = Schedule.find(params[:id])
-    @schedule.user_id = current_user.id
-   	@schedule.update(schedule_params)
-    redirect_to user_schedule_path(@schedule.id)
+   	schedule = Schedule.find(params[:id])
+    schedule.user_id = current_user.id
+   	schedule.update(schedule_params)
+    redirect_to  user_schedule_path(params[:id])
   end
 
   def destroy
-   	@schedule= Schedule.find(params[:id])
-    @schedule.destroy
-    redirect_to user_continents_path
+   	schedule= Schedule.find(params[:id])
+    user = schedule.user
+    schedule.destroy
+    redirect_to user_end_user_path(user)
   end
 
   private

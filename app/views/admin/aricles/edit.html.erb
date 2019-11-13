@@ -1,2 +1,76 @@
-<h1>Admin::Aricles#edit</h1>
-<p>Find me in app/views/admin/aricles/edit.html.erb</p>
+<h1 class="text-center">記事　編集</h1>
+　<div class="container">
+    <div class="text-center">
+
+    <%= form_for(@article ,url: admin_schedule_aricle_path) do |f| %>
+
+
+        <table class= "table table-bordered">
+                    <tr>
+                        <th style="text-align:center;">日付</th>
+                        <td align="center"><%= f.select :date, [["1日目","1日目"],["2日目", "2日目"], ["３日目", "３日目"], ["４日目", "４日目"], ["５日目", "５日目"], ["６日目", "６日目"], ["7日目", "7日目"],["その他", "その他"]] ,class:"form-control" %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">開始日時間</th>
+                        <td align="center"><%= f.time_field :start_time %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">終了時間</th>
+                        <td align="center"><%= f.time_field :finish_time %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">アイコン</th>
+                        <td align="center"><%= f.collection_select :category_id, Category.all,:id,:explanation%>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">タイトル</th>
+                        <td align="center"><%= f.text_field :title %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">説明</th>
+                        <td align="center"><%= f.text_area :memo %></td>
+                        </tr>
+
+                    <tr>
+                        <th style="text-align:center;">写真</th>
+                        <td align="center"><%= f.attachment_field :photo %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">評価</th>
+                        <td align="center"><div class="form-group row" id="star">
+                        <%= f.label :evaluation,'評価 ' %>
+                        <%= f.hidden_field :evaluation, id: :review_star %>
+                        </div>
+
+                        </td>
+                    </tr>
+            </table>
+
+        <div class="actions">
+            <%= f.submit "登録" %>
+        </div>
+    </div>
+  <% end %>
+  <%= link_to '削除',  admin_schedule_aricle_path(@article.schedule.id,@article.id),method: :delete,class:"btn btn-default" %>
+
+
+
+ <!-- 評価javascript -->
+  <script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'article[evaluation]',
+    half: true,
+  });
+  </script>

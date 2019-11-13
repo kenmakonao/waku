@@ -11,22 +11,22 @@ class User::CommentsController < ApplicationController
   end
 
   def create
-  	@schedule = Schedule.find(params[:schedule_id])
-  	@comment = Comment.new(comment_params)
-  	@comment.user_id = current_user.id
-  	@comment.schedule_id = @schedule.id
-  	if @comment.save
-  		redirect_to user_schedule_path(@schedule.id)
+  	schedule = Schedule.find(params[:schedule_id])
+  	comment = Comment.new(comment_params)
+  	comment.user_id = current_user.id
+  	comment.schedule_id = schedule.id
+  	if comment.save
+  		redirect_to user_schedule_path(schedule.id)
   	else
   		render :new
   	end
   end
 
   def destroy
-  	@schedule = Schedule.find(params[:schedule_id])
-  	@comment= Comment.find_by(schedule_id: @schedule, id: params[:id])
-  	@comment.destroy
-  	redirect_to user_schedule_path
+  	schedule = Schedule.find(params[:schedule_id])
+  	comment= Comment.find_by(schedule_id: schedule.id, id: params[:id])
+  	comment.destroy
+  	redirect_to user_schedule_path(params[:schedule_id])
   end
 
   private

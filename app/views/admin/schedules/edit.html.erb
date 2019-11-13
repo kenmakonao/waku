@@ -1,2 +1,62 @@
-<h1>Admin::Schedules#edit</h1>
-<p>Find me in app/views/admin/schedules/edit.html.erb</p>
+<h1 class="text-center">スケジュール　編集</h1>
+　<div class="container">
+	<div class="text-center">
+
+
+　<%= form_for(@schedule,url: admin_schedule_path) do |f| %>
+
+
+		<table class= "table table-bordered">
+                    <tr>
+                        <th style="text-align:center;">国</th>
+                        <td align="center"><%= f.collection_select :country_id, Country.all,:id,:name %>
+						</td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">旅行開始日</th>
+                        <td align="center"><%= f.date_field :start_day %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">旅行終了日</th>
+                        <td align="center"><%= f.date_field :finish_day %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">期間</th>
+                        <td align="center"><%= f.select :date, [["日帰り","日帰り"],["2日間", "２日間"], ["３日間", "３日間"], ["４日間", "４日間"], ["５日間", "５日間"], ["６日間", "６日間"], ["１週間", "１週間"],["その他", "その他"]] ,class:"form-control" %>
+</td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">タイトル</th>
+                        <td align="center"><%= f.text_field :title %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">説明</th>
+                        <td align="center"><%= f.text_area :memo %></td>
+                        </tr>
+
+                    <tr>
+                        <th style="text-align:center;">写真</th>
+                        <td align="center"><%= f.attachment_field :photo %></td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:center;">テーマ</th>
+                        <td align="center"><%= f.select :theme, [["観光", "観光"], ["ツアー", "ツアー"], ["ひとり旅", "ひとり旅"], ["家族旅行", "家族旅行"], ["バックパック", "バックパック"], ["ゆったり", "ゆったり"],["食べ物", "食べ物"],["世界遺産", "世界遺産"],["その他", "その他"]] ,class:"form-control" %>
+						</td>
+                    </tr>
+            </table>
+
+ 		<div class="actions">
+     		<%= f.submit "登録" %>
+    	</div>
+    </div>
+  <% end %>
+<%= link_to '削除',admin_schedule_path(@schedule.id),method: :delete,class:"btn btn-default" %>
+
+
+

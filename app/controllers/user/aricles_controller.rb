@@ -1,6 +1,6 @@
 class User::AriclesController < ApplicationController
   def index
-    @article = Article.all
+   @article = Article.find(params[:id])
   end
 
   def show

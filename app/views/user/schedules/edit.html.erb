@@ -3,7 +3,7 @@
 	<div class="text-center">
 
 
-　<%= form_for(@schedule,url: user_schedules_path) do |f| %>
+　<%= form_for(@schedule,url: user_schedule_path) do |f| %>
 
 
 		<table class= "table table-bordered">
@@ -58,6 +58,7 @@
   <% end %>
 
 
+ <%= link_to '削除',user_schedule_path(@schedule.id),method: :delete,class:"btn btn-default" %>
 
 
 
