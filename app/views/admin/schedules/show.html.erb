@@ -63,7 +63,7 @@
             </thead>
 
             <tbody>
-                <% articles.each do |article| %>
+                <% articles.sort_by!{|a| a.start_time}.each do |article| %>
                   <tr>
                     <td align="center"><%= article.start_time.strftime('%H時%M分') %>
                     </td>

@@ -8,7 +8,7 @@ class Admin::SchedulesController < ApplicationController
   	@schedule = Schedule.find(params[:id])
   	@articles_by_date = @schedule.articles.order(:date).group_by{|a| a.date}
     @articles_by_date.each do |key,articles|
-     articles.sort_by{|a| a.start_time}
+     #articles.sort_by{|a| a.start_time}
     end
   end
 

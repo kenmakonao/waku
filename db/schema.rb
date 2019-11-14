@@ -57,7 +57,8 @@ ActiveRecord::Schema.define(version: 2019_11_07_045023) do
   end
 
   create_table "continents", force: :cascade do |t|
-    t.string "continent"
+    t.string "name"
+    t.text "photo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

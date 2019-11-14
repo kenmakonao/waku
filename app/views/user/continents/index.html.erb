@@ -1,2 +1,20 @@
-<h1>User::Continents#index</h1>
-<p>Find me in app/views/user/continents/index.html.erb</p>
+<h1 class="text-center">大陸一覧</h1>
+	<div class="container">
+		<% @continents.each do |continent| %>
+			<%= link_to(user_continent_path(continent.id)) do %>
+				<div class="container">
+					<div class="continent_photo">
+						<%= attachment_image_tag continent, :photo, :fill, 100, 100, format: 'jpeg' %>
+					</div>
+
+					<div class="continent_name">
+						<%=  continent.name %>
+					</div>
+				</div>
+
+			<% end %>
+		<% end %>
+
+
+	</div>
+

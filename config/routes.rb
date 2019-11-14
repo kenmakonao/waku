@@ -14,9 +14,8 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   namespace :user do
-    resources :continents,only: [:index, :show, :edit, :update, :destroy, :new, :create, :country]do
-    get '/continents' => 'continents#country', as: 'country'
-  end
+    resources :continents,only: [:index, :show, :country]
+    get '/continents/:id/country' => 'continents#country', as: 'country'
     #resources :aricles,only: [:show, :edit]
     patch '/release/:id' => 'schedules#release', as: 'release'
     patch'/nonrelease/:id' => 'schedules#nonrelease', as: 'nonrelease'

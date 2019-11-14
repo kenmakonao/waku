@@ -8,13 +8,13 @@
 
 Continent.create!(
 	[
-    {continent: 'アジア'},
-    {continent: 'ヨーロッパ'},
-    {continent: 'アフリカ'},
-    {continent: 'リゾート'},
-    {continent: 'オセアニア'},
-    {continent: '北米'},
-    {continent: '南米'},
+    {name: 'アジア',photo: open("#{Rails.root}/db/fixtures/140.jpg")},
+    {name: 'ヨーロッパ',photo: open("#{Rails.root}/db/fixtures/141.jpg")},
+    {name: 'アフリカ',photo: open("#{Rails.root}/db/fixtures/142.jpg")},
+    {name: 'リゾート',photo: open("#{Rails.root}/db/fixtures/143.jpg")},
+    {name: 'オセアニア',photo: open("#{Rails.root}/db/fixtures/144.jpg")},
+    {name: '北米',photo: open("#{Rails.root}/db/fixtures/145.jpg")},
+    {name: '南米',photo: open("#{Rails.root}/db/fixtures/146.jpg")},
     ]
     )
 
