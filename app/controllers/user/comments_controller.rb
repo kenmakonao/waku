@@ -1,14 +1,14 @@
 class User::CommentsController < ApplicationController
-  def index
-  	schedules =  Schedule.where(user_id: current_user.id)
-  	schedule_ids = schedules.map{|schedule|schedule.id}
+  #def index
+  	#schedules =  Schedule.where(user_id: current_user.id)
+  	#schedule_ids = schedules.map{|schedule|schedule.id}
 
-    @schedule_title = {}
-    schedules.each do |schedule|
-      @schedule_title.store(schedule.id, schedule.title)
-    end
-  	@comments = Comment.where(schedule_id: schedule_ids)
-  end
+    #@schedule_title = {}
+    #schedules.each do |schedule|
+    #@schedule_title.store(schedule.id, schedule.title)
+    #end
+  	#@comments = Comment.where(schedule_id: schedule_ids)
+ #end
 
   def create
   	schedule = Schedule.find(params[:schedule_id])

@@ -1,0 +1,12 @@
+<h1 class="text-center">写真一覧</h1>
+  <div class="container">
+      <h2 class="text-center">写真</h2>
+      <% @articles_by_date.each do |key, articles| %>
+        <% articles.sort_by!{|a| a.start_time}.each do |article| %>
+     	   <%= attachment_image_tag article, :photo, :fill, 100, 100, format: 'jpeg' %>
+	 	 <% end %>
+	 	<% end %>
+    </div>
+
+
+<%= link_to"スケジュールに戻る",user_schedule_path, class:"btn btn-default" %>

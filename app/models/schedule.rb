@@ -10,6 +10,7 @@ class Schedule < ApplicationRecord
 	validates :title, presence: true
 	validates :theme, presence: true
 	attachment :photo
+	enum status: {nonreleased: 0, released: 1}
 	 def nice_by?(user)
           nices.where(user_id: user.id).exists?
         end

@@ -41,11 +41,54 @@
           </tr>
       </table>
 
-    <%= render 'relationships/follow_button', user: @user %>
+
+
+     <table class="table table-bordered">
+            <thead>
+                 <tr>
+                   <th style="text-align:center;">ID</th>
+                   <th style="text-align:center;">国</th>
+                   <th style="text-align:center;">タイトル</th>
+                    <th style="text-align:center;">status</th>
+                  </tr>
+            </thead>
+             <tbody>
+                <% @schedules.each do |schedule| %>
+                    <% if schedule.released? || current_user.id == schedule.user.id %>
+
+                      <tr>
+                          <td align="center">
+                              <%= schedule.id%>
+                          </td>
+                          </td>
+                          <td align="center">
+                              <%= schedule.country.name%>
+                          </td>
+                          <td align="center">
+                              <%= link_to schedule.title,user_schedule_path(schedule.id) %>
+                          </td>
+                          <td align="center">
+                              <% if schedule.released? %>
+                                <p>公開</p>
+                              <% else %>
+                                <p>非公開</p>
+
+                            <% end %>
+                          </td>
+                      </tr>
+                  <% end %>
+                <% end %>
+            </tbody>
+        </table>
+
+</div>
+
+
+<% if current_user.id == @user.id %>
+<%= render 'relationships/follow_button', user: @user %>
 
       <%= link_to"マイページ編集",  edit_user_end_user_path(@user), class:"btn btn-default" %>
       <%=link_to"ログアウト", destroy_user_session_path, method: :delete %>
-    </div>
-
+      <% end %>
 
 

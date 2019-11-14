@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_045023) do
     t.integer "category_id"
     t.string "date", null: false
     t.time "start_time", null: false
-    t.time "finish_time"
+    t.time "finish_time", null: false
     t.string "title", null: false
     t.text "memo"
     t.float "evaluation"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_045023) do
     t.date "start_day", null: false
     t.date "finish_day", null: false
     t.string "date", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

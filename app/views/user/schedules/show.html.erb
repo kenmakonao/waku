@@ -42,12 +42,6 @@
 
             </table>
 
-<%= link_to"編集",   edit_user_schedule_path(@schedule), class:"btn btn-default" %>
-
-<%= link_to"記事作成",   new_user_schedule_aricle_path(@schedule), class:"btn btn-default" %>
-
-
-<%= link_to"スケジュール",new_user_schedule_path, class:"btn btn-default" %>
 
 
 
@@ -57,19 +51,19 @@
          <% @articles_by_date.each do |key, articles| %>
         <table class="table table-bordered">
           <thead>
-            <tr>
+            <tr><th style="text-align:center;">日目</th>
               <th style="text-align:center;">開始時間</th>
               <th style="text-align:center;">終了時間</th>
               <th style="text-align:center;">アイコン</th>
               <th style="text-align:center;">タイトル</th>
               <th style="text-align:center;">説明</th>
-              <th style="text-align:center;">編集</th>
         　   </tr>
             </thead>
 
             <tbody>
-                <% articles.each do |article| %>
+                <% articles.sort_by!{|a| a.start_time}.each do |article| %>
                   <tr>
+                    <td align="center"><%= article.date %></td>
                     <td align="center"><%= article.start_time.strftime('%H時%M分') %>
                     </td>
                     <td align="center"><%= article.finish_time.strftime('%H時%M分') %>
@@ -77,12 +71,15 @@
 
                     <td align="center"><%= attachment_image_tag article.category, :icon, :fill, 50, 50, format: 'jpeg' %></td>
 
-                    <td align="center"><%= article.title %></td>
+                    <td align="center">
+                      <% if article.photo.nil?%>
+                        <%= article.title %>
+                      <% else %>
+                        <%= link_to article.title, user_schedule_aricle_path(@schedule.id,article.id) %>
+                      <% end %>
+                    </td>
 
                     <td align="center"><%= article.memo %></td>
-
-                    <td align="center"><%= link_to"編集",  edit_user_schedule_aricle_path(article.schedule.id,article.id) %></td>
-
                   </tr>
                   <%end%>
                 <%end%>
@@ -121,7 +118,7 @@
   </li>
 <% end %>
 
-
+<%= link_to"写真",user_schedule_photos_path, class:"btn btn-default" %>
 
 
 <%= form_for([@schedule,@comment],url: user_schedule_comments_path(@schedule.id)) do |f| %>
@@ -162,10 +159,28 @@
           </tr>
         </tbody>
       </table>
+<%= link_to"記事編集",user_schedule_articles_path, class:"btn btn-default" %>
+
+      <% if current_user.id == @schedule.user.id %>
+
+<% if @schedule.released? %>
+  <%= link_to '非公開にする', user_nonrelease_path(@schedule), method: :patch %>
+<% else %>
+  <%= link_to '公開する', user_release_path(@schedule), method: :patch %>
+<% end %>
 
 
+<%= link_to"編集",   edit_user_schedule_path(@schedule), class:"btn btn-default" %>
+
+<%= link_to"記事作成",   new_user_schedule_aricle_path(@schedule), class:"btn btn-default" %>
 
 
+<%= link_to"スケジュール",new_user_schedule_path, class:"btn btn-default" %>
+
+
+<%= link_to"記事編集",user_schedule_articles_path, class:"btn btn-default" %>
+
+<% end %>
 
 
 

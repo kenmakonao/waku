@@ -1,6 +1,6 @@
 class User::AriclesController < ApplicationController
   def index
-   @article = Article.find(params[:id])
+   #@articles = Article.find(params[:id])
   end
 
   def show
@@ -23,7 +23,7 @@ class User::AriclesController < ApplicationController
   	if article.save
   		redirect_to user_schedule_aricle_path(params[:schedule_id],article.id)
   	else
-  		render :new
+  		redirect_to new_user_schedule_aricle_path
   	end
   end
 

@@ -1,15 +1,28 @@
 class User::SchedulesController < ApplicationController
   def index
-  	@schedule = Schedule.all
   end
 
   def show
   	@schedule = Schedule.find(params[:id])
     @articles_by_date = @schedule.articles.order(:date).group_by{|a| a.date}
+    @comment = Comment.new
+  end
+
+  def photos
+    @schedule = Schedule.find(params[:id])
+    @articles_by_date = @schedule.articles.order(:date).group_by{|a| a.date}
     @articles_by_date.each do |key,articles|
     articles.sort_by{|a| a.start_time}
     end
-    @comment = Comment.new
+  end
+
+
+  def articles
+    @schedule = Schedule.find(params[:id])
+    @articles_by_date = @schedule.articles.order(:date).group_by{|a| a.date}
+    @articles_by_date.each do |key,articles|
+    articles.sort_by{|a| a.start_time}
+    end
   end
 
   def edit
@@ -44,8 +57,28 @@ class User::SchedulesController < ApplicationController
     redirect_to user_end_user_path(user)
   end
 
+  def release
+    schedule = Schedule.find(params[:id])
+    if schedule.nonreleased?
+      schedule.update(status: 1)
+    end
+    redirect_to user_end_user_path(schedule.id), notice: 'この作品を公開しました'
+  end
+
+  def nonrelease
+    schedule = Schedule.find(params[:id])
+    if schedule.released?
+      schedule.update(status: 0)
+    end
+    redirect_to user_end_user_path(schedule.id), notice: 'この作品を非公開にしました'
+  end
+
+
   private
     def schedule_params
       params.require(:schedule).permit(:country_id,:start_day,:finish_day,:date,:title,:memo,:photo,:theme)
+    end
+    def status_params
+      params.require(:schedule).permit(:status)
     end
 end
