@@ -13,5 +13,35 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";  /*ここを追加*/
-@import "bootstrap";            /*ここを追加*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+ul {
+  font-size: 0;
+}
+li {
+  display: inline-block;
+  font-size: 25px;
+  width: 25%;
+}
+
+
+
+
+.main_text{
+  font-size:80px;
+  text-align: center;
+}
+.admin_header{
+background-color: #FFFF77;
+}
+
+
+
+.container-fluid {
+ background-color: #FFFF77;
+}
+.footer-copyright{
+  background-color:#CCCCCC;
+}
+

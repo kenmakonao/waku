@@ -1,75 +1,58 @@
 <h1 class="text-center">国名追加</h1>
     <div class="container">
-        <div class="row">
-            <!-- <form class="form-horizontal"> -->
                 <%= form_for(@country,url: admin_countrys_path) do |f| %>
 
-
-
-                <table class= "table table-bordered">
-                    <tr>
-                        <th style="text-align:center;">大陸</th>
-                        <td align="center"><%= f.collection_select :continent_id, Continent.all,:id,:continent %></td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">写真</th>
-                        <td align="center"><%= f.attachment_field :photo %></td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">名前</th>
-                        <td align="center"><%= f.text_field :name %></td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">緯度</th>
-                        <td align="center"><%= f.text_field :latitude %></td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">軽度</th>
-                        <td align="center"><%= f.text_field :longitude %></td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">通貨</th>
-                        <td align="center"><%= f.text_field :money %></td>
+                    <table class= "table table-bordered">
+                        <tr>
+                            <th style="text-align:center;">大陸</th>
+                            <td align="center"><%= f.collection_select :continent_id, Continent.all,:id,:name %></td>
                         </tr>
 
-                    <tr>
-                        <th style="text-align:center;">時差</th>
-                        <td align="center"><%= f.text_field :time_difference %></td>
-                    </tr>
+                        <tr>
+                            <th style="text-align:center;">写真</th>
+                            <td align="center"><%= f.attachment_field :photo %></td>
+                        </tr>
 
-                    <tr>
-                        <th style="text-align:center;">首都</th>
-                        <td align="center"><%= f.text_field :world_heritage %></td>
-                    </tr>
+                        <tr>
+                            <th style="text-align:center;">名前</th>
+                            <td align="center"><%= f.text_field :name %></td>
+                        </tr>
 
-                    <tr>
-                        <th style="text-align:center;">言語</th>
-                        <td align="center"><%= f.text_field :language %></td>
-                    </tr>
+                        <tr>
+                            <th style="text-align:center;">緯度</th>
+                            <td align="center"><%= f.text_field :latitude %></td>
+                        </tr>
 
-            </table>
+                        <tr>
+                            <th style="text-align:center;">軽度</th>
+                            <td align="center"><%= f.text_field :longitude %></td>
+                        </tr>
+
+                        <tr>
+                            <th style="text-align:center;">通貨</th>
+                            <td align="center"><%= f.text_field :money %></td>
+                            </tr>
+
+                        <tr>
+                            <th style="text-align:center;">時差</th>
+                            <td align="center"><%= f.text_field :time_difference %></td>
+                        </tr>
+
+                        <tr>
+                            <th style="text-align:center;">首都</th>
+                            <td align="center"><%= f.text_field :world_heritage %></td>
+                        </tr>
+
+                        <tr>
+                            <th style="text-align:center;">言語</th>
+                            <td align="center"><%= f.text_field :language %></td>
+                        </tr>
+
+                </table>
+            <%= f.submit "登録",:class=>"create_btn" %>
+        <% end %>
+    </div>
 
 
-        <%= f.submit "登録",:class=>"btn" %>
-    <% end %>
 
-
-  <style>
-.btn{
-    color: #2196F3;
-    border: 1px solid green;
-    border-radius: 5px;
-    background-color:white;
-    padding: 20px;
-    text-align: center;
-    width: 150px;
-    margin:0 auto;
-   }
-
-</style>
 

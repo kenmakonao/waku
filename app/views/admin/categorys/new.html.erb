@@ -2,33 +2,20 @@
 	<div class="container">
 		<%= form_for(@category,url: admin_categorys_path) do |f| %>
 
-    	<h3 class="text-center">アイコン</h3>
-    		<div class="icon">
-   		 		<%= f.attachment_field :icon %>
-   		 	</div>
 
-    	<h3 class="text-center">説明<br>
-    	<%= f.text_field :explanation %>
-    	</h3>
+			<table class= "table table-bordered">
+			        <tr>
+			            <th style="text-align:center;">アイコン</th>
+			                <td align="center"><%= f.attachment_field :icon %>
+			            </tr>
 
-      <%= f.submit "登録",:class=>"btn" %>
-    </div>
-  <% end %>
+			        <tr>
+			            <th style="text-align:center;">説明</th>
+			                <td align="center"><%= f.text_field :explanation %></td>
+			        </tr>
+			    </table>
 
+      		<%= f.submit "登録",:class=>"create_btn" %>
+  		<% end %>
+  	</div>
 
-
-<style>
-.btn{
-	color: #2196F3;
-	border: 1px solid green;
-	border-radius: 5px;
-	background-color:white;
-	padding: 20px;
-	text-align: center;
-	width: 150px;
-	margin:0 auto;
-   }
-.icon{
-	margin:0 auto;
-}
-</style>

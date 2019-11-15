@@ -1,5 +1,5 @@
-<h1 class="text-center">カテゴリ一覧</h1>
-	<div class="container">
+<div class="container">
+	<h1 class="text-center">カテゴリ一覧</h1>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -25,7 +25,19 @@
         	</tbody>
     	</table>
 
-    	<button type="button" class="btn btn-default center-block btn-lg">
-    	<%= link_to "追加", new_admin_category_path %>
-    	</button>
+    	<div class="text-center">
+    		<%= paginate @categorys%>
+    	</div>
+
+    	<div class="add_button">
+    		<button type="button" class= "btn btn-default center-block btn-lg">
+    			<%= link_to "カテゴリ追加", new_admin_category_path %>
+    		</button>
+    	</div>
 </div>
+
+
+
+
+
+

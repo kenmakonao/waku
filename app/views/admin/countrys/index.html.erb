@@ -10,7 +10,7 @@
 	   		</thead>
 
 	    	<tbody>
-	      		<% @country.each do |country| %>
+	      		<% @countrys.each do |country| %>
 	        		<tr>
 		    			<td align="center"><%= link_to country.name, admin_country_path(country.id) %></td>
 						<td align="center"><%= link_to "編集", edit_admin_country_path(country.id) ,class:"btn btn-default" %></td>
@@ -20,7 +20,14 @@
          	</tbody>
    		 </table>
 
-   		<button type="button" class="btn btn-default center-block btn-lg">
-    	<%= link_to"追加", new_admin_country_path %>
-    	</button>
+
+   		 <div class="text-center">
+    		<%= paginate @countrys%>
+    	</div>
+
+    	<div class="add_button">
+   			<button type="button" class="btn btn-default center-block btn-lg">
+    			<%= link_to" 国　追加", new_admin_country_path %>
+    		</button>
+    	</div>
 	</div>

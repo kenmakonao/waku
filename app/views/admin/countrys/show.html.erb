@@ -1,10 +1,11 @@
 <h1 class="text-center">国　詳細</h1>
 	<div class="container">
-		<h2 class="text-center">写真<br>
-		<%= attachment_image_tag @country, :photo, :fill, 100, 100, format: 'jpeg' %>
-		</h2>
 
 		<table class= "table table-bordered">
+                    <tr>
+                        <th style="text-align:center;">写真</th>
+                        <td align="center"><%= attachment_image_tag @country, :photo, :fill, 50, 50, format: 'jpeg' %></td>
+                    </tr>
                     <tr>
                         <th style="text-align:center;">大陸</th>
                         <td align="center"><%= @country.continent.name%></td>
@@ -47,9 +48,11 @@
 
             </table>
 
-    	<button type="button" class="btn btn-default center-block btn-lg">
-			<%= link_to"一覧に行く",   admin_countrys_path(@country) %>
-		</button>
+            <div class="all_button">
+    	       <button type="button" class="btn btn-default center-block btn-lg">
+			     <%= link_to"一覧に行く",   admin_countrys_path(@country) %>
+		      </button>
+            </div>
 	</div>
 
 

@@ -1,6 +1,7 @@
 class Admin::CategorysController < ApplicationController
+  PER = 10
   def index
-  	@categorys =Category.all
+  	@categorys =Category.page(params[:page]).per(PER)
   end
 
   def show

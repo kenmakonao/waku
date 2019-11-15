@@ -5,11 +5,59 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- コード追加　Bootstrap JavaScript読み込みコード-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/ 3.4.1/js/bootstrap.min.js"></script>
   </head>
 
   <body>
+    <% if admin_signed_in?%>
+     <header class="admin_header">
+          <p class="main_text"><管理者ページ></p>
+            <ul class="header_tops">
+                <li>
+                  <%=link_to"カテゴリ一覧",admin_categorys_path,class:"glyphicon glyphicon-plane " %>
+                </li>
+
+                <li>
+                  <%=link_to"国一覧",admin_countrys_path,class:"glyphicon glyphicon-briefcase" %>
+                </li>
+
+                <li>
+                  <%=link_to"ユーザ一覧",  admin_users_path,class:"glyphicon glyphicon-user"  %>
+                  </li>
+
+                  <li>
+                  <%=link_to"ログアウト",destroy_admin_session_path,method: :delete, class:"glyphicon glyphicon-new-window" %>
+                </li>
+              </ul>
+    </header>
+
+    <%# elsif end_user_signed_in?%>
+    <%# else%>
+    <% end %>
     <%= yield %>
+     <footer class="page-footer">
+      <div class="footer">
+        <div class="container-fluid">
+          <h5 class="text-center">会社情報<br>
+            会社名 （株）eamo<br>
+            住所　東京都渋谷区神南1-1-1-1<br>
+            電話番号 xxx-xxx-xxx
+          </h5>
+        </div>
+        <div class="footer-copyright text-center">© 2018 nagano music Inc</div>
+          <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      </div>
+    </footer>
   </body>
 </html>
+  </body>
+</html>
+
+
+
+
+
