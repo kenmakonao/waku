@@ -29,7 +29,7 @@ class Admin::CountrysController < ApplicationController
   def update
      country = Country.find(params[:id])
      country.update(country_params)
-  	 redirect_to admin_country_path(@country.id)
+  	 redirect_to admin_country_path(country.id)
   end
 
   def destroy

@@ -6,55 +6,63 @@
 
     	<table class= "table table-bordered">
                     <tr>
-                        <th style="text-align:center;">日程</th>
-                        <td align="center"><%= @article.date %></td>
+                        <th class="col-xs-6">日程</th>
+                            <td align="center"><%= @article.date %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">旅行開始日</th>
-                        <td align="center"><%= @article.start_time.strftime('%H時%M分') %></td>
+                        <th class="col-xs-6">旅行開始日</th>
+                            <td align="center"><%= @article.start_time.strftime('%H時%M分') %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">旅行終了日</th>
-                        <td align="center"><%= @article.finish_time.strftime('%H時%M分') %></td>
+                        <th class="col-xs-6">旅行終了日</th>
+                            <td align="center"><%= @article.finish_time.strftime('%H時%M分') %></td>
                     </tr>
 
                      <tr>
-                        <th style="text-align:center;">アイコン</th>
-                        <td align="center">
-                        <%= attachment_image_tag @article.category, :icon, :fill, 100, 100, format: 'jpeg' %></td>
+                        <th class="col-xs-6">アイコン</th>
+                            <td align="center"><%= attachment_image_tag @article.category, :icon, :fill, 100, 100, format: 'jpeg' %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">アイコン説明</th>
-                        <td align="center"><%= @article.category.explanation %></td>
+                        <th class="col-xs-6">アイコン説明</th>
+                            <td align="center"><%= @article.category.explanation %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">タイトル</th>
-                        <td align="center"><%= @article.title %></td>
-                        </tr>
-
-                    <tr>
-                        <th style="text-align:center;">説明</th>
-                        <td align="center"><%= @article.memo %></td>
+                        <th class="col-xs-6">タイトル</th>
+                            <td align="center"><%= @article.title %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">評価</th>
-                        <td align="center">
-                            <div id="star-rate-<%= @article.id %>">
+                        <th class="col-xs-6">説明</th>
+                            <td align="center"><%= @article.memo %></td>
+                    </tr>
+
+                    <tr>
+                        <th class="col-xs-6">評価</th>
+                            <td align="center">
+                                <div id="star-rate-<%= @article.id %>">
                             </div>
                         </td>
                     </tr>
 
             </table>
 
-<%= link_to"編集",  edit_admin_schedule_aricle_path(@article.schedule.id,@article.id) %>
 
-<%= link_to"一覧",  admin_schedule_path(@article.schedule.id)%>
-<%#= #link_to"一覧へ",  user_schedule_path %>
+        <div class="ariticle_button">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default center-block btn-lg">
+                    <%= link_to"編集",  edit_admin_schedule_aricle_path(@article.schedule.id,@article.id) %>
+                </button>
+                <button type="button" class="btn btn-default center-block btn-lg">
+                    <%= link_to"一覧",  admin_schedule_path(@article.schedule.id)%>
+                </button>
+            </div>
+        </div>
+    </div>
+
 
 
 

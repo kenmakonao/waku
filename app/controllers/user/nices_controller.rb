@@ -1,6 +1,7 @@
 class User::NicesController < ApplicationController
   def index
   @schedule = Schedule.find(params[:schedule_id])
+
   end
 
   def create

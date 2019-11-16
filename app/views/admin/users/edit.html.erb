@@ -4,59 +4,61 @@
 
 			<table class= "table table-bordered">
 				<tr>
-          			<th style="text-align:center;">写真</th>
+          			<th class="col-xs-6">写真</th>
           			<td align="center"><%= f.attachment_field :photo %></td>
         		</tr>
 
 		        <tr>
-		          <th style="text-align:center;">ニックネーム</th>
+		          <th class="col-xs-6">ニックネーム</th>
 		          <td align="center"><%= f.text_field :nickname %></td>
 		        </tr>
 
 		        <tr>
-		          <th style="text-align:center;">姓</th>
+		          <th class="col-xs-6">姓</th>
 		          <td align="center"><%= f.text_field :kanzi_last_name %></td>
 		        </tr>
 
 		        <tr>
-		          <th style="text-align:center;">名</th>
+		          <th class="col-xs-6">名</th>
 		          <td align="center"><%= f.text_field :kanzi_first_name %></td>
 		        </tr>
 
 		        <tr>
-		          <th style="text-align:center;">セイ</th>
+		          <th class="col-xs-6">セイ</th>
 		          <td align="center"><%= f.text_field :kana_last_name %></td>
 		        </tr>
 
 		         <tr>
-		            <th style="text-align:center;">メイ</th>
+		            <th class="col-xs-6">メイ</th>
 		            <td align="center"><%= f.text_field :kana_first_name %></td>
 		         </tr>
 
 		         <tr>
-		            <th style="text-align:center;">性別</th>
+		            <th class="col-xs-6">性別</th>
 		            <td align="center"><%= f.select :sex, [["男性","男性"],["女性", "女性"]] ,class:"form-control" %></td>
 		         </tr>
 
 		         <tr>
-		            <th style="text-align:center;">好きな国</th>
+		            <th class="col-xs-6">好きな国</th>
 		            <td align="center"><%= f.text_field :like_country %></td>
 		         </tr>
 
 		         <tr>
-		            <th style="text-align:center;">自己紹介</th>
+		            <th class="col-xs-6">自己紹介</th>
 		            <td align="center"><%= f.text_field :self_introduction %></td>
 		         </tr>
 
 		         <tr>
-		            <th style="text-align:center;">メールアドレス</th>
+		            <th class="col-xs-6">メールアドレス</th>
 		            <td align="center"><%= f.text_field :email %></td>
 		         </tr>
+
 		      </table>
 
+		      <%= f.submit "登録",:class=>"create_btn" %>
 
-
-    <div class="actions">
-      <%= f.submit "登録" %>
-    </div>
-  <% end %>
+		      <div class="deleat_btn">
+                    <%= link_to"削除", admin_users_path(@user),method: :delete%>
+              </div>
+		<% end %>
+	</div>

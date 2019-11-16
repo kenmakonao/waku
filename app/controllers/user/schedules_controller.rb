@@ -4,6 +4,7 @@ class User::SchedulesController < ApplicationController
 
   def show
   	@schedule = Schedule.find(params[:id])
+    #schedule.user.id=user.id
     @articles_by_date = @schedule.articles.order(:date).group_by{|a| a.date}
     @comment = Comment.new
   end

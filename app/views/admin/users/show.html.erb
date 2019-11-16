@@ -1,86 +1,79 @@
 <h1 class="text-center">ユーザ　詳細</h1>
-  <div class="container">
-    <h2 class="text-center">
-    <%= attachment_image_tag @user, :photo, :fill, 100, 100, format: 'jpeg' %>
-    </h2>
+    <div class="container">
+        <h2 class="text-center">
+            <%= attachment_image_tag @user, :photo, :fill, 100, 100, format: 'jpeg' %>
+        </h2>
 
-    <table class= "table table-bordered">
-                    <tr>
-                        <th style="text-align:center;">ニックネーム</th>
-                        <td align="center"><%= @user.nickname %></td>
-                    </tr>
+        <table class= "table table-bordered">
+            <tr>
+                <th class="col-xs-6">ニックネーム</th>
+                    <td align="center"><%= @user.nickname %></td>
+            </tr>
 
-                    <tr>
-                        <th style="text-align:center;">名前</th>
-                        <td align="center"><%= @user.kanzi_last_name %><%= @user.kanzi_first_name %></td>
-                    </tr>
+            <tr>
+                <th class="col-xs-6">名前</th>
+                    <td align="center"><%= @user.kanzi_last_name %><%= @user.kanzi_first_name %></td>
+            </tr>
 
-                    <tr>
-                        <th style="text-align:center;">カナ</th>
-                        <td align="center"><%= @user.kana_last_name+""+@user.kana_first_name %></td>
-                    </tr>
+            <tr>
+                <th class="col-xs-6">カナ</th>
+                    <td align="center"><%= @user.kana_last_name+""+@user.kana_first_name %></td>
+            </tr>
 
-                    <tr>
-                        <th style="text-align:center;">性別</th>
-                        <td align="center"><%= @user. sex %></td>
-                    </tr>
+            <tr>
+                <th class="col-xs-6">性別</th>
+                    <td align="center"><%= @user. sex %></td>
+            </tr>
 
-                    <tr>
-                        <th style="text-align:center;">好きな国</th>
-                        <td align="center"><%= @user. like_country %></td>
-                        </tr>
+            <tr>
+                <th class="col-xs-6">好きな国</th>
+                    <td align="center"><%= @user. like_country %></td>
+            </tr>
 
-                    <tr>
-                        <th style="text-align:center;">自己紹介</th>
-                        <td align="center"><%= @user. self_introduction %></td>
-                    </tr>
+            <tr>
+                <th class="col-xs-6">自己紹介</th>
+                    <td align="center"><%= @user. self_introduction %></td>
+            </tr>
 
-                    <tr>
-                        <th style="text-align:center;">メールアドレス</th>
-                        <td align="center"> <%= @user. email %></td>
-                    </tr>
+            <tr>
+                <th class="col-xs-6">メールアドレス</th>
+                    <td align="center"> <%= @user. email %></td>
+            </tr>
 
-            </table>
+        </table>
 
-            <div class="text-center">
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-default">
-                        <%= link_to"マイページ編集",  edit_admin_user_path(@user) %>
-                    </button>
-                    <button type="button" class="btn btn-default">
-                        <%= link_to"一覧に戻る",  admin_users_path(@user) %>
-                    </button>
-                    <button type="button" class="btn btn-default">
-                        <%= link_to"削除", admin_users_path(@user),method: :delete%>
-                 </div>
-            </div>
-
-            <div class="container">
         <table class="table table-bordered">
             <thead>
                  <tr>
-                   <th style="text-align:center;">ID</th>
-                   <th style="text-align:center;">国</th>
-                   <th style="text-align:center;">タイトル</th>
-                  </tr>
+                    <th style="text-align:center;">ID</th>
+                    <th style="text-align:center;">国</th>
+                    <th style="text-align:center;">タイトル</th>
+                </tr>
             </thead>
-             <tbody>
+
+            <tbody>
                 <% @schedules.each do |schedule| %>
                     <tr>
-                        <td align="center">
-                            <%= schedule.id%>
-                        </td>
-                        </td>
-                        <td align="center">
-                            <%= schedule.country.name%>
-                        </td>
-                        <td align="center">
-                            <%= link_to schedule.title,admin_schedule_path(schedule.id) %>
+                        <td class="col-xs-3"><%= schedule.id%></td>
+                        <td class="col-xs-3"><%= schedule.country.name%></td>
+                        <td class="col-xs-6"><%= link_to schedule.title,admin_schedule_path(schedule.id) %>
                         </td>
                     </tr>
                 <% end %>
             </tbody>
         </table>
+
+        <div class="user_button">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default">
+                        <%= link_to"マイページ編集",  edit_admin_user_path(@user) %>
+                </button>
+
+                <button type="button" class="btn btn-default">
+                        <%= link_to"一覧に戻る",  admin_users_path(@user) %>
+                </button>
+            </div>
+        </div>
     </div>
 
 

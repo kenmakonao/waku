@@ -3,46 +3,46 @@
 
 		<table class= "table table-bordered">
                     <tr>
-                        <th style="text-align:center;">写真</th>
+                        <th class="col-xs-6">写真</th>
                         <td align="center"><%= attachment_image_tag @country, :photo, :fill, 50, 50, format: 'jpeg' %></td>
                     </tr>
                     <tr>
-                        <th style="text-align:center;">大陸</th>
+                        <th class="col-xs-6">大陸</th>
                         <td align="center"><%= @country.continent.name%></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">名前</th>
+                        <th class="col-xs-6">名前</th>
                         <td align="center"><%= @country.name %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">緯度</th>
+                        <th class="col-xs-6">緯度</th>
                         <td align="center"><%= @country.latitude %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">軽度</th>
+                        <th class="col-xs-6">軽度</th>
                         <td align="center"><%= @country.longitude %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">通貨</th>
+                        <th class="col-xs-6">通貨</th>
                         <td align="center"><%= @country.money %></td>
                         </tr>
 
                     <tr>
-                        <th style="text-align:center;">時差</th>
+                        <th class="col-xs-6">時差</th>
                         <td align="center"><%= @country.time_difference %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">首都</th>
+                        <th class="col-xs-6">首都</th>
                         <td align="center"><%= @country.world_heritage %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">言語</th>
+                        <th class="col-xs-6">言語</th>
                         <td align="center"><%= @country.language %></td>
                     </tr>
 

@@ -1,66 +1,64 @@
 <h1 class="text-center">記事　編集</h1>
 　<div class="container">
-    <div class="text-center">
-
-    <%= form_for(@article ,url: admin_schedule_aricle_path) do |f| %>
-
-
-        <table class= "table table-bordered">
-                    <tr>
-                        <th style="text-align:center;">日付</th>
+        <%= form_for(@article ,url: admin_schedule_aricle_path) do |f| %>
+            <table class= "table table-bordered">
+                <tr>
+                    <th class="col-xs-6">日付</th>
                         <td align="center"><%= f.select :date, [["1日目","1日目"],["2日目", "2日目"], ["３日目", "３日目"], ["４日目", "４日目"], ["５日目", "５日目"], ["６日目", "６日目"], ["7日目", "7日目"],["その他", "その他"]] ,class:"form-control" %>
                         </td>
-                    </tr>
+                </tr>
 
-                    <tr>
-                        <th style="text-align:center;">開始日時間</th>
+                <tr>
+                    <th class="col-xs-6">開始日時間</th>
                         <td align="center"><%= f.time_field :start_time %></td>
-                    </tr>
+                </tr>
 
-                    <tr>
-                        <th style="text-align:center;">終了時間</th>
+                <tr>
+                    <th class="col-xs-6">終了時間</th>
                         <td align="center"><%= f.time_field :finish_time %></td>
-                    </tr>
+                </tr>
 
-                    <tr>
-                        <th style="text-align:center;">アイコン</th>
+                <tr>
+                    <th class="col-xs-6">アイコン</th>
                         <td align="center"><%= f.collection_select :category_id, Category.all,:id,:explanation%>
                         </td>
-                    </tr>
+                </tr>
 
-                    <tr>
-                        <th style="text-align:center;">タイトル</th>
+                <tr>
+                    <th class="col-xs-6">タイトル</th>
                         <td align="center"><%= f.text_field :title %></td>
-                    </tr>
+                </tr>
 
-                    <tr>
-                        <th style="text-align:center;">説明</th>
+                <tr>
+                    <th class="col-xs-6">説明</th>
                         <td align="center"><%= f.text_area :memo %></td>
-                        </tr>
+                </tr>
 
-                    <tr>
-                        <th style="text-align:center;">写真</th>
+                <tr>
+                    <th class="col-xs-6">写真</th>
                         <td align="center"><%= f.attachment_field :photo %></td>
-                    </tr>
+                </tr>
 
-                    <tr>
-                        <th style="text-align:center;">評価</th>
+                <tr>
+                    <th class="col-xs-6">評価</th>
                         <td align="center"><div class="form-group row" id="star">
-                        <%= f.label :evaluation,'評価 ' %>
-                        <%= f.hidden_field :evaluation, id: :review_star %>
+                            <%= f.label :evaluation,'評価 ' %>
+                            <%= f.hidden_field :evaluation, id: :review_star %>
                         </div>
 
                         </td>
                     </tr>
             </table>
 
-        <div class="actions">
-            <%= f.submit "登録" %>
-        </div>
-    </div>
-  <% end %>
-  <%= link_to '削除',  admin_schedule_aricle_path(@article.schedule.id,@article.id),method: :delete,class:"btn btn-default" %>
+            <%= f.submit"登録" ,:class=>"create_btn"%>
 
+            <div class="all_button">
+                <button type="button" class="btn btn-default center-block btn-lg btn-danger">
+                    <%= link_to '削除',  admin_schedule_aricle_path(@article.schedule.id,@article.id),method: :delete %>
+                </button>
+            </div>
+        <% end %>
+    </div>
 
 
  <!-- 評価javascript -->
@@ -74,3 +72,4 @@
     half: true,
   });
   </script>
+

@@ -3,9 +3,8 @@
   		<table class="table table-bordered">
     		<thead>
      			 <tr>
-     			   <th style="text-align:center;">ID</th>
-     			   <th style="text-align:center;">ニックネーム</th>
-     			   <th style="text-align:center;"></th>
+     			   <th class="col-xs-3">ID</th>
+     			   <th class="col-xs-6">ニックネーム</th>
     			  </tr>
     		</thead>
    			 <tbody>
@@ -18,10 +17,13 @@
 	       			 	<td align="center">
 	       			   		<%= user.nickname%>
 	       			 	</td>
-	       			 	<td>
-	       			 	</td>
 	  			    </tr>
     			<% end %>
     		</tbody>
   		</table>
+
+  		<div class="text-center">
+    		<%= paginate @users%>
+    	</div>
+
 	</div>

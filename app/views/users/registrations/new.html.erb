@@ -1,88 +1,119 @@
-<h1 class="text-center">会員登録</h1>
+<div class="container">
+  <div class="col-xs-8">
+      <h1 class="text-center">会員登録</h1>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="box1 explanation">
+          <p>会員登録は<br>
+            ニックネーム/メールアドレス/パスワードがあれば会員登録できます！<br>
+            その他項目はマイページ編集から追加できます。<br>
+          現段階で全て記入していただいても構いません</p>
+        </div>
 
-    <div class="field">
-      <h2 class="text-center">
-      <%= f.label :プロヒィール写真 %><br />
-      <%= f.attachment_field :photo, autofocus: true %><h2>
-    </div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+          <table class= "table table-bordered">
+            <tr>
+                <th style="text-align:center;"><%= f.label :プロヒィール写真 %></th>
+                <td align="center"><%= f.attachment_field :photo, autofocus: true %></td>
+              </tr>
 
-    <div class="field">
-      <h2 class="text-center">
-      <%= f.label :ニックネーム %><br />
-      <%= f.text_field :nickname, autofocus: true %><h2>
-    </div>
+              <tr>
+                <th style="text-align:center;"><%= f.label :ニックネーム %></th>
+                <td align="center"><%= f.text_field :nickname, autofocus: true %></td>
+              </tr>
 
-    <div class="field">
-      <h2 class="text-center">
-      <%= f.label :姓 %><br />
-      <%= f.text_field :kanzi_last_name, autofocus: true %><h2>
-    </div>
+              <tr>
+                <th style="text-align:center;"> <%= f.label :姓 %></th>
+                <td align="center"><%= f.text_field :kanzi_last_name, autofocus: true %></td>
+              </tr>
 
-    <div class="field">
-      <h2 class="text-center">
-      <%= f.label :名 %><br />
-      <%= f.text_field :kanzi_first_name , autofocus: true %>  <h2>
-    </div>
+              <tr>
+                <th style="text-align:center;"><%= f.label :名 %></th>
+                <td align="center"><%= f.text_field :kanzi_first_name , autofocus: true %></td>
+              </tr>
 
-    <div class="field">
-      <h2 class="text-center">
-      <%= f.label :セイ %><br />
-      <%= f.text_field :kana_last_name, autofocus: true %></h2>
-    </div>
+              <tr>
+                <th style="text-align:center;"><%= f.label :セイ %></th>
+                <td align="center"><%= f.text_field :kana_last_name, autofocus: true %></td>
+              </tr>
 
-    <div class="field">
-      <h2 class="text-center">
-      <%= f.label :メイ %><br />
-      <%= f.text_field :kana_first_name, autofocus: true  %></h2>
-    </div>
+               <tr>
+                  <th style="text-align:center;"><%= f.label :メイ %></th>
+                  <td align="center"><%= f.text_field :kana_first_name, autofocus: true  %></td>
+               </tr>
 
-    <div class="field">
-      <h2 class="text-center">
-      <%= f.label :性別 %><br />
-      <%= f.select :sex, [["男性","男性"],["女性", "女性"]] ,class:"form-control" %><h2>
-    </div>
+               <tr>
+                  <th style="text-align:center;"><%= f.label :性別 %></th>
+                  <td align="center"><%= f.select :sex, [["男性","男性"],["女性", "女性"]] ,class:"form-control" %></td>
+               </tr>
 
-    <div class="field">
-      <h2 class="text-center">
-      <%= f.label :好きな国 %><br />
-      <%= f.text_field :like_country, autofocus: true %><h2>
-    </div>
+               <tr>
+                  <th style="text-align:center;"><%= f.label :好きな国 %></th>
+                  <td align="center"><%= f.text_field :like_country, autofocus: true %></td>
+               </tr>
 
-    <div class="field">
-      <h2 class="text-center">
-      <%= f.label :自己紹介 %><br />
-      <%= f.text_area :self_introduction, autofocus: true %><h2>
-    </div>
+               <tr>
+                  <th style="text-align:center;"><%= f.label :自己紹介 %></th>
+                  <td align="center"><%= f.text_area :self_introduction, autofocus: true %></td>
+               </tr>
 
-    <div class="field">
-      <h2 class="text-center">
-      <%= f.label :メールアドレス %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %></h2>
-    </div>
+               <tr>
+                  <th style="text-align:center;">メールアドレス</th>
+                  <td align="center"><%= f.text_field :email %></td>
+               </tr>
+            </table>
 
-    <div class="field">
-      <h2 class="text-center">
-      <%= f.label :パスワード %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %></h2>
-    </div>
 
-    <div class="field">
-      <h2 class="text-center">
-      <%= f.label :パスワード確認 %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %></h2>
-    </div>
+
+          <div class="field">
+            <h2 class="text-center">
+              <%= f.label :パスワード %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password" %></h2>
+          </div>
+
+          <div class="field">
+            <h2 class="text-center">
+              <%= f.label :パスワード確認 %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %></h2>
+          </div>
+      </div>
 
     <div class="actions">
       <h2 class="text-center">
-      <%= f.submit "登録" %>
+      <%= f.submit "登録",:class=>"create_btn" %>
       </h2>
     </div>
   <% end %>
+</div>
+
+<style>
+.box1 {
+    width : 500px ;
+    height :100px ;
+    font-weight: bold;
+    border: solid 1px #000000;
+    float: left;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: 300px;
+    color: red;
+   }
+
+.create_btn{
+  color: #2196F3;
+  border: 1px solid #C0C0C0;
+  border-radius: 5px;
+  background-color:white;
+  padding: 20px;
+  text-align: center;
+  width: 150px;
+  margin-left: 0px;
+  margin-bottom: 50px;
+   }
+</style>
 
 

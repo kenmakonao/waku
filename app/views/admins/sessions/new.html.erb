@@ -10,7 +10,7 @@
 
     <div class="field">
       <h3 class="text-center">
-        <%= f.label :password %><br />
+        <%= f.label :パスワード %><br />
         <%= f.password_field :password, autocomplete: "current-password" %>
       </h3>
     </div>
@@ -26,10 +26,24 @@
 
     <div class="actions">
       <h3 class="text-center">
-        <%= f.submit "ログイン" %>
+        <%= f.submit"ログイン" ,:class=>"create_btn"%>
       </h3>
     </div>
 <% end %>
   <h4 class="text-center">
     <%= render "admins/shared/links" %>
   </h4>
+
+<style>
+  .create_btn {
+    color: #2196F3;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    background-color:white;
+    padding: 10px;
+    text-align: center;
+    width: 150px;
+    margin-left: 0px;
+    margin-bottom: 50px;
+   }
+</style>

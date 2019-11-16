@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
    }
 
-  resources :relationships, only: [:create, :destroy]
+
 
   namespace :user do
+    resources :relationships, only: [:create, :destroy]
+
     resources :continents,only: [:index, :show, :country]
     get '/continents/:id/country' => 'continents#country', as: 'country'
     #resources :aricles,only: [:show, :edit]
@@ -33,9 +35,9 @@ Rails.application.routes.draw do
     resources :favrites,only: [:index,:create, :update, :destroy]
     resources :nices,only: [:index]
     resources :comments,only: [:index]
-    resources :end_users,only: [:show, :edit, :update, :destroy]
-    get '/checks' => 'users#check', as: 'check'
-    get '/finish' => 'users#finish', as: 'finish'
+    resources :end_users,only: [:show, :edit, :update, :destroy,:checks,:finish]
+    get '/end_users/:id/checks/' => 'end_users#checks', as: 'checks'
+    get '/finish' => 'end_users#finish', as: 'finish'
   end
 
   namespace :admin do

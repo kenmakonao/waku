@@ -2,10 +2,10 @@
 	<div class="container">
 		<table class="table table-bordered">
 			<thead>
-		　		<tr>
-					<th style="text-align:center;">国名</th>
-					<th style="text-align:center;">編集</th>
-					<th style="text-align:center;">削除</th>
+		　		<tr style="text-align:center;">
+					<th class="col-xs-6">国名</th>
+					<th class="col-xs-2">編集</th>
+					<th class="col-xs-2">削除</th>
 		　		</tr>
 	   		</thead>
 
@@ -21,7 +21,7 @@
    		 </table>
 
 
-   		 <div class="text-center">
+   		<div class="text-center">
     		<%= paginate @countrys%>
     	</div>
 
@@ -31,3 +31,4 @@
     		</button>
     	</div>
 	</div>
+

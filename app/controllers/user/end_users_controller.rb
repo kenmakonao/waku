@@ -20,6 +20,12 @@ class User::EndUsersController < ApplicationController
     redirect_to user_finish_path
   end
 
+  def checks
+  end
+  def finish
+  end
+
+
   private
     def user_params
       params.require(:user).permit(:photo,:kanzi_last_name,:kanzi_first_name,:kana_last_name,:kana_first_name,:email,:nickname,:sex,:like_country,:self_introduction)

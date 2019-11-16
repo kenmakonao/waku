@@ -1,94 +1,106 @@
-<h1 class="text-center">マイページ</h1>
-  <div class="container">
-    <div class="text-center">
+<div class="container">
+  <h1 class="text-center">ユーザ詳細　ページ</h1>
+    <div class="row">
 
-    <%= attachment_image_tag @user, :photo, :fill, 100, 100, format: 'jpeg' %>
+      <div class="col-xs-3">
+        <div class ="photo">
+          <%= attachment_image_tag @user, :photo, :fill, 250, 250, format: 'jpeg' %>
+        </div>
+      </div>
 
-      <table class="table table-bordered">
-        <tr>
-          <th style="text-align:center;">ニックネーム</th>
-          <td style="text-align:center;"><%= @user.nickname %></td>
-        </tr>
-
-        <tr>
-          <th style="text-align:center;">名前</th>
-          <td style="text-align:center;"> <%= @user.kanzi_last_name %><%= @user.kanzi_first_name %></td>
+      <div class="col-xs-5">
+        <table class="table table-bordered">
+          <tr>
+            <th class="col-xs-4">ニックネーム</th>
+            <td style="text-align:center;"><%= @user.nickname %></td>
           </tr>
 
           <tr>
-            <th style="text-align:center;">カナ</th>
-            <td style="text-align:center;"><%= @user.kana_last_name+""+@user.kana_first_name %></td>
-          </tr>
+            <th class="col-xs-4">名前</th>
+            <td style="text-align:center;"> <%= @user.kanzi_last_name %><%= @user.kanzi_first_name %></td>
+            </tr>
 
-          <tr>
-            <th style="text-align:center;">性別</th>
-            <td style="text-align:center;"><%= @user.sex %></td>
-          </tr>
+            <tr>
+              <th class="col-xs-4">カナ</th>
+              <td style="text-align:center;"><%= @user.kana_last_name+""+@user.kana_first_name %></td>
+            </tr>
 
-          <tr>
-            <th style="text-align:center;">好きな国</th>
-            <td style="text-align:center;"><%= @user. like_country %></td>
-          </tr>
+            <tr>
+              <th class="col-xs-4">性別</th>
+              <td style="text-align:center;"><%= @user.sex %></td>
+            </tr>
 
-          <tr>
-            <th style="text-align:center;">自己紹介</th>
-            <td style="text-align:center;"><%= @user. self_introduction %></td>
-          </tr>
+            <tr>
+              <th class="col-xs-4">好きな国</th>
+              <td style="text-align:center;"><%= @user. like_country %></td>
+            </tr>
 
-          <tr>
-            <th style="text-align:center;">メールアドレス</th>
-            <td style="text-align:center;"><%= @user. email %></td>
-          </tr>
-      </table>
+            <tr>
+              <th class="col-xs-4">自己紹介</th>
+              <td style="text-align:center;"><%= @user. self_introduction %></td>
+            </tr>
 
-
-
-     <table class="table table-bordered">
-            <thead>
-                 <tr>
-                   <th style="text-align:center;">ID</th>
-                   <th style="text-align:center;">国</th>
-                   <th style="text-align:center;">タイトル</th>
-                    <th style="text-align:center;">status</th>
-                  </tr>
-            </thead>
-             <tbody>
-                <% @schedules.each do |schedule| %>
-                    <% if schedule.released? || current_user.id == schedule.user.id %>
-
-                      <tr>
-                          <td align="center">
-                              <%= schedule.id%>
-                          </td>
-                          </td>
-                          <td align="center">
-                              <%= schedule.country.name%>
-                          </td>
-                          <td align="center">
-                              <%= link_to schedule.title,user_schedule_path(schedule.id) %>
-                          </td>
-                          <td align="center">
-                              <% if schedule.released? %>
-                                <p>公開</p>
-                              <% else %>
-                                <p>非公開</p>
-
-                            <% end %>
-                          </td>
-                      </tr>
-                  <% end %>
-                <% end %>
-            </tbody>
+            <tr>
+              <th class="col-xs-4">アドレス</th>
+              <td style="text-align:center;"><%= @user. email %></td>
+            </tr>
         </table>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-xs-8">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="col-xs-3">国</th>
+            <th class="col-xs-4">タイトル</th>
+            <th class="col-xs-1">status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @schedules.each do |schedule| %>
+          <% if schedule.released? || current_user.id == schedule.user.id %>
+
+          <tr>
+            <td align="center"><%= schedule.country.name%></td>
+            <td align="center"><%= link_to schedule.title,user_schedule_path(schedule.id) %></td>
+            <td align="center">
+              <% if schedule.released? %>
+                  <p>公開</p>
+              <% else %>
+                <p>非公開</p>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+    <%= render "user/relationships/follow_button", user: @user %>
+  <div class="row">
+    <div class="col-xs-8">
+      <% if current_user.id == @user.id %>
+
+        <div class="user_button">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default center-block btn-lg">
+              <%= link_to"マイページ編集",  edit_user_end_user_path(@user) %>
+            </button>
+            <button type="button" class="btn btn-default center-block btn-lg">
+              <%= link_to"退会", user_checks_path(current_user.id)%>
+            </button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-
-<% if current_user.id == @user.id %>
-<%= render 'relationships/follow_button', user: @user %>
-
-      <%= link_to"マイページ編集",  edit_user_end_user_path(@user), class:"btn btn-default" %>
       <%=link_to"ログアウト", destroy_user_session_path, method: :delete %>
-      <% end %>
-
-

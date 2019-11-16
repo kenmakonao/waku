@@ -1,7 +1,10 @@
 class Admin::UsersController < ApplicationController
+  PER = 10
+
   def index
+
     #@users = User.with_deleted.page(params[:page]).per(PER)
-    @users =User.all
+    @users =User.page(params[:page]).per(PER)
   end
 
   def show
@@ -13,14 +16,14 @@ class Admin::UsersController < ApplicationController
   	@user = User.find(params[:id])
   end
   def update
-  	@user = User.find(params[:id])
-  	@user.update(user_params)
-  	redirect_to admin_user_path(@user.id)
+  	user = User.find(params[:id])
+  	user.update(user_params)
+  	redirect_to admin_user_path(user.id)
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    user = User.find(params[:id])
+    user.destroy
     redirect_to admin_users_path
   end
 
