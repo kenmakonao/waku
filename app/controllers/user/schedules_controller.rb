@@ -63,7 +63,7 @@ class User::SchedulesController < ApplicationController
     if schedule.nonreleased?
       schedule.update(status: 1)
     end
-    redirect_to user_end_user_path(schedule.id), notice: 'この作品を公開しました'
+    redirect_to user_schedule_path(schedule.id), notice: 'この作品を公開しました'
   end
 
   def nonrelease
@@ -71,7 +71,7 @@ class User::SchedulesController < ApplicationController
     if schedule.released?
       schedule.update(status: 0)
     end
-    redirect_to user_end_user_path(schedule.id), notice: 'この作品を非公開にしました'
+    redirect_to user_schedule_path(schedule.id), notice: 'この作品を非公開にしました'
   end
 
 

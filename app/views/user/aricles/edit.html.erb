@@ -1,65 +1,65 @@
-<h1 class="text-center">記事　編集</h1>
-　<div class="container">
-    <div class="text-center">
+<div class="container">
+    <div class="row">
+      <div class="col-xs-11">
+            <h1 class="text-center">記事　編集</h1>
 
-    <%= form_for(@article ,url: user_schedule_aricle_path) do |f| %>
-
-
-        <table class= "table table-bordered">
-                    <tr>
-                        <th style="text-align:center;">日付</th>
-                        <td align="center"><%= f.select :date, [["1日目","1日目"],["2日目", "2日目"], ["３日目", "３日目"], ["４日目", "４日目"], ["５日目", "５日目"], ["６日目", "６日目"], ["7日目", "7日目"],["その他", "その他"]] ,class:"form-control" %>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">開始日時間</th>
-                        <td align="center"><%= f.time_field :start_time %></td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">終了時間</th>
-                        <td align="center"><%= f.time_field :finish_time %></td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">アイコン</th>
-                        <td align="center"><%= f.collection_select :category_id, Category.all,:id,:explanation%>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">タイトル</th>
-                        <td align="center"><%= f.text_field :title %></td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">説明</th>
-                        <td align="center"><%= f.text_area :memo %></td>
+                <%= form_for(@article ,url: user_schedule_aricle_path) do |f| %>
+                    <table class= "table table-bordered">
+                        <tr>
+                            <th class="col-xs-3">日付</th>
+                                <td align="center"><%= f.select :date, [["1日目","1日目"],["2日目", "2日目"], ["３日目", "３日目"], ["４日目", "４日目"], ["５日目", "５日目"], ["６日目", "６日目"], ["7日目", "7日目"],["その他", "その他"]] ,class:"form-control" %>
+                                </td>
                         </tr>
 
-                    <tr>
-                        <th style="text-align:center;">写真</th>
-                        <td align="center"><%= f.attachment_field :photo %></td>
-                    </tr>
+                        <tr>
+                            <th class="col-xs-3">開始日時間</th>
+                                <td align="center"><%= f.time_field :start_time %></td>
+                        </tr>
 
-                    <tr>
-                        <th style="text-align:center;">評価</th>
-                        <td align="center"><div class="form-group row" id="star">
-                        <%= f.label :evaluation,'評価 ' %>
-                        <%= f.hidden_field :evaluation, id: :review_star %>
-                        </div>
+                        <tr>
+                            <th class="col-xs-3">終了時間</th>
+                                <td align="center"><%= f.time_field :finish_time %></td>
+                        </tr>
 
-                        </td>
-                    </tr>
-            </table>
+                        <tr>
+                            <th class="col-xs-3">アイコン</th>
+                                <td align="center"><%= f.collection_select :category_id, Category.all,:id,:explanation%></td>
+                        </tr>
 
-        <div class="actions">
-            <%= f.submit "登録" %>
-        </div>
-    </div>
-  <% end %>
-  <%= link_to '削除',user_schedule_aricle_path(@article.schedule.id,@article.id),method: :delete,class:"btn btn-default" %>
+                        <tr>
+                            <th class="col-xs-3">タイトル</th>
+                                <td align="center"><%= f.text_field :title %></td>
+                        </tr>
+
+                        <tr>
+                            <th class="col-xs-3">説明</th>
+                                <td align="center"><%= f.text_area :memo %></td>
+                            </tr>
+
+                        <tr>
+                            <th class="col-xs-3">写真</th>
+                                <td align="center"><%= f.attachment_field :photo %></td>
+                        </tr>
+
+                        <tr>
+                            <th class="col-xs-3">評価</th>
+                                <td align="center">
+                                    <div class="form-group row" id="star">
+                                        <%= f.label :evaluation,'評価 ' %>
+                                        <%= f.hidden_field :evaluation, id: :review_star %>
+                                    </div>
+                                </td>
+                        </tr>
+                    </table>
+                        <%= f.submit "登録",:class=>"create_btn" %>
+                        <button type="button" class="btn btn-danger btn-lg btn-block active">  <%= link_to '削除',user_schedule_aricle_path(@article.schedule.id,@article.id),method: :delete %>
+                        </button>
+             <% end %>
+         </div>
+     </div>
+</div>
+
+
 
 
 
@@ -74,3 +74,22 @@
     half: true,
   });
   </script>
+
+<style>
+.create_btn{
+    color: #2196F3;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    background-color:white;
+    text-align: center;
+    width: 150px;
+    margin-bottom: 50px;
+   }
+.col-xs-3  {
+    text-align: center;
+    }
+.btn{
+    margin-bottom: 20px;
+}
+</style>
+

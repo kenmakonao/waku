@@ -1,48 +1,52 @@
-<h1 class="text-center">記事　詳細</h1>
-	<div class="container">
-    	<h2 class="text-center">写真<br>
-    		<%= attachment_image_tag @article, :photo, :fill, 100, 100, format: 'jpeg' %>
-    	</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-11">
 
-    	<table class= "table table-bordered">
+            <h1 class="text-center">記事　詳細</h1>
+                    <div class ="article_photo">
+                        <%= attachment_image_tag @article, :photo, :fill, 700, 500, format: 'jpeg' %>
+                    </div>
+
+
+                   <table class= "table table-bordered">
                     <tr>
-                        <th style="text-align:center;">日程</th>
+                        <th class="col-xs-3">日程</th>
                         <td align="center"><%= @article.date %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">旅行開始日</th>
+                        <th class="col-xs-3">旅行時間</th>
                         <td align="center"><%= @article.start_time.strftime('%H時%M分') %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">旅行終了日</th>
+                        <th class="col-xs-3">旅行時間</th>
                         <td align="center"><%= @article.finish_time.strftime('%H時%M分') %></td>
                     </tr>
 
                      <tr>
-                        <th style="text-align:center;">アイコン</th>
+                        <th class="col-xs-3">アイコン</th>
                         <td align="center">
-                        <%= attachment_image_tag @article.category, :icon, :fill, 100, 100, format: 'jpeg' %></td>
+                        <%= attachment_image_tag @article.category, :icon, :fill, 50, 50, format: 'jpeg' %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">アイコン説明</th>
+                        <th class="col-xs-3">アイコン説明</th>
                         <td align="center"><%= @article.category.explanation %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">タイトル</th>
+                        <th class="col-xs-3">タイトル</th>
                         <td align="center"><%= @article.title %></td>
                         </tr>
 
                     <tr>
-                        <th style="text-align:center;">説明</th>
+                        <th class="col-xs-3">説明</th>
                         <td align="center"><%= @article.memo %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">評価</th>
+                        <th class="col-xs-3">評価</th>
                         <td align="center">
                             <div id="star-rate-<%= @article.id %>">
                             </div>
@@ -51,11 +55,13 @@
 
             </table>
 
-<%= link_to"編集",  edit_user_schedule_aricle_path(@article.schedule.id,@article.id) %>
+            <button type="button" class="btn btn-default btn-lg btn-block active">
+                <%= link_to"一覧",  user_schedule_path(@article.schedule.id)%>
+            </button>
+        </div>
+    </div>
+</div>
 
-<%= link_to"一覧",  user_schedule_path(@article.schedule.id)%>
-
-<%#= #link_to"一覧へ",  user_schedule_path %>
 
 
 
@@ -76,3 +82,16 @@
             score: <%= @article.evaluation %>,
           });
 </script>
+
+<style>
+.article_photo{
+    margin-left: 150px;
+}
+.col-xs-3  {
+    text-align: center;
+}
+.btn{
+    margin-bottom: 30px;
+}
+
+</style>

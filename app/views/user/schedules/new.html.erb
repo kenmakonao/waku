@@ -1,60 +1,75 @@
-<h1 class="text-center">スケジュール　作成</h1>
-　<div class="container">
-	<div class="text-center">
-
-
-　<%= form_for(@schedule,url: user_schedules_path) do |f| %>
-
-
-		<table class= "table table-bordered">
+<div class="container">
+    <div class="row">
+      <div class="col-xs-11">
+        <h1 class="text-center">スケジュール　作成</h1>
+            <div class="schedule_explanation">
+                スケジュール作成では<br>
+                旅行開始日/旅行終了日/期間
+                タイトル/テーマ/を記述してください！<br>
+                写真・説明は後からでも追加することができます。<br>
+                写真はこの旅行での一番お気に入りの写真を<br>
+                あげてください！！！
+            </div>
+                <%= form_for(@schedule,url: user_schedules_path) do |f| %>
+        		  <table class= "table table-bordered">
                     <tr>
-                        <th style="text-align:center;">国</th>
-                        <td align="center"><%= f.collection_select :country_id, Country.all,:id,:name %>
-						</td>
+                        <th class="col-xs-3">国</th>
+                            <td align="center"><%= f.collection_select :country_id, Country.all,:id,:name %>
+        						</td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">旅行開始日</th>
-                        <td align="center"><%= f.date_field :start_day %></td>
+                        <th class="col-xs-3">旅行開始日</th>
+                            <td align="center"><%= f.date_field :start_day %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">旅行終了日</th>
-                        <td align="center"><%= f.date_field :finish_day %></td>
+                        <th class="col-xs-3">旅行終了日</th>
+                            <td align="center"><%= f.date_field :finish_day %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">期間</th>
-                        <td align="center"><%= f.select :date, [["日帰り","日帰り"],["2日間", "２日間"], ["３日間", "３日間"], ["４日間", "４日間"], ["５日間", "５日間"], ["６日間", "６日間"], ["１週間", "１週間"],["その他", "その他"]] ,class:"form-control" %>
-</td>
+                        <th class="col-xs-3">期間</th>
+                            <td align="center"><%= f.select :date, [["日帰り","日帰り"],["2日間", "２日間"], ["３日間", "３日間"], ["４日間", "４日間"], ["５日間", "５日間"], ["６日間", "６日間"], ["１週間", "１週間"],["その他", "その他"]] ,class:"form-control" %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">タイトル</th>
-                        <td align="center"><%= f.text_field :title %></td>
+                        <th class="col-xs-3">タイトル</th>
+                            <td align="center"><%= f.text_field :title %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">説明</th>
-                        <td align="center"><%= f.text_area :memo %></td>
-                        </tr>
-
-                    <tr>
-                        <th style="text-align:center;">写真</th>
-                        <td align="center"><%= f.attachment_field :photo %></td>
+                        <th class="col-xs-3">説明</th>
+                            <td align="center"><%= f.text_area :memo %></td>
                     </tr>
 
                     <tr>
-                        <th style="text-align:center;">テーマ</th>
-                        <td align="center"><%= f.select :theme, [["観光", "観光"], ["ツアー", "ツアー"], ["ひとり旅", "ひとり旅"], ["家族旅行", "家族旅行"], ["バックパック", "バックパック"], ["ゆったり", "ゆったり"],["食べ物", "食べ物"],["世界遺産", "世界遺産"],["その他", "その他"]] ,class:"form-control" %>
-						</td>
+                        <th class="col-xs-3">写真</th>
+                            <td align="center"><%= f.attachment_field :photo %></td>
                     </tr>
-            </table>
 
- 		<div class="actions">
-     		<%= f.submit "登録" %>
-    	</div>
+                    <tr>
+                        <th class="col-xs-3">テーマ</th>
+                            <td align="center"><%= f.select :theme, [["観光", "観光"], ["ツアー", "ツアー"], ["ひとり旅", "ひとり旅"], ["家族旅行", "家族旅行"], ["バックパック", "バックパック"], ["ゆったり", "ゆったり"],["食べ物", "食べ物"],["世界遺産", "世界遺産"],["その他", "その他"]] ,class:"form-control" %>
+        						</td>
+                    </tr>
+                </table>
+            <%= f.submit "登録",:class=>"create_btn" %>
+            <% end %>
+        </div>
     </div>
-  <% end %>
+</div>
 
 
+<style>
+.schedule_explanation{
+    width : 750px ;
+    height : 100px ;
+    font-weight: bold;
+    border: solid 1px #000000;
+    float: left;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FF0066;
+    }
+</style>

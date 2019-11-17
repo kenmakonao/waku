@@ -46,7 +46,33 @@
 
         </header>
     <% end %>
-    <%= yield %>
+
+
+    <% if admin_signed_in?%>
+      <% elsif user_signed_in?%>
+        <div class="row">
+          <div class="col-xs-2">
+            <%= render'layouts/sidebar_left_login' %>
+
+          </div>
+
+
+      <% else%>
+          <div class="col-xs-2">
+            <%= render'layouts/sidebar_left' %>
+
+          </div>
+      <% end %>
+
+        <div class="col-xs-10">
+          <%= yield %>
+        </div>
+      </div>
+
+
+
+
+
      <footer class="page-footer">
       <div class="footer">
         <div class="container-fluid">

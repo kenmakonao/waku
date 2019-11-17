@@ -1,60 +1,78 @@
 <div class="container">
-  <h1 class="text-center">スケジュール　詳細</h1>
-    <div class="row">
-      <div class="col-xs-3">
-        <div class ="photo">
-          <%= attachment_image_tag @schedule, :photo, :fill, 250, 300, format: 'jpeg' %>
+  <div class="row">
+      <div class="col-xs-11">
+        <h1 class="text-center">スケジュール　詳細</h1>
+          <div class="row">
+            <div class="col-xs-5">
+              <div class ="photo">
+                <%= attachment_image_tag @schedule, :photo, :fill, 400, 300, format: 'jpeg',fallback: "1000.jpg",size:'400x300' %></div>
+                  <% if @schedule.nice_by?(current_user) %>
+                    <li>
+                      <%= link_to user_schedule_nice_path(@schedule), method: :delete do %>
+                        <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+                          <div class="good">
+                            <%= @schedule.nices.count %><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                            <% end %>
+                          </div>
+                    </li>
+                  <% else %>
+                    <li>
+                      <%= link_to user_schedule_nices_path(@schedule), method: :post do %>
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                          <div class="good">
+                            <%= @schedule.nices.count %>
+                              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                            <% end %>
+                          </div>
+                    </li>
+                  <% end %>
+              </div>
+
+              <div class="col-xs-7">
+                <table class= "table table-bordered">
+                  <tr>
+                    <th class="col-xs-3">ユーザ名</th>
+                      <td align="center"><%= link_to @schedule.user.nickname ,user_end_user_path(@schedule.user) %></td>
+                  </tr>
+
+                  <tr>
+                      <th class="col-xs-3">国</th>
+                        <td align="center"><%= @schedule.country.name %></td>
+                  </tr>
+
+                  <tr>
+                      <th class="col-xs-3">旅行開始日</th>
+                        <td align="center"><%= @schedule.start_day %></td>
+                  </tr>
+
+                  <tr>
+                    <th class="col-xs-3">旅行終了日</th>
+                        <td align="center"><%= @schedule.finish_day %></td>
+                  </tr>
+
+                  <tr>
+                    <th class="col-xs-3">期間</th>
+                      <td align="center"><%= @schedule.date %></td>
+                  </tr>
+
+                  <tr>
+                    <th class="col-xs-3">タイトル</th>
+                      <td align="center"><%= @schedule.title %></td>
+                  </tr>
+
+                  <tr>
+                    <th class="col-xs-3">説明</th>
+                      <td align="center"><%= @schedule.memo %></td>
+                  </tr>
+
+                  <tr>
+                    <th class="col-xs-3">テーマ</th>
+                      <td align="center"><%= @schedule.theme %></td>
+                  </tr>
+                </table>
+              </div>
           </div>
-      </div>
 
-
-      <div class="col-xs-5">
-        <table class= "table table-bordered">
-            <tr>
-              <th class="col-xs-3">ユーザ名</th>
-                <td align="center"><%= link_to @schedule.user.nickname ,user_end_user_path() %></td>
-            </tr>
-
-            <tr>
-                <th class="col-xs-3">国</th>
-                  <td align="center"><%= @schedule.country.name %></td>
-            </tr>
-
-            <tr>
-                <th class="col-xs-3">旅行開始日</th>
-                  <td align="center"><%= @schedule.start_day %></td>
-            </tr>
-
-            <tr>
-              <th class="col-xs-3">旅行終了日</th>
-                <td align="center"><%= @schedule.finish_day %></td>
-            </tr>
-
-            <tr>
-                <th class="col-xs-3">期間</th>
-                  <td align="center"><%= @schedule.date %></td>
-            </tr>
-
-            <tr>
-              <th class="col-xs-3">タイトル</th>
-                  <td align="center"><%= @schedule.title %></td>
-            </tr>
-
-            <tr>
-              <th class="col-xs-3">説明</th>
-                  <td align="center"><%= @schedule.memo %></td>
-            </tr>
-
-            <tr>
-              <th class="col-xs-3">テーマ</th>
-                <td align="center"><%= @schedule.theme %></td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-8">
           <h2 class="text-center">スケジュール</h2>
             <% @articles_by_date.each do |key, articles| %>
               <table class="table table-bordered">
@@ -67,131 +85,143 @@
                     <th class="col-xs-1">説明</th>
                     <th class="col-xs-2">タイトル</th>
                     <th class="col-xs-1">記事</th>
-              　   </tr>
-                  </thead>
+                　 </tr>
+                </thead>
 
-                  <tbody>
-                    <% articles.sort_by!{|a| a.start_time}.each do |article| %>
-                      <tr>
-                        <td class="warning"><%= article.date %></td>
-                        <td class="info"><%= article.start_time.strftime('%H時%M分') %>
-                        </td>
-                        <td class="success"><%= article.finish_time.strftime('%H時%M分') %>
-                        </td>
+                <tbody>
+                  <% articles.sort_by!{|a| a.start_time}.each do |article| %>
+                  <tr>
+                    <td class="warning"><%= article.date %></td>
+                    <td class="info"><%= article.start_time.strftime('%H時%M分') %>
+                          </td>
+                    <td class="success"><%= article.finish_time.strftime('%H時%M分') %>
+                          </td>
 
-                        <td class="active"><%= attachment_image_tag article.category, :icon, :fill, 30, 30, format: 'jpeg' %></td>
+                    <td class="active"><%= attachment_image_tag article.category, :icon, :fill, 30, 30, format: 'jpeg' %></td>
 
-                        <td class="danger"><%= article.category.explanation %></td>
+                    <td class="danger"><%= article.category.explanation %></td>
 
-                        <td align="center">
-                          <% if article.photo.nil?%>
-                            <%= article.title %>
-                          <% else %>
-                            <%= link_to article.title, user_schedule_aricle_path(@schedule.id,article.id) %>
-                          <% end %>
-                        </td>
-                        <td align="center"><%= article.memo %></td>
-                      </tr>
-                    <%end%>
-                  </tbody>
-                </table>
+                    <td align="center">
+                      <% if article.photo.nil?%>
+                        <%= article.title %>
+                      <% else %>
+                        <%= link_to article.title, user_schedule_aricle_path(@schedule.id,article.id) %>
+                      <% end %>
+                    </td>
+                    <td align="center"><%= article.memo %></td>
+                  </tr>
                 <%end%>
+              </tbody>
+            </table>
+          <%end%>
+
+
+              <button type="button" class="btn btn-info btn-lg btn-block active">
+                <%= link_to"写真一覧",user_schedule_photos_path %></button>
+
+               <% if current_user.id == @schedule.user.id %>
+                <button type="button" class="btn btn-warning btn-lg btn-block active">
+                  <%= link_to"編集",   edit_user_schedule_path(@schedule) %></button>
+                <button type="button" class="btn btn-success btn-lg btn-block active">
+                  <%= link_to"記事　作成",new_user_schedule_aricle_path(@schedule)%></button>
+              <% end %>
+
+
+              <%= form_for([@schedule,@comment],url: user_schedule_comments_path(@schedule.id)) do |f| %>
+
+                <table class= "table table-bordered">
+
+                  <tr>
+                    <th class="col-xs-3">タイトル</th>
+                      <td align="center"><%= f.text_field :title %></td>
+                  <th class="col-xs-3">コメント</th>
+                      <td align="center"><%= f.text_area :comment %></td>
+                  <th class="col-xs-3">ボタン</th>
+                    <td align="center"><%= f.submit "登録" %></td>
+                  </tr>
+                </table>
+              <% end %>
+
+
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="text-align:center;">タイトル</th>
+                  <th style="text-align:center;">コメント</th>
+                  <th style="text-align:center;"></th>
+                </tr>
+              </thead>
+              <tbody>
+               <% @schedule.comments.each do |comment| %>
+                <tr>
+                  <td align="center"> <%=comment.title%> </td>
+                  <td align="center"> <%=comment.comment%> </td>
+                  <td align="center">
+                    <% if current_user.id == comment.user.id || current_user.id == @schedule.user.id%>
+                    <%= link_to '削除', user_schedule_comment_path(@schedule.id,comment.id),method: :delete,class:" btn-default" %>
+                    <% end %>
+                  </td>
+                <% end %>
+                </tr>
+              </tbody>
+            </table>
+
+            <% if current_user.id == @schedule.user.id %>
+
+              <% if @schedule.released? %>
+                <button type="button" class="btn btn-primary btn-lg btn-block active">
+                <%= link_to '非公開にする', user_nonrelease_path(@schedule), method: :patch %></button>
+              <% else %>
+                <button type="button" class="btn btn-danger btn-lg btn-block active">
+                <%= link_to '公開する', user_release_path(@schedule), method: :patch %></button>
+              <% end %>
+
+              <button type="button" class="btn btn-default btn-lg btn-block active">
+              <%= link_to"記事編集へ",user_schedule_articles_path %>
+              </button>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
+<style>
+.photo{
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+.good{
+  width : 80px ;
+  height : 50px ;
+  font-weight: bold;
+  border: solid 2px #000000;
+  float: left;
+  font-size: 35px;
+  background-color: #FFFFCC;
+}
+.btn{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.col-xs-3  {
+text-align: center;
+}
+.warning{
+text-align: center;
+}
+.info{
+text-align: center;
+}
+.success{
+text-align: center;
+}
+.active{
+text-align: center;
+}
+.danger{
+text-align: center;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<% if @schedule.nice_by?(current_user) %>
-  <li>
-    <%= link_to user_schedule_nice_path(@schedule), method: :delete do %>
-      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-      <%= @schedule.nices.count %> いいね
-    <% end %>
-  </li>
-<% else %>
-  <li>
-    <%= link_to user_schedule_nices_path(@schedule), method: :post do %>
-      <i class="fa fa-heart-o" aria-hidden="true"></i>
-      <%= @schedule.nices.count %> いいね
-    <% end %>
-  </li>
-<% end %>
-
-<%= link_to"写真",user_schedule_photos_path, class:"btn btn-default" %>
-
-
-<%= form_for([@schedule,@comment],url: user_schedule_comments_path(@schedule.id)) do |f| %>
-
-　<h4>タイトル</h4>
-　　<%= f.text_field :title %>
-
-　　<h4>コメント</h4>
-　　　<%= f.text_area :comment %>
-
-　　　<%= f.submit "登録" %>
-  <% end %>
-
-
-  <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th style="text-align:center;">タイトル</th>
-            <th style="text-align:center;">コメント</th>
-            <th style="text-align:center;"></th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @schedule.comments.each do |comment| %>
-          <tr>
-            <td align="center"> <%=comment.title%> </td>
-            <td align="center"> <%=comment.comment%> </td>
-
-
-
-
-            <td align="center">
-             <% if current_user.id == comment.user.id || current_user.id == @schedule.user.id%>
-              <%= link_to '削除', user_schedule_comment_path(@schedule.id,comment.id),method: :delete,class:"btn btn-default" %>
-             <% end %>
-           </td>
-          <% end %>
-          </tr>
-        </tbody>
-      </table>
-<%= link_to"記事編集",user_schedule_articles_path, class:"btn btn-default" %>
-
-      <% if current_user.id == @schedule.user.id %>
-
-<% if @schedule.released? %>
-  <%= link_to '非公開にする', user_nonrelease_path(@schedule), method: :patch %>
-<% else %>
-  <%= link_to '公開する', user_release_path(@schedule), method: :patch %>
-<% end %>
-
-
-<%= link_to"編集",   edit_user_schedule_path(@schedule), class:"btn btn-default" %>
-
-<%= link_to"記事作成",   new_user_schedule_aricle_path(@schedule), class:"btn btn-default" %>
-
-
-<%= link_to"スケジュール",new_user_schedule_path, class:"btn btn-default" %>
-
-
-<%= link_to"記事編集",user_schedule_articles_path, class:"btn btn-default" %>
-
-<% end %>
-
-
-
+</style>

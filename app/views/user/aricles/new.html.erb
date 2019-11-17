@@ -1,64 +1,70 @@
-<h1 class="text-center">記事　追加</h1>
-　<div class="container">
-	<div class="text-center">
+<div class="container">
+    <div class="row">
+        <div class="col-xs-11">
+            <h1 class="text-center">記事　追加</h1>
+                <div class="article_explanation">
+                    記事作成では<br>
+                    日付/開始時間/終了時間
+                    アイコン/タイトル/を記述してください！<br>
+                    写真・説明・評価は後からでも追加することができます。<br>
+                    写真をつけると見てくれた人がその記事詳細を見ることができます！
+                </div>
 
-	<%= form_for(@article ,url: user_schedule_aricles_path) do |f| %>
+                   <%= form_for(@article ,url: user_schedule_aricles_path) do |f| %>
 
-
-		<table class= "table table-bordered">
-                    <tr>
-                        <th style="text-align:center;">日付</th>
-                        <td align="center"><%= f.select :date, [["1日目","1日目"],["2日目", "2日目"], ["３日目", "３日目"], ["４日目", "４日目"], ["５日目", "５日目"], ["６日目", "６日目"], ["7日目", "7日目"],["その他", "その他"]] ,class:"form-control" %>
-						</td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">開始日時間</th>
-                        <td align="center"><%= f.time_field :start_time %></td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">終了時間</th>
-                        <td align="center"><%= f.time_field :finish_time %></td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">アイコン</th>
-                        <td align="center"><%= f.collection_select :category_id, Category.all,:id,:explanation%>
-						</td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">タイトル</th>
-                        <td align="center"><%= f.text_field :title %></td>
-                    </tr>
-
-                    <tr>
-                        <th style="text-align:center;">説明</th>
-                        <td align="center"><%= f.text_area :memo %></td>
+        	          <table class= "table table-bordered">
+                        <tr>
+                            <th class="col-xs-3">日付</th>
+                                <td align="center"><%= f.select :date, [["1日目","1日目"],["2日目", "2日目"], ["３日目", "３日目"], ["４日目", "４日目"], ["５日目", "５日目"], ["６日目", "６日目"], ["7日目", "7日目"],["その他", "その他"]] ,class:"form-control" %>
+        					</td>
                         </tr>
 
-                    <tr>
-                        <th style="text-align:center;">写真</th>
-                        <td align="center"><%= f.attachment_field :photo %></td>
-                    </tr>
+                        <tr>
+                            <th class="col-xs-3">開始時間</th>
+                                <td align="center"><%= f.time_field :start_time %></td>
+                        </tr>
 
-                    <tr>
-                        <th style="text-align:center;">評価</th>
-                        <td align="center"><div class="form-group row" id="star">
-    					<%= f.label :evaluation,'評価 ' %>
-    					<%= f.hidden_field :evaluation, id: :review_star %>
-  						</div>
+                        <tr>
+                            <th class="col-xs-3">終了時間</th>
+                                <td align="center"><%= f.time_field :finish_time %></td>
+                        </tr>
 
-						</td>
-                    </tr>
-            </table>
+                        <tr>
+                            <th class="col-xs-3">アイコン</th>
+                                <td align="center"><%= f.collection_select :category_id, Category.all,:id,:explanation%>
+        					</td>
+                        </tr>
 
- 		<div class="actions">
-     		<%= f.submit "登録" %>
-    	</div>
+                        <tr>
+                            <th class="col-xs-3">タイトル</th>
+                                <td align="center"><%= f.text_field :title %></td>
+                        </tr>
+
+                        <tr>
+                            <th class="col-xs-3">説明</th>
+                                <td align="center"><%= f.text_area :memo %></td>
+                        </tr>
+
+                        <tr>
+                            <th class="col-xs-3">写真</th>
+                                <td align="center"><%= f.attachment_field :photo %></td>
+                        </tr>
+
+                        <tr>
+                            <th class="col-xs-3">評価</th>
+                                <td align="center">
+                                    <div class="form-group row" id="star">
+            					       <%= f.label :evaluation,'評価 ' %>
+            					       <%= f.hidden_field :evaluation, id: :review_star %>
+        						        </div>
+        					     </td>
+                        </tr>
+                </table>
+                <%= f.submit "登録",:class=>"create_btn" %>
+                <% end %>
+        </div>
     </div>
-  <% end %>
+</div>
 
 
 
@@ -73,3 +79,31 @@
     half: true,
   });
   </script>
+  <style>
+
+.article_explanation{
+    width : 1150px ;
+    height : 130px ;
+    font-weight: bold;
+    border: solid 1px #000000;
+    float: left;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FF0066;
+    font-size: 20px;
+    }
+
+.create_btn{
+    color: #2196F3;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    background-color:white;
+    text-align: center;
+    width: 150px;
+    margin-bottom: 50px;
+
+   }
+.col-xs-3  {
+    text-align: center;
+    }
+  </style>

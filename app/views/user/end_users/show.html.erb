@@ -1,106 +1,171 @@
 <div class="container">
-  <h1 class="text-center">ユーザ詳細　ページ</h1>
     <div class="row">
+      <div class="col-xs-11">
+        <h1 class="text-center">ユーザ詳細　ページ</h1>
 
-      <div class="col-xs-3">
-        <div class ="photo">
-          <%= attachment_image_tag @user, :photo, :fill, 250, 250, format: 'jpeg' %>
-        </div>
-      </div>
+          <div class="row">
+            <div class="col-xs-5">
+              <div class ="photo">
+                <%= attachment_image_tag @user, :photo, :fill, 250, 250, format: 'jpeg',fallback: "1000.jpg",size:'250x250' %>
+                <%= render "user/relationships/follow_button", user: @user %>
+              </div>
+            </div>
 
-      <div class="col-xs-5">
-        <table class="table table-bordered">
-          <tr>
-            <th class="col-xs-4">ニックネーム</th>
-            <td style="text-align:center;"><%= @user.nickname %></td>
-          </tr>
+            <div class="col-xs-7">
+              <table class="table table-bordered">
+                <tr>
+                  <th class="col-xs-2">ニックネーム</th>
+                  <td style="text-align:center;"><%= @user.nickname %></td>
+                </tr>
 
-          <tr>
-            <th class="col-xs-4">名前</th>
-            <td style="text-align:center;"> <%= @user.kanzi_last_name %><%= @user.kanzi_first_name %></td>
-            </tr>
+                <tr>
+                  <th class="col-xs-2">名前</th>
+                  <td style="text-align:center;"> <%= @user.kanzi_last_name %><%= @user.kanzi_first_name %></td>
+                  </tr>
 
-            <tr>
-              <th class="col-xs-4">カナ</th>
-              <td style="text-align:center;"><%= @user.kana_last_name+""+@user.kana_first_name %></td>
-            </tr>
+                  <tr>
+                    <th class="col-xs-2">カナ</th>
+                    <td style="text-align:center;"><%= @user.kana_last_name+""+@user.kana_first_name %></td>
+                  </tr>
 
-            <tr>
-              <th class="col-xs-4">性別</th>
-              <td style="text-align:center;"><%= @user.sex %></td>
-            </tr>
+                  <tr>
+                    <th class="col-xs-2">性別</th>
+                    <td style="text-align:center;"><%= @user.sex %></td>
+                  </tr>
 
-            <tr>
-              <th class="col-xs-4">好きな国</th>
-              <td style="text-align:center;"><%= @user. like_country %></td>
-            </tr>
+                  <tr>
+                    <th class="col-xs-2">好きな国</th>
+                    <td style="text-align:center;"><%= @user. like_country %></td>
+                  </tr>
 
-            <tr>
-              <th class="col-xs-4">自己紹介</th>
-              <td style="text-align:center;"><%= @user. self_introduction %></td>
-            </tr>
+                  <tr>
+                    <th class="col-xs-2">自己紹介</th>
+                    <td style="text-align:center;"><%= @user. self_introduction %></td>
+                  </tr>
 
-            <tr>
-              <th class="col-xs-4">アドレス</th>
-              <td style="text-align:center;"><%= @user. email %></td>
-            </tr>
-        </table>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-8">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th class="col-xs-3">国</th>
-            <th class="col-xs-4">タイトル</th>
-            <th class="col-xs-1">status</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @schedules.each do |schedule| %>
-          <% if schedule.released? || current_user.id == schedule.user.id %>
-
-          <tr>
-            <td align="center"><%= schedule.country.name%></td>
-            <td align="center"><%= link_to schedule.title,user_schedule_path(schedule.id) %></td>
-            <td align="center">
-              <% if schedule.released? %>
-                  <p>公開</p>
-              <% else %>
-                <p>非公開</p>
-              <% end %>
-            </td>
-          </tr>
-          <% end %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-
-
-    <%= render "user/relationships/follow_button", user: @user %>
-  <div class="row">
-    <div class="col-xs-8">
-      <% if current_user.id == @user.id %>
-
-        <div class="user_button">
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default center-block btn-lg">
-              <%= link_to"マイページ編集",  edit_user_end_user_path(@user) %>
-            </button>
-            <button type="button" class="btn btn-default center-block btn-lg">
-              <%= link_to"退会", user_checks_path(current_user.id)%>
-            </button>
+                  <% if current_user.id == @user.id %>
+                  <tr>
+                    <th class="col-xs-2">アドレス</th>
+                    <td style="text-align:center;"><%= @user. email %></td>
+                  </tr>
+                  <% end %>
+              </table>
           </div>
-        <% end %>
+        </div>
+
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="col-xs-3">国</th>
+                  <th class="col-xs-4">タイトル</th>
+                  <% if current_user.id == @user.id %>
+                    <th class="col-xs-1">status</th>
+                    <% end %>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @schedules.each do |schedule| %>
+                <% if schedule.released? || current_user.id == schedule.user.id %>
+
+                <tr>
+                  <td align="center"><%= schedule.country.name%></td>
+                  <td align="center"><%= link_to schedule.title,user_schedule_path(schedule.id) %></td>
+                  <% if current_user.id == @user.id %>
+                    <td align="center">
+                      <% if schedule.released? %>
+                        <p>公開</p>
+                          <% else %>
+                            <p>非公開</p>
+                      <% end %>
+                    </td>
+                  <% end %>
+                </tr>
+                <% end %>
+                <% end %>
+              </tbody>
+            </table>
+
+            <% if current_user.id == @user.id %>
+            <h3 style="text-align:center;">コメント</h3>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="text-align:center;">タイトル</th>
+                  <th style="text-align:center;">コメント</th>
+                  <th style="text-align:center;">スケジュールタイトル</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% @comments.each do |comment| %>
+                <tr>
+                  <td align="center"> <%=comment.title%> </td>
+                  <td align="center"> <%=comment.comment%> </td>
+                  <td align="center"><%= link_to  @schedule_title[comment.schedule_id],user_schedule_path(comment.schedule_id) %> </td>
+                <% end %>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3 style="text-align:center;">いいねしたスケジュール</h3>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="text-align:center;">スケジュール</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              <% @schedules.each do |schedule| %>
+                <tr>
+                  <td align="center"> <%= link_to schedule.title,user_schedule_path(schedule.id) %> </td>
+                <% end %>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3 style="text-align:center;">お気に入りしたユーザ</h3>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="text-align:center;">ユーザ</th>
+                </tr>
+              </thead>
+              <tbody>
+              <%  @followings.each do |following| %>
+                <tr>
+                  <td align="center"> <%=link_to following.nickname,user_end_user_path(following.id) %> </td>
+                <% end %>
+                </tr>
+              </tbody>
+            </table>
+
+
+            <div class="user_button">
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-default center-block btn-lg">
+                    <%= link_to"マイページ編集",  edit_user_end_user_path(@user) %>
+                  </button>
+                  <button type="button" class="btn btn-default center-block btn-lg">
+                    <%= link_to"退会", user_checks_path(current_user.id)%>
+                  </button>
+                </div>
+              <% end %>
       </div>
     </div>
   </div>
 </div>
-
       <%=link_to"ログアウト", destroy_user_session_path, method: :delete %>
+<style>
+.col-xs-2  {
+text-align: center;
+}
+.user_button{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+ }
+.photo{
+  margin-top: 25px;
+}
+</style>

@@ -1,7 +1,29 @@
 class User::EndUsersController < ApplicationController
   def show
   		@user = User.find(params[:id])
+
+      # コメントしたリストを取得
       @schedules = @user.schedules
+      schedules =  Schedule.where(user_id: params[:id])
+      schedule_ids = schedules.map{|schedule|schedule.id}
+
+      @schedule_title = {}
+      schedules.each do |schedule|
+      @schedule_title.store(schedule.id, schedule.title)
+      end
+      @comments = Comment.where(schedule_id: schedule_ids)
+
+      # いいねしたリストを取得
+      @nices =  Nice.where(user_id: params[:id])
+      @schedule_ids = @nices.map{|nice|nice.schedule_id}
+      @schedules =  Schedule.where("id IN (?)", @schedule_ids)
+
+      #フォローしたユーザ
+      @relationships = Relationship.where(user_id: params[:id])
+      @follow_ids = @relationships.pluck(:follow_id)
+      @followings = User.where(id: @follow_ids)
+
+
   end
 
   def edit
