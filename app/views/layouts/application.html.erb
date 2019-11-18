@@ -44,53 +44,45 @@
       <header class="admin_header">
               <p class="main_text"><ユーザログイン前></p>
 
-        </header>
+      </header>
     <% end %>
 
+      <div class="row">
+        <div class="col-xs-2">
+          <% if admin_signed_in?%>
+            <% elsif user_signed_in?%>
+                  <%= render'layouts/sidebar_left_login' %>
 
-    <% if admin_signed_in?%>
-      <% elsif user_signed_in?%>
-        <div class="row">
-          <div class="col-xs-2">
-            <%= render'layouts/sidebar_left_login' %>
-
-          </div>
-
-
-      <% else%>
-          <div class="col-xs-2">
-            <%= render'layouts/sidebar_left' %>
-
-          </div>
-      <% end %>
-
-        <div class="col-xs-10">
-          <%= yield %>
+            <% else%>
+                  <%= render'layouts/sidebar_left' %>
+          <% end %>
         </div>
+          <div class="col-xs-10">
+            <%= yield %>
+          </div>
       </div>
 
 
 
 
 
-     <footer class="page-footer">
-      <div class="footer">
-        <div class="container-fluid">
-          <h5 class="text-center">会社情報<br>
-            会社名 （株）eamo<br>
-            住所　東京都渋谷区神南1-1-1-1<br>
-            電話番号 xxx-xxx-xxx
-          </h5>
-        </div>
+
+
+     <footer class="footer page-footer">
+      <div class="" style="background-color: yellow;">
+
+        <h5 class="text-center">会社情報<br>
+          会社名 （株）eamo<br>
+          住所　東京都渋谷区神南1-1-1-1<br>
+          電話番号 xxx-xxx-xxx
+        </h5>
         <div class="footer-copyright text-center">© 2018 nagano music Inc</div>
-          <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        </div>
       </div>
     </footer>
   </body>
 </html>
-  </body>
-</html>
-
 
 
 

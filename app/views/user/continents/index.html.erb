@@ -1,14 +1,13 @@
-<h1 class="text-center">大陸一覧</h1>
-	<div class="container">
+<div class="container">
+
 		<% @continents.each do |continent| %>
 			<%= link_to(user_continent_path(continent.id)) do %>
 				<div class="container">
-					<div class="continent_photo">
-						<%= attachment_image_tag continent, :photo, :fill, 100, 100, format: 'jpeg' %>
-					</div>
-
 					<div class="continent_name">
 						<%=  continent.name %>
+					</div>
+					<div class="continent_photo">
+						<%= attachment_image_tag continent, :photo, :fill, 1100, 200, format: 'jpeg' %>
 					</div>
 				</div>
 
@@ -18,3 +17,10 @@
 
 	</div>
 
+<style>
+.continent_name{
+	text-align: center;
+	font-size: 50px;
+}
+
+</style>

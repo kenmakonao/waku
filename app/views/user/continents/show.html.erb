@@ -1,24 +1,37 @@
-<h1 class="text-center">国一覧</h1>
-	<div class="container">
-		<div class="name">
-			<%=  @continent.name %>
-		</div>
+<div class="container">
+	<div class="name">
+		<%=  @continent.name %>
+	</div>
 
+	<div class="photo">
+		<%= attachment_image_tag @continent, :photo, :fill, 1100, 200, format: 'jpeg' %>
+	</div>
+
+	<div class="row">
 		<% @countrys.each do |country| %>
 
 			<%= link_to( user_country_path(country.id)) do %>
-				<div class="container">
+				<div class="col-md-3">
 					<div class="country_name">
 						<%=   country.name %>
 					</div>
 
 					<div class="country_photo">
-						<%= attachment_image_tag country, :photo, :fill, 200, 200, format: 'jpeg' %>
+						<%= attachment_image_tag country, :photo, :fill, 230, 200, format: 'jpeg' %>
 					</div>
 				</div>
 			<% end %>
 		<% end %>
 	</div>
+</div>
 
 
 
+
+<style>
+.col-md-3 .country_name{
+	text-align: center;
+    font-size: 50px;
+}
+
+</style>

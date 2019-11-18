@@ -1,0 +1,128 @@
+<div class="container sideber">
+	<div class="row">
+	    <div class="col-xs-2">
+			<div class="profile">
+				<div class="photo">
+					<%= attachment_image_tag @current_user, :photo, :fill, 100, 100, format: 'jpeg',fallback: "1000.jpg",size:'100x100' %>
+				</div>
+
+				<div class="side_button">
+					<div class="registration">
+						<span class="glyphicon glyphicon-pencil">
+				            <%= link_to"記事作成",new_user_schedule_path %>
+			            </span>
+					</div>
+					<div class="sign_in">
+						<span class="glyphicon glyphicon-log-out" aria-hidden="true">
+				            <%= link_to"ログアウト", destroy_user_session_path,method: :delete %>
+				         </span>
+				    </div>
+				     <div class="about">
+				     	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
+				            <%= link_to"サイト説明",user_abouts_path %>
+				        </span>
+					</div>
+				</div>
+			</div>
+
+			<div class="schedule_rank">
+				<p class="rank_comment">スケジュール<br>ランキング</p>
+				<%  @all_ranks.each_with_index do |schedule,i| %>
+				<p class="rank">第<%= i+1 %>位</p>
+					<%= link_to( user_schedule_path(schedule.id)) do %>
+							<div class="country_name">
+								<%= schedule.title %>
+							</div>
+
+							<div class="country_photo">
+								<%= attachment_image_tag schedule, :photo, :fill, 80, 80, format: 'jpeg',fallback: "1000.jpg",size:'80x80' %>
+							</div>
+					<% end %>
+				<% end %>
+			</div>
+			<div class="user_rank">
+				<p class="rank_comment">ユーザ<br>ランキング</p>
+				<%  @All_ranks.each_with_index do |user,i| %>
+				<p class="rank">第<%= i+1 %>位</p>
+					<%= link_to(  user_end_user_path(user.id)) do %>
+							<div class="user_name">
+								<%= user.nickname %>
+							</div>
+
+							<div class="user_photo">
+								<%= attachment_image_tag user, :photo, :fill, 80, 80, format: 'jpeg',fallback: "1000.jpg",size:'80x80' %>
+							</div>
+					<% end %>
+				<% end %>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.profile{
+    width : 180px ;
+    height : 200px ;
+    font-weight: bold;
+    border: solid 10px #000000;
+    text-align: center;
+    color: #FF0066;
+    padding-top: 10px;
+    padding-left: 5px;
+    }
+.schedule_rank{
+	width : 180px ;
+    height : 500px ;
+    font-weight: bold;
+    border: solid 10px red;
+    text-align: center;
+    color: #FF0066;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+.user_rank{
+	width : 180px ;
+    height : 500px ;
+    font-weight: bold;
+    border: solid 10px yellow;
+    text-align: center;
+    color: #FF0066;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+.btn{
+	margin-bottom: 10px;
+	margin-top:  5px;
+}
+.rank{
+	font-size: 5px;
+	color: #0000FF;
+}
+.rank_comment{
+	font-size: 15px;
+	color: red;
+}
+.country_photo{
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+.sideber .photo{
+	border-radius: 50%;
+}
+.schedule_rank{
+	text-align: center
+}
+
+</style>
