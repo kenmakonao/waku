@@ -13,14 +13,123 @@
 
 			<% end %>
 		<% end %>
+		<div>
 
-
+		<form method= "post">
+			<p class="text_clocck">現在の世界の時刻です。</p>
+				<blockquote>
+					<table class= "table table-bordered">
+						<tr>
+							<th class="country_name">オークランド(NZ)</th>
+							<td><input name="nz" size=8></td>
+						</tr>
+						<tr>
+							<th class="country_name">ロンドン</th>
+							<td><input name="london" size=8></td>
+						</tr>
+						<tr>
+							<th class="country_name">東京</th>
+							<td><input name="tokyo" size=8></td>
+						</tr>
+						<tr>
+							<th class="country_name">インド</th>
+							<td><input name="india" size=8></td>
+						</tr>
+						<tr>
+							<th class="country_name">ブラジル</th>
+							<td><input name="brazil" size=8></td>
+						</tr>
+						<tr>
+							<th class="country_name">グアム</th>
+							<td><input name="gamu" size=8></td>
+						</tr>
+						<tr>
+							<th class="country_name">アメリカ</th>
+							<td><input name="amerika" size=8></td>
+						</tr>
+						<tr>
+							<th class="country_name">オーストラリア</th>
+							<td><input name="ostraria" size=8></td>
+						</tr>
+					</table>
+				</blockquote>
+		</form>
 	</div>
+</div>
 
 <style>
 .continent_name{
 	text-align: center;
 	font-size: 50px;
 }
+.table{
+	text-align: center;
+}
+.country_name{
+	text-align: center;
+}
+.text_clocck{
+	text-align: center;
+	font-size: 70px;
+	color: red;
+	margin-top: 20px;
+}
 
 </style>
+
+<script>
+tz_nz = 13 * 60; // ニュージーランドの夏時間はGMT+13
+tz_uk = 0; // イギリスはGMTですね。 
+tz_jp = 9 * 60; // GMT+9
+tz_in = 5 * 60;
+tz_br = -3 * 60;
+tz_ha = -1 * 60;
+tz_us = -6 * 60;
+tz_os = 1 * 60;
+
+var nz, uk, jp; // 時刻文字列を入れるところ
+
+function update_watch() {
+	now = new Date();
+	nz = nowat(now, tz_nz)
+	uk = nowat(now, tz_uk)
+	jp = nowat(now, tz_jp)
+	br = nowat(now, tz_br)
+	gu = nowat(now, tz_ha)
+	us = nowat(now, tz_us)
+	os = nowat(now, tz_os)
+	ind  = nowat(now, tz_in)
+
+
+	document.forms[0].elements[0].value = nz
+	document.forms[0].elements[1].value = uk
+	document.forms[0].elements[2].value = jp
+	document.forms[0].elements[3].value = ind
+	document.forms[0].elements[4].value = br
+	document.forms[0].elements[5].value = gu
+	document.forms[0].elements[6].value = us
+	document.forms[0].elements[7].value = os
+
+	setTimeout('update_watch()', 999); // 1000msec = 1sec
+}
+
+function nowat(now, tz) {
+	var hour, min, sec;
+	var t = new Date();
+	t.setTime(now.getTime() + (now.getTimezoneOffset() + tz) * 60 * 1000);
+	hour = t.getHours();
+	min = t.getMinutes();
+	sec = t.getSeconds();
+	if (hour < 10) {
+		hour = "0" + hour;
+	}
+	if (min < 10) {
+		min = "0" + min;
+	}
+	if (sec < 10) {
+		sec = "0" + sec;
+	}
+	return hour + ":" + min + ":" + sec;
+}
+update_watch();
+</script>
