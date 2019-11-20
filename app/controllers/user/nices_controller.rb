@@ -8,6 +8,7 @@ class User::NicesController < ApplicationController
   	schedule = Schedule.find(params[:schedule_id])
     nice = current_user.nices.new(schedule_id: schedule.id)
     nice.save
+    nice.create_notification_like!(current_user)
     redirect_to  user_schedule_path(schedule)
   end
 

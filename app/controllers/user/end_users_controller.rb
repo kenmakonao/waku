@@ -22,7 +22,7 @@ class User::EndUsersController < ApplicationController
       @relationships = Relationship.where(user_id: params[:id])
       @follow_ids = @relationships.pluck(:follow_id)
       @followings = User.where(id: @follow_ids)
-
+      @notifications = current_user.passive_notifications.page(params[:page]).per(20)
 
   end
 
@@ -46,6 +46,7 @@ class User::EndUsersController < ApplicationController
   end
   def finish
   end
+  
 
 
   private

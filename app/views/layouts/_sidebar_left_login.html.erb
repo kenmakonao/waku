@@ -6,7 +6,7 @@
           		<%= video_tag "2.mp4", loop: true, autoplay: true, muted: true ,class: 'video-size'%>
         		</div>
 			<div class="profile">
-				
+
 				<div class="photo">
 					<%= attachment_image_tag @current_user, :photo, :fill, 100, 100, format: 'jpeg',fallback: "1000.jpg",size:'100x100' %>
 				</div>
@@ -25,6 +25,11 @@
 				     <div class="about">
 				     	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
 				            <%= link_to"サイト説明",user_abouts_path %>
+				        </span>
+					</div>
+					<div class="about">
+				     	<span class="glyphicon glyphicon-user"  aria-hidden="true">
+				            <%= link_to"マイページ", user_end_user_path(current_user) %>
 				        </span>
 					</div>
 				</div>
@@ -93,7 +98,7 @@
   }
 .profile{
     width : 180px ;
-    height : 200px ;
+    height : 230px ;
     font-weight: bold;
     border: solid 10px #000000;
     text-align: center;

@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       resources :comments,only: [:create,:destroy]
       resources :nices,only: [:create, :destroy]
     end
-
+    resources :notifications, only: [:index]
     resources :abouts,only: [:index]
     resources :favrites,only: [:index,:create, :update, :destroy]
     resources :nices,only: [:index]

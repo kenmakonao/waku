@@ -8,7 +8,7 @@
                 <%= attachment_image_tag @schedule, :photo, :fill, 400, 300, format: 'jpeg',fallback: "1000.jpg",size:'400x300' %></div>
 
                   <% if user_signed_in?  %>
-
+                    <%# binding.pry %>
                     <% if @schedule.nice_by?(current_user) %>
                       <li>
                         <%= link_to user_schedule_nice_path(@schedule), method: :delete do %>

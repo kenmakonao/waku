@@ -16,7 +16,8 @@ class User::CommentsController < ApplicationController
   	comment.user_id = current_user.id
   	comment.schedule_id = schedule.id
   	if comment.save
-  		redirect_to user_schedule_path(schedule.id)
+        @schedule.create_notification_comment!(current_user, @comment.id)
+  		  redirect_to user_schedule_path(schedule.id)
   	else
   		render :new
   	end

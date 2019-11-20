@@ -1,6 +1,9 @@
 <div class="container">
     <div class="row">
       <div class="col-xs-11">
+        <% if current_user.id == @user.id %>
+        <%= render "user/notifications/index" %>
+        <%end%>
         <h1 class="text-center">ユーザ詳細　ページ</h1>
 
           <div class="row">
@@ -160,8 +163,8 @@
                       <%= link_to"退会", user_checks_path(current_user.id)%>
                     </button>
                   </div>
-                <% end %>
               <% end %>
+            <% end %>
         </div>
     </div>
   </div>
