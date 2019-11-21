@@ -14,7 +14,7 @@ class Schedule < ApplicationRecord
 	enum status: {nonreleased: 0, released: 1}
 
 
-	def create_notification_like!(current_user)
+	def create_notification_nice!(current_user)
   	# すでに「いいね」されているか検索
   	temp = Notification.where(["visitor_id = ? and visited_id = ? and schedule_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
   	# いいねされていない場合のみ、通知レコードを作成

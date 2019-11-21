@@ -13,12 +13,12 @@
         <% when 'nice' %>
             <%= link_to "あなたの投稿", user_schedule_path(notification.post_id) %><span>をいいねしました</span>
         <% when 'comment' %>
-            <%if notification.post.user_id == visited.id%>
-                <%= link_to "あなたの投稿", notification.post, style: "font-weight: bold;"%>
+            <%if notification.schedule.user_id == visited.id%>
+                <%= link_to "あなたの投稿",  user_schedule_path(notification.schedule), style: "font-weight: bold;"%>
             <% else%>
                 <span>
-                    <%=link_to user_schedule_path(notification.post)%>
-                    <%= image_tag avatar_url(notification.post.user).to_s, class: "icon_mini"%>
+                    <%=link_to user_schedule_path(notification.schedule)%>
+                    <%#= image_tag avatar_url(notification.schedule.user).to_s, class: "icon_mini"%>
                     <strong><% link_to notification.schedule.user.nickname %> 'さんの投稿'にコメントしました"</strong>
                 </span>
             <%end%>

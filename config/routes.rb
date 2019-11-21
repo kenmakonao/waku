@@ -30,6 +30,8 @@ Rails.application.routes.draw do
       resources :comments,only: [:create,:destroy]
       resources :nices,only: [:create, :destroy]
     end
+    resources :messages, :only => [:create]
+    resources :rooms, :only => [:create, :show, :index]
     resources :notifications, only: [:index]
     resources :abouts,only: [:index]
     resources :favrites,only: [:index,:create, :update, :destroy]
