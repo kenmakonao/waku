@@ -1,21 +1,36 @@
 <h1 class="text-center">カテゴリ追加</h1>
 	<div class="container">
 		<%= form_for(@category,url: admin_categorys_path) do |f| %>
-
-
 			<table class= "table table-bordered">
-			        <tr>
-			            <th style="text-align:center;">アイコン</th>
-			                <td align="center"><%= f.attachment_field :icon %>
-			            </tr>
+		        <tr>
+		            <th class="col-xs-6">アイコン</th>
+		                <td align="center"><%= f.attachment_field :icon %></td>
+		        </tr>
 
-			        <tr>
-			            <th style="text-align:center;">説明</th>
-			                <td align="center"><%= f.text_field :explanation %></td>
-			        </tr>
-			    </table>
-
-      		<%= f.submit "登録",:class=>"create_btn" %>
-  		<% end %>
+		        <tr>
+		            <th class="col-xs-6">説明</th>
+		                <td align="center"><%= f.text_field :explanation %></td>
+		        </tr>
+		    </table>
+  			<%= f.submit "登録",:class=>"create_btn" %>
+		<% end %>
   	</div>
+
+
+<style>
+.col-xs-6  {
+text-align: center;
+}
+.create_btn{
+	color: #2196F3;
+	border: 1px solid #C0C0C0;
+	border-radius: 5px;
+	background-color:white;
+	padding: 20px;
+	text-align: center;
+	width: 150px;
+	margin-left: 500px;
+	margin-bottom: 50px;
+   }
+</style>
 

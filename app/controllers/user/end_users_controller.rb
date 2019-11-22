@@ -16,13 +16,15 @@ class User::EndUsersController < ApplicationController
       # いいねしたリストを取得
       @nices =  Nice.where(user_id: params[:id])
       @schedule_ids = @nices.map{|nice|nice.schedule_id}
-      @schedules =  Schedule.where("id IN (?)", @schedule_ids)
+      @schedules_fav =  Schedule.where("id IN (?)", @schedule_ids)
 
       #フォローしたユーザ
       @relationships = Relationship.where(user_id: params[:id])
       @follow_ids = @relationships.pluck(:follow_id)
       @followings = User.where(id: @follow_ids)
-      @notifications = current_user.passive_notifications.page(params[:page]).per(20)
+
+
+      @notifications = current_user.passive_notifications.where(checked: false)
 
       @currentUserEntry=Entry.where(user_id: current_user.id)
       @userEntry=Entry.where(user_id: @user.id)

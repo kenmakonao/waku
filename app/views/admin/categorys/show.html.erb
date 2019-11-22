@@ -1,5 +1,4 @@
 <h1 class="text-center">カテゴリ詳細</h1>
-
 	<div class="container">
 		<table class="table table-bordered">
 			<thead>
@@ -14,7 +13,6 @@
 	        			<td align="center"><%= attachment_image_tag @category, :icon, :fill, 100, 100, format: 'jpeg' %></td>
 		    			<td align="center">
 		    				<div class="text_size"><%= @category.explanation %></div></td>
-
 	        		</tr>
         	</tbody>
     	</table>
@@ -31,5 +29,10 @@
 	<style>
 .text_size{
 	font-size: 80px;
-		}
+}
+.all_button{
+	margin-bottom: 30px;
+}
+
+
 	</style>

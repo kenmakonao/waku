@@ -1,5 +1,11 @@
-<h1 class="text-center">国一覧</h1>
-	<div class="container">
+<div class="container">
+	<h1 class="text-center">国一覧</h1>
+		<div class="add_button">
+			<button type="button" class="btn btn-default center-block btn-lg">
+			<%= link_to" 国　追加", new_admin_country_path %>
+			</button>
+    	</div>
+
 		<table class="table table-bordered">
 			<thead>
 		　		<tr style="text-align:center;">
@@ -24,11 +30,13 @@
    		<div class="text-center">
     		<%= paginate @countrys%>
     	</div>
+</div>
 
-    	<div class="add_button">
-   			<button type="button" class="btn btn-default center-block btn-lg">
-    			<%= link_to" 国　追加", new_admin_country_path %>
-    		</button>
-    	</div>
-	</div>
-
+<style>
+.col-xs-6  {
+text-align: center;
+}
+.col-xs-2{
+text-align: center;
+}
+</style>

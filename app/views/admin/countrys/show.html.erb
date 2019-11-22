@@ -1,64 +1,69 @@
-<h1 class="text-center">国　詳細</h1>
-	<div class="container">
-
+<div class="container">
+    <h1 class="text-center">国　詳細</h1>
 		<table class= "table table-bordered">
-                    <tr>
-                        <th class="col-xs-6">写真</th>
-                        <td align="center"><%= attachment_image_tag @country, :photo, :fill, 50, 50, format: 'jpeg' %></td>
-                    </tr>
-                    <tr>
-                        <th class="col-xs-6">大陸</th>
-                        <td align="center"><%= @country.continent.name%></td>
-                    </tr>
+            <tr>
+                <th class="col-xs-6">写真</th>
+                <td align="center"><%= attachment_image_tag @country, :photo, :fill, 50, 50, format: 'jpeg' %></td>
+            </tr>
+            <tr>
+                <th class="col-xs-6">大陸</th>
+                <td align="center"><%= @country.continent.name%></td>
+            </tr>
 
-                    <tr>
-                        <th class="col-xs-6">名前</th>
-                        <td align="center"><%= @country.name %></td>
-                    </tr>
+            <tr>
+                <th class="col-xs-6">名前</th>
+                <td align="center"><%= @country.name %></td>
+            </tr>
 
-                    <tr>
-                        <th class="col-xs-6">緯度</th>
-                        <td align="center"><%= @country.latitude %></td>
-                    </tr>
+            <tr>
+                <th class="col-xs-6">緯度</th>
+                <td align="center"><%= @country.latitude %></td>
+            </tr>
 
-                    <tr>
-                        <th class="col-xs-6">軽度</th>
-                        <td align="center"><%= @country.longitude %></td>
-                    </tr>
+            <tr>
+                <th class="col-xs-6">軽度</th>
+                <td align="center"><%= @country.longitude %></td>
+            </tr>
 
-                    <tr>
-                        <th class="col-xs-6">通貨</th>
-                        <td align="center"><%= @country.money %></td>
-                        </tr>
+            <tr>
+                <th class="col-xs-6">通貨</th>
+                <td align="center"><%= @country.money %></td>
+                </tr>
 
-                    <tr>
-                        <th class="col-xs-6">時差</th>
-                        <td align="center"><%= @country.time_difference %></td>
-                    </tr>
+            <tr>
+                <th class="col-xs-6">時差</th>
+                <td align="center"><%= @country.time_difference %></td>
+            </tr>
 
-                    <tr>
-                        <th class="col-xs-6">首都</th>
-                        <td align="center"><%= @country.world_heritage %></td>
-                    </tr>
+            <tr>
+                <th class="col-xs-6">首都</th>
+                <td align="center"><%= @country.world_heritage %></td>
+            </tr>
 
-                    <tr>
-                        <th class="col-xs-6">言語</th>
-                        <td align="center"><%= @country.language %></td>
-                    </tr>
+            <tr>
+                <th class="col-xs-6">言語</th>
+                <td align="center"><%= @country.language %></td>
+            </tr>
 
-            </table>
+        </table>
 
-            <div class="all_button">
-    	       <button type="button" class="btn btn-default center-block btn-lg">
-			     <%= link_to"一覧に行く",   admin_countrys_path(@country) %>
-		      </button>
-            </div>
-	</div>
+        <div class="all_button">
+	       <button type="button" class="btn btn-default center-block btn-lg">
+		     <%= link_to"一覧に行く",   admin_countrys_path(@country) %>
+	      </button>
+        </div>
+</div>
 
 
 <style>
 .country_photo{
 	margin:0 auto;
+}
+.col-xs-6  {
+text-align: center;
+}
+.all_button{
+    margin-bottom: 30px;
 }
 </style>
 

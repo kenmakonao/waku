@@ -3,7 +3,7 @@
     <div class="col-xs-">
 		<div class="profile">
 			<div class="photo">
-				<%= image_tag('1000.jpg',  class: 'blog-image',size: '100x100') %>
+				<%= image_tag('1001.jpg',  class: 'blog-image',size: '100x100',fallback: "1001.jpg",size:'100x100') %>
 			</div>
 
 			<div class="side_button">
@@ -35,7 +35,7 @@
 						</div>
 
 						<div class="country_photo">
-							<%= attachment_image_tag schedule, :photo, :fill, 80, 80, format: 'jpeg',fallback: "1000.jpg",size:'80x80' %>
+							<%= attachment_image_tag schedule, :photo, :fill, 80, 80, format: 'jpeg',fallback: "1001.jpg",size:'80x80' %>
 						</div>
 				<% end %>
 			<% end %>

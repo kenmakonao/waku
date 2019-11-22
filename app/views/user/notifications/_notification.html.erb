@@ -3,31 +3,23 @@
 
 <div class="form-inline">
     <span>
-        <%= link_to user_end_user_path(notification.visitor) do %>
-            <%= "#{notification.visitor}" %>
-        <% end %>
+        <%= link_to visitor.nickname,  user_end_user_path(visitor.id) %>
+            <nobr>さんが</nobr>
     </span>
     <span>
-        <% case notification.action when 'follow' %>
-            <span><%=link_to visitor.nickname%>さんがあなたをフォローしました</span>
-        <% when 'nice' %>
-            <%= link_to "あなたの投稿", user_schedule_path(notification.post_id) %><span>をいいねしました</span>
-        <% when 'comment' %>
-            <%if notification.schedule.user_id == visited.id%>
-                <%= link_to "あなたの投稿",  user_schedule_path(notification.schedule), style: "font-weight: bold;"%>
-            <% else%>
-                <span>
-                    <%=link_to user_schedule_path(notification.schedule)%>
-                    <%#= image_tag avatar_url(notification.schedule.user).to_s, class: "icon_mini"%>
-                    <strong><% link_to notification.schedule.user.nickname %> 'さんの投稿'にコメントしました"</strong>
-                </span>
-            <%end%>
-            <p>
-                <%= Comment.find_by(id: notification.comment_id)&.comment%>
-            </p>
+        <% case notification.action%>
+            <% when 'follow' then%>
+                <span>あなたをフォローしました!</span>
+            <% when 'nice' then%>
+                <%= link_to "あなたの投稿", user_schedule_path(notification.schedule.id) %>
+                    <span>をいいねしました!</span>
+            <% when 'comment' then%>
+                    <%= link_to "あなたの投稿に",  user_schedule_path(notification.schedule)%>さんがコメントしました!
+                <%# else %>
+                        <%#=link_to user_schedule_path(notification.schedule)%>
+                        <%#= image_tag avatar_url(notification.schedule.user).to_s, class: "icon_mini"%>
         <% end %>
     </span>
-    <%= time_ago_in_words(notification.created_at).upcase %>
 </div>
 
 

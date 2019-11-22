@@ -16,8 +16,6 @@ class ApplicationController < ActionController::Base
 	end
 
 	def photo
-		@current_user = current_user
-		p 'test!!!!!!!!'
-		p @user
+		 @current_user = current_user
 	end
 end

@@ -1,16 +1,16 @@
 <div class="container">
-  <h1 class="text-center">管理者様TOPページ</h1>
-    <div class="container">
-      <%=link_to"カテゴリ一覧",admin_categorys_path, class:"btn btn-default btn-lg col-md-6 col-md-offset-3" %>
-      <%=link_to"国名一覧",admin_countrys_path, class:"btn btn-default btn-lg col-md-6 col-md-offset-3" %>
-      <%=link_to" ユーザ一覧",   admin_users_path, class:"btn btn-default btn-lg col-md-6 col-md-offset-3" %>
-      <%=link_to"ログアウト", destroy_admin_session_path,method: :delete, class:"btn btn-default btn-lg col-md-6 col-md-offset-3" %>
-    </div>
+ 	<h1 class="text-center">管理者様TOPページ</h1>
+	    <div class="container">
+			<%=link_to"カテゴリ一覧",admin_categorys_path, class:"btn btn-default btn-lg col-md-6 col-md-offset-3" %>
+			<%=link_to"国名一覧",admin_countrys_path, class:"btn btn-default btn-lg col-md-6 col-md-offset-3" %>
+			<%=link_to" ユーザ一覧",   admin_users_path, class:"btn btn-default btn-lg col-md-6 col-md-offset-3" %>
+			<%=link_to"ログアウト", destroy_admin_session_path,method: :delete, class:"btn btn-default btn-lg col-md-6 col-md-offset-3" %>
+	    </div>
 </div>
 
 <style>
 .btn{
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 
 }
 </style>

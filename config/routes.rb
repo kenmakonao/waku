@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     resources :messages, :only => [:create]
     resources :rooms, :only => [:create, :show, :index]
     resources :notifications, only: [:index]
+    get '/check_out_notifications' => 'notifications#check_out', as: 'check_out'
     resources :abouts,only: [:index]
     resources :favrites,only: [:index,:create, :update, :destroy]
     resources :nices,only: [:index]

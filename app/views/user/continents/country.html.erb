@@ -54,7 +54,7 @@
                 <%= link_to( user_schedule_path(schedule.id)) do %>
                     <div class="col-xs-3">
                         <div class="schedule_photo">
-                                <%= attachment_image_tag schedule, :photo, :fill, 260, 200, format: 'jpeg' %>
+                                <%= attachment_image_tag schedule, :photo, :fill, 260, 200, format: 'jpeg',fallback: "1000.jpg",size:'260x200' %>
                         </div>
                         <table class= "table table-bordered">
                             <tr>

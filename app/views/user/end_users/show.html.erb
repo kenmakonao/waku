@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
       <div class="col-xs-11">
-        <h2><%= @user.email %></h2>
+        
 
           <% if @user.id == current_user.id %>
           <% else %>
@@ -20,12 +20,13 @@
         <% if current_user.id == @user.id %>
         <%= render "user/notifications/index" %>
         <%end%>
+        <%= link_to '通知を削除',  user_check_out_path %>
         <h1 class="text-center">ユーザ詳細　ページ</h1>
 
           <div class="row">
             <div class="col-xs-5">
               <div class ="photo">
-                <%= attachment_image_tag @user, :photo, :fill, 250, 250, format: 'jpeg',fallback: "1000.jpg",size:'250x250' %>
+                <%= attachment_image_tag @user, :photo, :fill, 250, 250, format: 'jpeg',fallback: "1001.jpg",size:'250x250' %>
                 <% if user_signed_in?  %>
                 <%= render "user/relationships/follow_button", user: @user %>
                 <%end%>
@@ -91,24 +92,24 @@
 
               <tbody>
                 <% if user_signed_in?  %>
-                <% @schedules.each do |schedule| %>
-                <% if schedule.released? || current_user.id == schedule.user.id %>
+                  <% @schedules.each do |schedule| %>
+                    <% if schedule.released? || current_user.id == schedule.user.id %>
 
-                <tr>
-                  <td align="center"><%= schedule.country.name%></td>
-                  <td align="center"><%= link_to schedule.title,user_schedule_path(schedule.id) %></td>
-                  <% if current_user.id == @user.id %>
-                    <td align="center">
-                      <% if schedule.released? %>
-                        <p>公開</p>
-                          <% else %>
-                            <p>非公開</p>
-                      <% end %>
-                    </td>
+                      <tr>
+                        <td align="center"><%= schedule.country.name%></td>
+                        <td align="center"><%= link_to schedule.title,user_schedule_path(schedule.id) %></td>
+                          <% if current_user.id == @user.id %>
+                            <td align="center">
+                              <% if schedule.released? %>
+                                <p>公開</p>
+                                  <% else %>
+                                    <p>非公開</p>
+                              <% end %>
+                            </td>
+                          <% end %>
+                      </tr>
+                    <% end %>
                   <% end %>
-                </tr>
-                <% end %>
-                <% end %>
                 <% end %>
               </tbody>
             </table>
@@ -145,7 +146,7 @@
               </thead>
               <tbody>
 
-              <% @schedules.each do |schedule| %>
+              <% @schedules_fav.each do |schedule| %>
                 <tr>
                   <td align="center"> <%= link_to schedule.title,user_schedule_path(schedule.id) %> </td>
                 <% end %>
