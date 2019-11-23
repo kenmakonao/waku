@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :schedules,only: [:index, :show, :edit, :update, :destroy, :new, :create, :release, :nonrelease, :photos, :articles]do
       #patch '/release' => 'schedules#release', as: 'release'
       #patch'/nonrelease' => 'schedules#nonrelease', as: 'nonrelease'
-      resources :aricles,only: [:index, :show, :edit, :new, :update, :destroy, :create]
+      resources :aricles,only: [:show, :edit, :new, :update, :destroy, :create]
       resources :comments,only: [:create,:destroy]
       resources :nices,only: [:create, :destroy]
     end
@@ -44,13 +44,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :categorys,only: [:index, :show, :edit, :update, :destroy, :new, :create]
-    resources :countrys,only: [:index, :show, :edit, :update, :destroy,:new, :create]
+    resources :categorys, only: [:index, :show, :edit, :update, :destroy, :new, :create]
+    resources :countries, only: [:index, :show, :edit, :update, :destroy, :new, :create]
     resources :users,only: [:index, :show, :edit, :update, :destroy]
-    #resources :comments,only: [:index, :destroy]
-    #resources :aricles,only: [:index, :show, :edit, :update, :destroy]
-    resources :schedules,only: [:index, :show, :edit, :update, :destroy]do
-    resources :aricles,only: [:index, :show, :edit, :update, :destroy]
+    resources :schedules,only: [:show, :edit, :update, :destroy]do
+    resources :aricles,only: [:show, :edit, :update, :destroy]
      resources :comments,only: [:destroy]
   end
     resources :tops,only: [:index]

@@ -1,6 +1,18 @@
 <h1 class="text-center">カテゴリ追加</h1>
 	<div class="container">
 		<%= form_for(@category,url: admin_categorys_path) do |f| %>
+
+		<% if @category.errors.any? %>
+		    <h3>入力した内容にエラーが<%= @category.errors.count %>件あります</h3>
+		    <ul>
+		      <% @category.errors.full_messages.each do |message| %>
+		        <li class="error_message"><%= message %></li>
+		      <% end %>
+		    </ul>
+		<% end %>
+
+
+
 			<table class= "table table-bordered">
 		        <tr>
 		            <th class="col-xs-6">アイコン</th>
@@ -17,20 +29,5 @@
   	</div>
 
 
-<style>
-.col-xs-6  {
-text-align: center;
-}
-.create_btn{
-	color: #2196F3;
-	border: 1px solid #C0C0C0;
-	border-radius: 5px;
-	background-color:white;
-	padding: 20px;
-	text-align: center;
-	width: 150px;
-	margin-left: 500px;
-	margin-bottom: 50px;
-   }
-</style>
+
 

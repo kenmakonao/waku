@@ -1,6 +1,15 @@
 <div class="container">
-    <h1 class="text-center">国名編集</h1>
-        <%= form_for(@country,url: admin_country_path) do |f| %>
+    <h1 class="text-center">国名追加</h1>
+        <%= form_for(@country, url: admin_countries_path) do |f| %>
+
+            <% if @country.errors.any? %>
+                <h3>入力した内容にエラーが<%= @country.errors.count %>件あります</h3>
+                <ul>
+                  <% @country.errors.full_messages.each do |message| %>
+                    <li class="error_message"><%= message %></li>
+                  <% end %>
+                </ul>
+            <% end %>
 
             <table class= "table table-bordered">
                 <tr>
@@ -53,20 +62,5 @@
         <% end %>
 </div>
 
-<style>
-.create_btn{
-    color: #2196F3;
-    border: 1px solid #C0C0C0;
-    border-radius: 5px;
-    background-color:white;
-    padding: 20px;
-    text-align: center;
-    width: 150px;
-    margin-left: 500px;
-    margin-bottom: 50px;
-}
-.col-xs-6  {
-text-align: center;
-}
-</style>
+
 

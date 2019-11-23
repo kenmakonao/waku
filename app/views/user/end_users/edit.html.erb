@@ -1,80 +1,61 @@
 <div class="container">
-  <div class="row">
-  	<div class="col-xs-11">
-      <h1 class="text-center">マイページ編集</h1>
-  	   <%= form_for(@user,url:  user_end_user_path) do |f| %>
+    <div class="row">
+        <h1 class="text-center">マイページ編集</h1>
+  	         <%= form_for(@user,url:  user_end_user_path) do |f| %>
 
-  	   <table class= "table table-bordered">
-  		    <tr>
-            <th class="col-xs-4">写真</th>
-            <td align="center"><%= f.attachment_field :photo %></td>
-          </tr>
+          	     <table class= "table table-bordered">
+          		    <tr>
+                        <th class="col-xs-4">写真</th>
+                            <td align="center"><%= f.attachment_field :photo %></td>
+                    </tr>
 
-          <tr>
-            <th class="col-xs-4">ニックネーム</th>
-            <td align="center"><%= f.text_field :nickname %></td>
-          </tr>
+                    <tr>
+                        <th class="col-xs-4">ニックネーム</th>
+                            <td align="center"><%= f.text_field :nickname %></td>
+                    </tr>
 
-          <tr>
-            <th class="col-xs-4">姓</th>
-            <td align="center"><%= f.text_field :kanzi_last_name %></td>
-          </tr>
+                    <tr>
+                        <th class="col-xs-4">姓</th>
+                            <td align="center"><%= f.text_field :kanzi_last_name %></td>
+                    </tr>
 
-          <tr>
-            <th class="col-xs-4">名</th>
-            <td align="center"><%= f.text_field :kanzi_first_name %></td>
-          </tr>
+                    <tr>
+                        <th class="col-xs-4">名</th>
+                            <td align="center"><%= f.text_field :kanzi_first_name %></td>
+                    </tr>
 
-          <tr>
-            <th class="col-xs-4">セイ</th>
-            <td align="center"><%= f.text_field :kana_last_name %></td>
-          </tr>
+                    <tr>
+                        <th class="col-xs-4">セイ</th>
+                            <td align="center"><%= f.text_field :kana_last_name %></td>
+                    </tr>
 
-           <tr>
-              <th class="col-xs-4">メイ</th>
-              <td align="center"><%= f.text_field :kana_first_name %></td>
-           </tr>
+                    <tr>
+                        <th class="col-xs-4">メイ</th>
+                            <td align="center"><%= f.text_field :kana_first_name %></td>
+                    </tr>
 
-           <tr>
-              <th class="col-xs-4">性別</th>
-              <td align="center"><%= f.select :sex, [["男性","男性"],["女性", "女性"]] ,class:"form-control" %></td>
-           </tr>
+                    <tr>
+                        <th class="col-xs-4">性別</th>
+                            <td align="center"><%= f.select :sex, [["男性","男性"],["女性", "女性"]] ,class:"form-control" %></td>
+                    </tr>
 
-           <tr>
-              <th class="col-xs-4">好きな国</th>
-              <td align="center"><%= f.text_field :like_country %></td>
-           </tr>
+                    <tr>
+                        <th class="col-xs-4">好きな国</th>
+                            <td align="center"><%= f.text_field :like_country %></td>
+                    </tr>
 
-           <tr>
-              <th class="col-xs-4">自己紹介</th>
-              <td align="center"><%= f.text_field :self_introduction %></td>
-           </tr>
+                    <tr>
+                        <th class="col-xs-4">自己紹介</th>
+                            <td align="center"><%= f.text_field :self_introduction %></td>
+                    </tr>
 
-           <tr>
-              <th class="col-xs-4">メールアドレス</th>
-              <td align="center"><%= f.text_field :email %></td>
-           </tr>
-        </table>
-
-        <%= f.submit "登録",:class=>"create_btn" %>
-        <% end %>
+                    <tr>
+                        <th class="col-xs-4">メールアドレス</th>
+                            <td align="center"><%= f.text_field :email %></td>
+                    </tr>
+                </table>
+            <%= f.submit "登録",:class=>"create_btn" %>
+            <% end %>
     </div>
-  </div>
 </div>
-
-<style>
-.create_btn{
-  color: #2196F3;
-  border: 1px solid #C0C0C0;
-  border-radius: 5px;
-  background-color:white;
-  text-align: center;
-  width: 150px;
-  margin-bottom: 50px;
-   }
-.col-xs-4{
-text-align: center;
- }
-
-</style>
 

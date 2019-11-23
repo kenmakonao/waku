@@ -1,8 +1,7 @@
-<h1 class="text-center">マイページ編集</h1>
-	<div class="container">
+<div class="container">
+	<h1 class="text-center">マイページ編集</h1>
 		<%= form_for(@user,url: admin_user_path) do |f| %>
-
-			<table class= "table table-bordered">
+			<table class= "table table-bordered ">
 				<tr>
           			<th class="col-xs-6">写真</th>
           			<td align="center"><%= f.attachment_field :photo %></td>
@@ -53,12 +52,16 @@
 		            <td align="center"><%= f.text_field :email %></td>
 		         </tr>
 
-		      </table>
+		    </table>
 
-		      <%= f.submit "登録",:class=>"create_btn" %>
+		    <%= f.submit "登録",:class=>"create_btn1" %>
 
-		      <div class="deleat_btn">
-                    <%= link_to"削除", admin_users_path(@user),method: :delete%>
-              </div>
+            <div class="deleat_btn">
+            	<button type="button" class="btn btn-default center-block btn-lg btn-danger">
+                    <%= link_to"削除", admin_user_path(@user),method: :delete %>
+                </button>
+            </div>
 		<% end %>
-	</div>
+</div>
+
+

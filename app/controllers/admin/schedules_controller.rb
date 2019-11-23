@@ -17,9 +17,9 @@ class Admin::SchedulesController < ApplicationController
   end
 
    def update
-   	@schedule = Schedule.find(params[:id])
-    @schedule.user_id = current_user.id
-   	@schedule.update(schedule_params)
+   	schedule = Schedule.find(params[:id])
+    user = schedule.user
+   	schedule.update(schedule_params)
     redirect_to  admin_schedule_path(params[:id])
   end
 

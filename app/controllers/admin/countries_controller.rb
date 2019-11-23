@@ -1,4 +1,4 @@
-class Admin::CountrysController < ApplicationController
+class Admin::CountriesController < ApplicationController
   PER = 10
   def index
   	@countrys = Country.page(params[:page]).per(PER)
@@ -18,11 +18,11 @@ class Admin::CountrysController < ApplicationController
 
   def create
     #binding.pry
-  	 country = Country.new(country_params)
-  	 if country.save
-  		redirect_to admin_country_path(country.id)
+  	 @country = Country.new(country_params)
+  	 if @country.save
+  		redirect_to admin_country_path(@country)
   	 else
-  		 redirect_to new_admin_country_path
+  		 render :new
      end
   end
 
@@ -35,7 +35,7 @@ class Admin::CountrysController < ApplicationController
   def destroy
      country = Country.find(params[:id])
      country.destroy
-     redirect_to admin_countrys_path
+     redirect_to admin_countries_path
   end
 
     private

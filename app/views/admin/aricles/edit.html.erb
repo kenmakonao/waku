@@ -1,5 +1,5 @@
-<h1 class="text-center">記事　編集</h1>
-　<div class="container">
+<div class="container">
+    <h1 class="text-center">記事　編集</h1>
         <%= form_for(@article ,url: admin_schedule_aricle_path) do |f| %>
             <table class= "table table-bordered">
                 <tr>
@@ -50,7 +50,7 @@
                     </tr>
             </table>
 
-            <%= f.submit"登録" ,:class=>"create_btn"%>
+            <%= f.submit"登録" ,:class=>"create_btn1"%>
 
             <div class="all_button">
                 <button type="button" class="btn btn-default center-block btn-lg btn-danger">
@@ -58,11 +58,11 @@
                 </button>
             </div>
         <% end %>
-    </div>
+</div>
 
 
  <!-- 評価javascript -->
-  <script>
+<script>
   $('#star').raty({
     size     : 36,
     starOff:  '<%= asset_path('star-off.png') %>',
@@ -71,5 +71,6 @@
     scoreName: 'article[evaluation]',
     half: true,
   });
-  </script>
+</script>
+
 

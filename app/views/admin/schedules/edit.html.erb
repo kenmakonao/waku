@@ -1,5 +1,5 @@
-<h1 class="text-center">スケジュール　編集</h1>
-    <div class="container">
+<div class="container">
+    <h1 class="text-center">スケジュール　編集</h1>
 　      <%= form_for(@schedule,url: admin_schedule_path) do |f| %>
             <table class= "table table-bordered">
                 <tr>
@@ -45,19 +45,18 @@
                     </tr>
             </table>
 
- 		     <div class="actions">
-     		     <%= f.submit"登録" ,:class=>"create_btn"%>
-    	   </div>
+            <div class="actions">
+     		     <%= f.submit"登録" ,:class=>"create_btn1"%>
+    	    </div>
 
 
-           <div class="all_button">
+            <div class="all_button">
                 <button type="button" class="btn btn-default center-block btn-lg btn-danger">
                     <%= link_to '削除',admin_schedule_path(@schedule.id),method: :delete %>
                 </button>
             </div>
         <% end %>
     </div>
-
 
 
 

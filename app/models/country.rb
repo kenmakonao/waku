@@ -4,6 +4,7 @@ class Country < ApplicationRecord
 	validates :name, presence: true
 	validates :money, presence: true
 	validates :world_heritage, presence: true
+	validates :language, presence: true
 	attachment :photo
 end
 
