@@ -15,6 +15,8 @@
                     <span>をいいねしました!</span>
             <% when 'comment' then%>
                     <%= link_to "あなたの投稿に",  user_schedule_path(notification.schedule)%>さんがコメントしました!
+            <% when 'message' then%>
+                    <P>あなたにDMしました!</P>
                 <%# else %>
                         <%#=link_to user_schedule_path(notification.schedule)%>
                         <%#= image_tag avatar_url(notification.schedule.user).to_s, class: "icon_mini"%>

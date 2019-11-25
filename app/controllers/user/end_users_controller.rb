@@ -1,6 +1,7 @@
 class User::EndUsersController < ApplicationController
+  PER = 3
   def show
-  		@user = User.find(params[:id])
+      @user = User.find(params[:id])
 
       # コメントしたリストを取得
       @schedules = @user.schedules
@@ -9,42 +10,42 @@ class User::EndUsersController < ApplicationController
 
       @schedule_title = {}
       schedules.each do |schedule|
-      @schedule_title.store(schedule.id, schedule.title)
+          @schedule_title.store(schedule.id, schedule.title)
       end
-      @comments = Comment.where(schedule_id: schedule_ids)
+      @comments = Comment.where(schedule_id: schedule_ids).page(params[:page]).per(PER)
+
 
       # いいねしたリストを取得
-      @nices =  Nice.where(user_id: params[:id])
+      @nices =  Nice.where(user_id: params[:id]).page(params[:page]).per(PER)
       @schedule_ids = @nices.map{|nice|nice.schedule_id}
       @schedules_fav =  Schedule.where("id IN (?)", @schedule_ids)
 
       #フォローしたユーザ
-      @relationships = Relationship.where(user_id: params[:id])
+      @relationships = Relationship.where(user_id: params[:id]).page(params[:page]).per(PER)
       @follow_ids = @relationships.pluck(:follow_id)
       @followings = User.where(id: @follow_ids)
 
+      if user_signed_in?
+          @notifications = current_user.notifications.where(checked: false)
 
-      @notifications = current_user.passive_notifications.where(checked: false)
-
-      @currentUserEntry=Entry.where(user_id: current_user.id)
-      @userEntry=Entry.where(user_id: @user.id)
-      if @user.id == current_user.id
-      else
-        @currentUserEntry.each do |cu|
-          @userEntry.each do |u|
-            if cu.room_id == u.room_id then
-              @isRoom = true
-              @roomId = cu.room_id
+          @currentUserEntry=Entry.where(user_id: current_user.id)
+          @userEntry=Entry.where(user_id: @user.id)
+          if @user.id != current_user.id
+              @currentUserEntry.each do |cu|
+                  @userEntry.each do |u|
+                      if cu.room_id == u.room_id then
+                          @isRoom = true
+                          @roomId = cu.room_id
+                      end
+                  end
+            end
+            unless @isRoom
+                @room = Room.new
+                @entry = Entry.new
             end
           end
-        end
-        if @isRoom
-        else
-          @room = Room.new
-          @entry = Entry.new
-        end
       end
-    end
+  end
 
   def edit
   	@user = User.find(params[:id])

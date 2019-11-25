@@ -1,3 +1,112 @@
 // Place all the styles related to the user/continents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.continent_name{
+	text-align: center;
+	font-size: 50px;
+}
+
+.table1{
+	text-align: center;
+}
+
+.country_name{
+	text-align: center;
+}
+
+.text_clocck{
+	text-align: center;
+	font-size: 70px;
+	color: red;
+	margin-top: 20px;
+}
+
+
+.continent_photo{
+  border: 1px solid #ddd;
+  width: 350px;
+  height: 350px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.continent_photo img{
+  width: 100%;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+
+.continent_photo img:hover{
+  transform: scale(1.2) rotate(9deg);
+  transition-duration: 0.5s;
+}
+
+.col-md-3 .country_name{
+	text-align: center;
+    font-size: 25px;
+}
+
+.country_photo img{
+  width: 100%;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+
+.country_photo img:hover{
+  transform: rotate(360deg);
+  transition-duration: 0.5s;
+}
+
+.country_photo{
+  border: 1px solid #ddd;
+  width: 250px;
+  height: 230px;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.countries_photo{
+  border: 1px solid #ddd;
+  width: 400px;
+  height: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.countries_photo img{
+  width: 100%;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+.countries_photo img:hover{
+  transform: scale(1.2) rotate(9deg);
+  transition-duration: 0.5s;
+}
+
+
+.country_table_country{
+    margin-top: 0px;
+}
+.country_shyousai{
+    text-align: center;
+    font-size:  50px;
+}
+.schedule_photo_details{
+  border: 1px solid #ddd;
+  width: 260px;
+  height: 200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.schedule_photo_details img{
+  width: 100%;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+.schedule_photo_details img:hover{
+  transform: scale(1.2) rotate(9deg);
+  transition-duration: 0.5s;
+}
+

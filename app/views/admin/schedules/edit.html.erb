@@ -42,7 +42,7 @@
                     <th class="col-xs-6">テーマ</th>
                         <td align="center"><%= f.select :theme, [["観光", "観光"], ["ツアー", "ツアー"], ["ひとり旅", "ひとり旅"], ["家族旅行", "家族旅行"], ["バックパック", "バックパック"], ["ゆったり", "ゆったり"],["食べ物", "食べ物"],["世界遺産", "世界遺産"],["その他", "その他"]] ,class:"form-control" %>
 						</td>
-                    </tr>
+                </tr>
             </table>
 
             <div class="actions">
@@ -50,13 +50,12 @@
     	    </div>
 
 
-            <div class="all_button">
                 <button type="button" class="btn btn-default center-block btn-lg btn-danger">
                     <%= link_to '削除',admin_schedule_path(@schedule.id),method: :delete %>
                 </button>
-            </div>
+
         <% end %>
-    </div>
+</div>
 
 
 

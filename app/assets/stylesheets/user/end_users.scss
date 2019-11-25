@@ -2,6 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.col-xs-4{
-text-align: center;
+
+ .country_table{
+  margin-top: 20px;
  }
+ .follow_button{
+ 	margin-top: 10px;
+ }
+
+ .dm_button{
+ 	margin-top: 10px;
+  margin-bottom: 10px !important;
+ }
+
+.top_go_button{
+	text-align: center;
+	margin-top: 30px;
+}

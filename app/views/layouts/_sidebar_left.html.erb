@@ -39,7 +39,7 @@
 							<%=   schedule.title %>
 						</div>
 
-						<div class="country_photo">
+						<div class="country_photo_side">
 							<%= attachment_image_tag schedule, :photo, :fill, 80, 80, format: 'jpeg',fallback: "1001.jpg",size:'80x80' %>
 						</div>
 				<% end %>
@@ -65,80 +65,3 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-<style>
-	.video{
-    width: 100%;
-    height:100%;
-    object-fit: cover;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-.video-size{
-    width: 100%;
-    height:100%;
-    margin-top: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-
-  }
-.profile{
-    width : 180px ;
-    height : 200px ;
-    font-weight: bold;
-    border: solid 10px blue;
-    text-align: center;
-    color: #FF0066;
-    padding-top: 10px;
-    padding-left: 5px;
-    }
-.schedule_rank{
-	width : 180px ;
-    height : 500px ;
-    font-weight: bold;
-    border: solid 10px red;
-    text-align: center;
-    color: #FF0066;
-    padding-top: 10px;
-    padding-left: 5px;
-}
-.user_rank{
-	width : 180px ;
-    height : 500px ;
-    font-weight: bold;
-    border: solid 10px yellow;
-    text-align: center;
-    color: #FF0066;
-    padding-top: 10px;
-    padding-left: 5px;
-}
-
-.rank{
-	font-size: 5px;
-	color: #0000FF;
-}
-.rank_comment{
-	font-size: 15px;
-	color: red;
-}
-.country_photo{
-	margin-bottom: 0px;
-	margin-top: 0px;
-}
-.sideber .photo{
-	border-radius: 50%;
-}
-.schedule_rank{
-	text-align: center
-}
-
-
-</style>

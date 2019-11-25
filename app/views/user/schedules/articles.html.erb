@@ -1,61 +1,56 @@
 <div class="container">
     <div class="row">
-      <div class="col-xs-11">
-        <h1 class="text-center">スケジュール</h1>
-          <% @articles_by_date.each do |key, articles| %>
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th class="col-xs-1">日目</th>
-                  <th class="col-xs-1">開始</th>
-                  <th class="col-xs-1">終了</th>
-                  <th class="col-xs-2">アイコン</th>
-                  <th class="col-xs-2">タイトル</th>
-                  <th class="col-xs-1">記事</th>
-                  <th class="col-xs-1">写真</th>
-                  <th class="col-xs-1">評価</th>
-                  <th sclass="col-xs-1">編集</th>
-          　     </tr>
-              </thead>
+        <div class="col-xs-11">
+            <h1 class="text-center">スケジュール</h1>
+                <% @articles_by_date.each do |key, articles| %>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="col-xs-1">日目</th>
+                                <th class="col-xs-1">開始</th>
+                                <th class="col-xs-1">終了</th>
+                                <th class="col-xs-2">アイコン</th>
+                                <th class="col-xs-2">タイトル</th>
+                                <th class="col-xs-1">記事</th>
+                                <th class="col-xs-1">写真</th>
+                                <th class="col-xs-1">評価</th>
+                                <th sclass="col-xs-1">編集</th>
+                      　     </tr>
+                        </thead>
 
-              <tbody>
-                <% articles.sort_by!{|a| a.start_time}.each do |article| %>
-                  <tr>
-                    <td align="center"><%= article.date %></td>
+                        <tbody>
+                            <% articles.sort_by!{|a| a.start_time}.each do |article| %>
+                                <tr>
+                                    <td align="center"><%= article.date %></td>
 
-                    <td align="center"><%= article.start_time.strftime('%H時%M分') %>
-                    </td>
+                                    <td align="center"><%= article.start_time.strftime('%H時%M分') %></td>
 
-                    <td align="center"><%= article.finish_time.strftime('%H時%M分') %>
-                    </td>
+                                    <td align="center"><%= article.finish_time.strftime('%H時%M分') %></td>
 
-                    <td align="center"><%= attachment_image_tag article.category, :icon, :fill, 30, 30, format: 'jpeg' %></td>
+                                    <td align="center"><%= attachment_image_tag article.category, :icon, :fill, 30, 30, format: 'jpeg' %></td>
 
-                    <td align="center"><%= article.title %></td>
+                                    <td align="center"><%= article.title %></td>
 
-                    <td align="center"><%= article.memo %></td>
+                                    <td align="center"><%= article.memo %></td>
 
 
-                    <td align="center"><%= attachment_image_tag article, :photo, :fill, 30, 30, format: 'jpeg' %></td>
+                                    <td align="center"><%= attachment_image_tag article, :photo, :fill, 30, 30, format: 'jpeg' %></td>
 
-                    <td align="center"><div id="star-rate-<%= article.id %>"></td>
+                                    <td align="center"><div id="star-rate-<%= article.id %>"></td>
 
-                    <td align="center"><%= link_to"編集",  edit_user_schedule_aricle_path(article.schedule.id,article.id) %></td>
-                  </tr>
+                                    <td align="center"><%= link_to"編集",  edit_user_schedule_article_path(article.schedule.id,article.id) %></td>
+                                </tr>
+                            <%end%>
+                        </tbody>
+                    </table>
                 <%end%>
-              </tbody>
-            </table>
-          <%end%>
-      <button type="button" class="btn btn-info btn-lg btn-block active">
-      <%= link_to"スケジュールに戻る",user_schedule_path %></button>
+            <button type="button" class="btn btn-info btn-lg btn-block active schedule_article_button">
+                <%= link_to"スケジュールに戻る",user_schedule_path %>
+            </button>
+        </div>
     </div>
-  </div>
 </div>
 
 
 
-<style>
-.btn{
-  margin-bottom: 30px;
-}
-</style>
+

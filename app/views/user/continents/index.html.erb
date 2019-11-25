@@ -1,81 +1,74 @@
 <div class="container">
-
-		<% @continents.each do |continent| %>
-			<%= link_to(user_continent_path(continent.id)) do %>
-				<div class="container">
-					<div class="continent_name">
-						<%=  continent.name %>
-					</div>
-					<div class="continent_photo">
-						<%= attachment_image_tag continent, :photo, :fill, 1100, 200, format: 'jpeg' %>
-					</div>
+	<div class="row">
+        <div class="col-xs-11">
+        	<div class="continents_index">
+        		<div class="row">
+					<% @continents.each do |continent| %>
+						<%= link_to(user_continent_path(continent.id)) do %>
+						<div class="col-xs-4">
+								<div class="continent_name">
+									<%=  continent.name %>
+								</div>
+								<div class="continent_photo">
+									<%= attachment_image_tag continent, :photo, :fill, 350, 350, format: 'jpeg' %>
+								</div>
+							</div>
+						<% end %>
+					<% end %>
 				</div>
+			</div>
 
-			<% end %>
-		<% end %>
-		<div>
+			<form method= "post">
+				<p class="text_clocck">現在の世界の時刻です。</p>
+					<blockquote>
+						<table class= "table1 table table-bordered">
+							<tr>
+								<th class="country_name">オークランド(NZ)</th>
+								<td><input name="nz" size=8></td>
+							</tr>
 
-		<form method= "post">
-			<p class="text_clocck">現在の世界の時刻です。</p>
-				<blockquote>
-					<table class= "table1 table table-bordered">
-						<tr>
-							<th class="country_name">オークランド(NZ)</th>
-							<td><input name="nz" size=8></td>
-						</tr>
-						<tr>
-							<th class="country_name">ロンドン</th>
-							<td><input name="london" size=8></td>
-						</tr>
-						<tr>
-							<th class="country_name">東京</th>
-							<td><input name="tokyo" size=8></td>
-						</tr>
-						<tr>
-							<th class="country_name">インド</th>
-							<td><input name="india" size=8></td>
-						</tr>
-						<tr>
-							<th class="country_name">ブラジル</th>
-							<td><input name="brazil" size=8></td>
-						</tr>
-						<tr>
-							<th class="country_name">グアム</th>
-							<td><input name="gamu" size=8></td>
-						</tr>
-						<tr>
-							<th class="country_name">アメリカ</th>
-							<td><input name="amerika" size=8></td>
-						</tr>
-						<tr>
-							<th class="country_name">オーストラリア</th>
-							<td><input name="ostraria" size=8></td>
-						</tr>
-					</table>
-				</blockquote>
-		</form>
+							<tr>
+								<th class="country_name">ロンドン</th>
+								<td><input name="london" size=8></td>
+							</tr>
+
+							<tr>
+								<th class="country_name">東京</th>
+								<td><input name="tokyo" size=8></td>
+							</tr>
+
+							<tr>
+								<th class="country_name">インド</th>
+								<td><input name="india" size=8></td>
+							</tr>
+
+							<tr>
+								<th class="country_name">ブラジル</th>
+								<td><input name="brazil" size=8></td>
+							</tr>
+
+							<tr>
+								<th class="country_name">グアム</th>
+								<td><input name="gamu" size=8></td>
+							</tr>
+
+							<tr>
+								<th class="country_name">アメリカ</th>
+								<td><input name="amerika" size=8></td>
+							</tr>
+
+							<tr>
+								<th class="country_name">オーストラリア</th>
+								<td><input name="ostraria" size=8></td>
+							</tr>
+						</table>
+					</blockquote>
+			</form>
+		</div>
 	</div>
 </div>
 
-<style>
-.continent_name{
-	text-align: center;
-	font-size: 50px;
-}
-.table1{
-	text-align: center;
-}
-.country_name{
-	text-align: center;
-}
-.text_clocck{
-	text-align: center;
-	font-size: 70px;
-	color: red;
-	margin-top: 20px;
-}
 
-</style>
 
 <script>
 tz_nz = 13 * 60; // ニュージーランドの夏時間はGMT+13
@@ -132,4 +125,8 @@ function nowat(now, tz) {
 	return hour + ":" + min + ":" + sec;
 }
 update_watch();
+
+
+
+
 </script>

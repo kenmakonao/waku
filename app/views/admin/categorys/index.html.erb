@@ -1,6 +1,6 @@
 <div class="container">
 	<h1 class="text-center">カテゴリ一覧</h1>
-		<div class="add_button">
+		<div class="category_add_button">
     		<button type="button" class= "btn btn-default center-block btn-lg">
     			<%= link_to "カテゴリ追加", new_admin_category_path %>
     		</button>
@@ -20,8 +20,7 @@
 	    	<tbody>
 	      		<% @categorys.each do |category| %>
 	      			<tr>
-	      				<td align="center"><%= link_to category.id,admin_category_path(category.id) %>
-        				</td>
+	      				<td align="center"><%= link_to category.id,admin_category_path(category.id) %></td>
 
 	        			<td align="center"> <%= attachment_image_tag category, :icon, :fill, 20, 20, format: 'jpeg' %></td>
 
@@ -40,10 +39,7 @@
     	</div>
 </div>
 
-<style>
 
-
-</style>
 
 
 

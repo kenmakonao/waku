@@ -10,9 +10,17 @@
                     写真をつけると見てくれた人がその記事詳細を見ることができます！
                 </div>
 
-                   <%= form_for(@article ,url: user_schedule_aricles_path) do |f| %>
+                <%= form_for(@article ,url: user_schedule_articles_path(params[:schedule_id])) do |f| %>
+                    <% if @article.errors.any? %>
+                        <h3>入力した内容にエラーが<%= @article.errors.count %>件あります</h3>
+                            <ul>
+                                <% @article.errors.full_messages.each do |message| %>
+                                    <li class="error_message"><%= message %></li>
+                                <% end %>
+                            </ul>
+                    <% end %>
 
-        	          <table class= "table table-bordered">
+        	        <table class= "table table-bordered">
                         <tr>
                             <th class="col-xs-3">日付</th>
                                 <td align="center"><%= f.select :date, [["1日目","1日目"],["2日目", "2日目"], ["３日目", "３日目"], ["４日目", "４日目"], ["５日目", "５日目"], ["６日目", "６日目"], ["7日目", "7日目"],["その他", "その他"]] ,class:"form-control" %>
@@ -59,8 +67,9 @@
         						        </div>
         					     </td>
                         </tr>
-                </table>
-                <%= f.submit "登録",:class=>"create_btn" %>
+                    </table>
+
+                    <%= f.submit "登録",:class=>"create_btn" %>
                 <% end %>
         </div>
     </div>
@@ -79,31 +88,3 @@
     half: true,
   });
   </script>
-  <style>
-
-.article_explanation{
-    width : 1150px ;
-    height : 130px ;
-    font-weight: bold;
-    border: solid 1px #000000;
-    float: left;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #FF0066;
-    font-size: 20px;
-    }
-
-.create_btn{
-    color: #2196F3;
-    border: 1px solid #C0C0C0;
-    border-radius: 5px;
-    background-color:white;
-    text-align: center;
-    width: 150px;
-    margin-bottom: 50px;
-
-   }
-.col-xs-3  {
-    text-align: center;
-    }
-  </style>

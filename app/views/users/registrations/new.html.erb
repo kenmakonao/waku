@@ -3,89 +3,87 @@
 
         <div class="box_explanation">
             <p>会員登録は<br>
-            ニックネーム/メールアドレス/パスワードがあれば会員登録できます！<br>
-            その他項目はマイページ編集から追加できます。<br>
-          現段階で全て記入していただいても構いません</p>
+            　　ニックネーム/メールアドレス/パスワードがあれば会員登録できます！<br>
+            　　その他項目はマイページ編集から追加できます。<br>
+          　　　現段階で全て記入していただいても構いません。</p>
         </div>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
-            <table class= "table table-bordered">
-                <tr>
-                    <th style="text-align:center;"><%= f.label :プロヒィール写真 %></th>
-                    <td align="center"><%= f.attachment_field :photo, autofocus: true %></td>
-                  </tr>
+        <table class= "table table-bordered">
+            <tr>
+                <th style="text-align:center;"><%= f.label :プロフィール写真 %></th>
+                <td align="center"><%= f.attachment_field :photo, autofocus: true %></td>
+            </tr>
 
-                  <tr>
-                    <th style="text-align:center;"><%= f.label :ニックネーム %></th>
-                    <td align="center"><%= f.text_field :nickname, autofocus: true %></td>
-                  </tr>
+            <tr>
+                <th style="text-align:center;"><%= f.label :ニックネーム %></th>
+                <td align="center"><%= f.text_field :nickname, autofocus: true %></td>
+            </tr>
 
-                  <tr>
-                    <th style="text-align:center;"> <%= f.label :姓 %></th>
-                    <td align="center"><%= f.text_field :kanzi_last_name, autofocus: true %></td>
-                  </tr>
+            <tr>
+                <th style="text-align:center;"> <%= f.label :姓 %></th>
+                <td align="center"><%= f.text_field :kanzi_last_name, autofocus: true %></td>
+            </tr>
 
-                  <tr>
-                    <th style="text-align:center;"><%= f.label :名 %></th>
-                    <td align="center"><%= f.text_field :kanzi_first_name , autofocus: true %></td>
-                  </tr>
+            <tr>
+                <th style="text-align:center;"><%= f.label :名 %></th>
+                <td align="center"><%= f.text_field :kanzi_first_name , autofocus: true %></td>
+            </tr>
 
-                  <tr>
-                    <th style="text-align:center;"><%= f.label :セイ %></th>
-                    <td align="center"><%= f.text_field :kana_last_name, autofocus: true %></td>
-                  </tr>
+            <tr>
+                <th style="text-align:center;"><%= f.label :セイ %></th>
+                <td align="center"><%= f.text_field :kana_last_name, autofocus: true %></td>
+            </tr>
 
-                   <tr>
-                      <th style="text-align:center;"><%= f.label :メイ %></th>
-                      <td align="center"><%= f.text_field :kana_first_name, autofocus: true  %></td>
-                   </tr>
+            <tr>
+                <th style="text-align:center;"><%= f.label :メイ %></th>
+                <td align="center"><%= f.text_field :kana_first_name, autofocus: true  %></td>
+            </tr>
 
-                   <tr>
-                      <th style="text-align:center;"><%= f.label :性別 %></th>
-                      <td align="center"><%= f.select :sex, [["男性","男性"],["女性", "女性"]] ,class:"form-control" %></td>
-                   </tr>
+            <tr>
+                <th style="text-align:center;"><%= f.label :性別 %></th>
+                <td align="center"><%= f.select :sex, [["男性","男性"],["女性", "女性"]] ,class:"form-control" %></td>
+            </tr>
 
-                   <tr>
-                      <th style="text-align:center;"><%= f.label :好きな国 %></th>
-                      <td align="center"><%= f.text_field :like_country, autofocus: true %></td>
-                   </tr>
+            <tr>
+                <th style="text-align:center;"><%= f.label :好きな国 %></th>
+                <td align="center"><%= f.text_field :like_country, autofocus: true %></td>
+            </tr>
 
-                   <tr>
-                      <th style="text-align:center;"><%= f.label :自己紹介 %></th>
-                      <td align="center"><%= f.text_area :self_introduction, autofocus: true %></td>
-                   </tr>
+            <tr>
+                <th style="text-align:center;"><%= f.label :自己紹介 %></th>
+                <td align="center"><%= f.text_area :self_introduction, autofocus: true %></td>
+            </tr>
 
-                   <tr>
-                      <th style="text-align:center;">メールアドレス</th>
-                      <td align="center"><%= f.text_field :email %></td>
-                   </tr>
-            </table>
+            <tr>
+                <th style="text-align:center;">メールアドレス</th>
+                <td align="center"><%= f.text_field :email %></td>
+            </tr>
+        </table>
 
-
-
-            <div class="field">
-                <h2 class="text-center">
-                    <%= f.label :パスワード %>
+        <div class="field">
+            <h2 class="text-center">
+                <%= f.label :パスワード %>
                     <% if @minimum_password_length %>
-                        <em>(<%= @minimum_password_length %> characters minimum)</em>
-                    <% end %><br />
-                <%= f.password_field :password, autocomplete: "new-password" %></h2>
-            </div>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password" %></h2>
+        </div>
 
-            <div class="field">
-                <h2 class="text-center">
-                  <%= f.label :パスワード確認 %><br />
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password" %></h2>
-            </div>
+        <div class="field">
+            <h2 class="text-center">
+              <%= f.label :パスワード確認 %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %></h2>
+        </div>
 
-            <div class="actions">
-                <h2 class="text-center">
-                    <%= f.submit "登録",:class=>"create_btn" %>
-                </h2>
-             </div>
-        <% end %>
+        <div class="actions">
+            <h2 class="text-center">
+                <%= f.submit "登録",:class=>"create_btn_user_sing" %>
+            </h2>
+         </div>
+    <% end %>
 </div>
 
 

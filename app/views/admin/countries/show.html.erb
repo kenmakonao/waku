@@ -5,6 +5,7 @@
                 <th class="col-xs-6">写真</th>
                 <td align="center"><%= attachment_image_tag @country, :photo, :fill, 50, 50, format: 'jpeg' %></td>
             </tr>
+
             <tr>
                 <th class="col-xs-6">大陸</th>
                 <td align="center"><%= @country.continent.name%></td>
@@ -47,23 +48,12 @@
 
         </table>
 
-        <div class="all_button">
-	       <button type="button" class="btn btn-default center-block btn-lg">
-		     <%= link_to"一覧に行く",   admin_countries_path(@country) %>
-	      </button>
+        <div class="countries_all_button">
+            <button type="button" class="btn btn-default center-block btn-lg">
+                <%= link_to"一覧に行く",   admin_countries_path(@country) %>
+            </button>
         </div>
 </div>
 
 
-<style>
-.country_photo{
-	margin:0 auto;
-}
-.col-xs-6  {
-text-align: center;
-}
-.all_button{
-    margin-bottom: 30px;
-}
-</style>
 

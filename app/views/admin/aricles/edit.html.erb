@@ -1,6 +1,6 @@
 <div class="container">
-    <h1 class="text-center">記事　編集</h1>
-        <%= form_for(@article ,url: admin_schedule_aricle_path) do |f| %>
+    <h1 class="text-center">記事編集</h1>
+        <%= form_for(@article ,url: admin_schedule_article_path) do |f| %>
             <table class= "table table-bordered">
                 <tr>
                     <th class="col-xs-6">日付</th>
@@ -52,11 +52,10 @@
 
             <%= f.submit"登録" ,:class=>"create_btn1"%>
 
-            <div class="all_button">
                 <button type="button" class="btn btn-default center-block btn-lg btn-danger">
-                    <%= link_to '削除',  admin_schedule_aricle_path(@article.schedule.id,@article.id),method: :delete %>
+                    <%= link_to '削除',  admin_schedule_article_path(@article.schedule.id,@article.id),method: :delete %>
                 </button>
-            </div>
+
         <% end %>
 </div>
 

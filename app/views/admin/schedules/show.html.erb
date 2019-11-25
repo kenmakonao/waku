@@ -58,7 +58,7 @@
                     　   </tr>
                     </thead>
 
-                    <tbody class="article_tbody">
+                    <tbody class="admin_article_tbody">
                         <% articles.sort_by!{|a| a.start_time}.each do |article| %>
                             <tr>
                                 <td class="warning"><%= article.start_time.strftime('%H時%M分') %>
@@ -73,9 +73,9 @@
 
                                 <td class="danger"><%= article.memo %></td>
 
-                                <td align="center"><%= link_to"詳細",  admin_schedule_aricle_path(article.schedule.id,article.id),class:"btn btn-default" %></td>
+                                <td align="center"><%= link_to"詳細",  admin_schedule_article_path(article.schedule.id,article.id),class:"btn btn-default" %></td>
 
-                                <td align="center"><%= link_to"編集",  edit_admin_schedule_aricle_path(article.schedule.id,article.id),class:"btn btn-default" %></td>
+                                <td align="center"><%= link_to"編集",  edit_admin_schedule_article_path(article.schedule.id,article.id),class:"btn btn-default" %></td>
                             </tr>
                         <%end%>
                     </tbody>
@@ -102,12 +102,9 @@
                 </tbody>
             </table>
 
-
-            <div class="all_button">
-                <button type="button" class="btn btn-default center-block btn-lg">
-                    <%= link_to"スケジュールを編集",   edit_admin_schedule_path(@schedule) %>
-                </button>
-            </div>
+            <button type="button" class="btn btn-default center-block btn-lg">
+                <%= link_to"スケジュールを編集",   edit_admin_schedule_path(@schedule) %>
+            </button>
   </div>
 
 

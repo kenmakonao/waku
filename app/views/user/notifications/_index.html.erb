@@ -2,12 +2,19 @@
 <div>
   <h4 class="sub-title">通知</h4>
   <%# binding.pry %>
-  <% notifications = current_user.passive_notifications.where(checked: false)%>
+  <% notifications = current_user.notifications.where(checked: false)%>
   <% if notifications.exists? %>
     <div class="users-index">
       <%= render notifications %>
     </div>
   <% else %>
-    <p>通知はありません</p>
+    <p >通知はありません</p>
   <% end %>
 </div>
+
+<style>
+.sub-title{
+  color: green;
+}
+
+</style>

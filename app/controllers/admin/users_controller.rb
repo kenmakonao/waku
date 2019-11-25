@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   def index
 
     #@users = User.with_deleted.page(params[:page]).per(PER)
-    @users =User.page(params[:page]).per(PER)
+    @users = User.page(params[:page]).per(PER)
   end
 
   def show

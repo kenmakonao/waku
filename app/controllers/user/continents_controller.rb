@@ -1,4 +1,5 @@
 class User::ContinentsController < ApplicationController
+  PER = 30
   def index
   	@continents = Continent.all
     #@search = Country.ransack(params[:q])
@@ -13,7 +14,7 @@ class User::ContinentsController < ApplicationController
 
   def country
   	@country = Country.find(params[:id])
-  	@schedules = @country.schedules
+  	@schedules = @country.schedules.page(params[:page]).per(PER)
     #@countrys = @search.result(distinct: true)
 
   end

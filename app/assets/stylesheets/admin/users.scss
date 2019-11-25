@@ -1,33 +1,13 @@
 // Place all the styles related to the admin/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.col-xs-6  {
-text-align: center;
-}
 
-.col-xs-3  {
-text-align: center;
-}
-
-
-.create_btn1{
-	color: #2196F3;
-	border: 1px solid #C0C0C0;
-	border-radius: 5px;
-	background-color:white;
-	padding: 20px;
-	text-align: center;
-	width: 150px;
-	margin-left: 500px;
-	margin-bottom: 50px;
-}
-
-.table{
+.user_index_table{
     margin-bottom: 50px;
 }
 
-.user_button{
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
+.admin_user_show_button{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+ }

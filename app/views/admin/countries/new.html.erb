@@ -4,11 +4,11 @@
 
             <% if @country.errors.any? %>
                 <h3>入力した内容にエラーが<%= @country.errors.count %>件あります</h3>
-                <ul>
-                  <% @country.errors.full_messages.each do |message| %>
-                    <li class="error_message"><%= message %></li>
-                  <% end %>
-                </ul>
+                    <ul>
+                        <% @country.errors.full_messages.each do |message| %>
+                            <li class="error_message"><%= message %></li>
+                        <% end %>
+                    </ul>
             <% end %>
 
             <table class= "table table-bordered">

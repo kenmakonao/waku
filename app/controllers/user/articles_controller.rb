@@ -1,4 +1,4 @@
-class User::AriclesController < ApplicationController
+class User::ArticlesController < ApplicationController
   def index
    #@articles = Article.find(params[:id])
   end
@@ -18,12 +18,12 @@ class User::AriclesController < ApplicationController
   def create
     #@schedule.user_id = current_user.id
   	schedule = Schedule.find(params[:schedule_id])
-  	article = Article.new(article_params)
-  	article.schedule_id = params[:schedule_id]
-  	if article.save
-  		redirect_to user_schedule_aricle_path(params[:schedule_id],article.id)
+  	@article = Article.new(article_params)
+  	@article.schedule_id = params[:schedule_id]
+  	if @article.save
+  		redirect_to user_schedule_article_path(params[:schedule_id],@article.id)
   	else
-  		redirect_to new_user_schedule_aricle_path
+  		render :new
   	end
   end
 
@@ -31,7 +31,7 @@ class User::AriclesController < ApplicationController
   	article = Article.find(params[:id])
     article.schedule_id = params[:schedule_id]
     article.update(article_params)
-    redirect_to user_schedule_aricle_path(params[:schedule_id],params[:id])
+    redirect_to user_schedule_article_path(params[:schedule_id],params[:id])
   end
 
   def destroy

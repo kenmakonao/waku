@@ -1,4 +1,4 @@
-class Admin::AriclesController < ApplicationController
+class Admin::ArticlesController < ApplicationController
   def index
   	@article = Article.find(params[:id])
   end
@@ -14,7 +14,7 @@ class Admin::AriclesController < ApplicationController
   	article = Article.find(params[:id])
     article.schedule_id = params[:schedule_id]
     article.update(article_params)
-    redirect_to admin_schedule_aricle_path(params[:schedule_id],params[:id])
+    redirect_to admin_schedule_article_path(params[:schedule_id],params[:id])
   end
 
   def destroy

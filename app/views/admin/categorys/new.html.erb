@@ -2,14 +2,14 @@
 	<div class="container">
 		<%= form_for(@category,url: admin_categorys_path) do |f| %>
 
-		<% if @category.errors.any? %>
-		    <h3>入力した内容にエラーが<%= @category.errors.count %>件あります</h3>
-		    <ul>
-		      <% @category.errors.full_messages.each do |message| %>
-		        <li class="error_message"><%= message %></li>
-		      <% end %>
-		    </ul>
-		<% end %>
+			<% if @category.errors.any? %>
+			    <h3>入力した内容にエラーが<%= @category.errors.count %>件あります</h3>
+			    	<ul>
+			     		<% @category.errors.full_messages.each do |message| %>
+			        		<li class="error_message"><%= message %></li>
+			      		<% end %>
+			    	</ul>
+			<% end %>
 
 
 

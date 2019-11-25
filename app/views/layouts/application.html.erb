@@ -21,19 +21,19 @@
      <header class="admin_header">
           <p class="main_text"><管理者ページ></p>
             <ul class="header_tops">
-                <li class ="a">
+                <li class ="header_admin">
                   <%=link_to"カテゴリ一覧",admin_categorys_path,class:"glyphicon glyphicon-plane li1" %>
                 </li>
 
-                <li class ="a">
+                <li class ="header_admin">
                   <%=link_to"国一覧",admin_countries_path,class:"glyphicon glyphicon-briefcase li1" %>
                 </li>
 
-                <li class ="a">
+                <li class ="header_admin">
                   <%=link_to"ユーザ一覧",  admin_users_path,class:"glyphicon glyphicon-user li1"  %>
                   </li>
 
-                  <li class ="a">
+                  <li class ="header_admin">
                   <%=link_to"ログアウト",destroy_admin_session_path,method: :delete, class:"glyphicon glyphicon-new-window li1" %>
                 </li>
               </ul>
@@ -63,7 +63,7 @@
 
       </header>
     <% end %>
-
+    <div class ="main_boby">
       <div class="row">
         <div class="col-xs-2">
           <% if request.fullpath.include?("admin")%>
@@ -76,17 +76,18 @@
         </div>
 
 
-<% if request.fullpath.include?("admin") %>
+        <% if request.fullpath.include?("admin") %>
           <div class="col-xs-12">
             <%= yield %>
           </div>
-<% else %>
+        <% else %>
           <div class="col-xs-10">
             <%= yield %>
           </div>
-<% end %>
+        <% end %>
 
       </div>
+    </div>
 
 
 
@@ -138,16 +139,4 @@
     ]
 });
 </script>
-<style>
-  .slider{
-    padding-left: 3px;
-  }
-
-
-.a{
-  display: inline-block;
-  font-size: 25px;
-  width: 24%;
-}
-</style>
 

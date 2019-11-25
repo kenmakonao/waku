@@ -1,3 +1,90 @@
 // Place all the styles related to the user/schedules controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.schedule_explanation{
+    width : 1050px ;
+    height : 150px ;
+    font-weight: bold;
+    border: solid 1px #000000;
+    float: left;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FF0066;
+    font-size: 20px;
+    }
+.photo{
+	margin-top: 0px;
+}
+.table {
+  margin-top: 0px;
+}
+.good{
+  width : 200px ;
+  height : 50px ;
+  font-weight: bold;
+  border: solid 2px #000000;
+  float: left;
+  font-size: 35px;
+  background-color: #FFFFCC;
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+
+.schedule_button{
+margin-bottom: 20px!important;
+}
+
+.warning{
+text-align: center;
+
+}
+.info{
+text-align: center;
+
+}
+.success{
+text-align: center;
+
+}
+.active{
+text-align: center;
+
+}
+.danger{
+text-align: center;
+
+}
+.comment_btn{
+    color: #2196F3;
+  border: 1px solid #C0C0C0;
+  border-radius: 5px;
+  background-color:white;
+  padding: 10px;
+  text-align: center;
+  width: 100px;
+
+}
+.schedule_edit_btn{
+    color: #2196F3;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    background-color:white;
+    padding: 20px;
+    text-align: center;
+    width: 150px;
+    margin-left: 500px;
+    margin-bottom: 50px;
+}
+.photo_button{
+  margin-top: 30px;
+  margin-bottom: 20px;
+
+}
+.nice_count{
+  list-style: none;
+}
+.schedule_article_button{
+    margin-top: 30px;
+  margin-bottom: 30px;
+}

@@ -1,6 +1,6 @@
 <div class="container">
-    <h1 class="text-center">記事　詳細</h1>
-    	<h2 class="text-center">写真<br>
+    <h1 class="text-center">記事詳細</h1>
+    	<h2 class="text-center">
     		<%= attachment_image_tag @article, :photo, :fill, 100, 100, format: 'jpeg' %>
     	</h2>
 
@@ -22,7 +22,7 @@
 
             <tr>
                 <th class="col-xs-6">アイコン</th>
-                    <td align="center"><%= attachment_image_tag @article.category, :icon, :fill, 100, 100, format: 'jpeg' %></td>
+                    <td align="center"><%= attachment_image_tag @article.category, :icon, :fill, 50, 50, format: 'jpeg' %></td>
             </tr>
 
             <tr>
@@ -50,10 +50,10 @@
         </table>
 
 
-        <div class="ariticle_button">
+        <div class="ariticle_show_button">
             <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default center-block btn-lg">
-                    <%= link_to"編集",  edit_admin_schedule_aricle_path(@article.schedule.id,@article.id) %>
+                    <%= link_to"編集",  edit_admin_schedule_article_path(@article.schedule.id,@article.id) %>
                 </button>
 
                 <button type="button" class="btn btn-default center-block btn-lg">

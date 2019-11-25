@@ -1,6 +1,9 @@
 class User::SchedulesController < ApplicationController
   def index
   end
+  def new
+    @schedule = Schedule.new
+  end
 
   def show
   	@schedule = Schedule.find(params[:id])
@@ -30,9 +33,6 @@ class User::SchedulesController < ApplicationController
   	@schedule= Schedule.find(params[:id])
   end
 
-  def new
-  	@schedule = Schedule.new
-  end
 
   def create
   	@schedule = Schedule.new(schedule_params)

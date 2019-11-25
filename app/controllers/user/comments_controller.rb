@@ -19,7 +19,7 @@ class User::CommentsController < ApplicationController
         schedule.create_notification_comment!(current_user,comment.id)
   		  redirect_to user_schedule_path(schedule.id)
   	else
-  		render :new
+  		  redirect_to user_schedule_path(schedule.id)
   	end
   end
 

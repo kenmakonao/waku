@@ -3,59 +3,24 @@ ja:
     attributes:
         category:
                 icon: アイコン
-        explanation: 説明
+                explanation: 説明
 
         country:
-            name: 名前
-            money: 通貨
-            world_heritage: 首都
-            language: 言語
-
-
-        category:
                 name: 名前
-                yomi: ヨミガナ
-                phone: 電話番号
-                date: 日付
-                start_time: 開始時間
-                finish_time: 終了時間
-                title: タイトル
-                icon: アイコン
-                explanation: 説明
-                comment: コメント
-                money: 通過
+                money: 通貨
                 world_heritage: 首都
-                languag: 言語
-                theme: テーマ
+                language: 言語
+
+
+        schedule:
                 start_day: 旅行開始日
                 finish_day: 旅行終了日
                 date: 期間
-                email: メールアドレス
-                nickname: ニックネーム
+                title: タイトル
 
 
-        category:
-        name: 名前
-        yomi: ヨミガナ
-        phone: 電話番号
-        date: 日付
-        start_time: 開始時間
-        finish_time: 終了時間
-        title: タイトル
-        icon: アイコン
-        explanation: 説明
-        comment: コメント
-        money: 通過
-        world_heritage: 首都
-        languag: 言語
-        theme: テーマ
-        start_day: 旅行開始日
-        finish_day: 旅行終了日
-        date: 期間
-        email: メールアドレス
-        nickname: ニックネーム
-
-
-
-
+        article:
+                start_time: 開始時間
+                finish_time: 終了時間
+                title: タイトル
 

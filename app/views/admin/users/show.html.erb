@@ -56,17 +56,16 @@
                     <tr>
                         <td class="col-xs-3"><%= schedule.id%></td>
                         <td class="col-xs-3"><%= schedule.country.name%></td>
-                        <td class="col-xs-6"><%= link_to schedule.title,admin_schedule_path(schedule.id) %>
-                        </td>
+                        <td class="col-xs-6"><%= link_to schedule.title,admin_schedule_path(schedule.id) %></td>
                     </tr>
                 <% end %>
             </tbody>
         </table>
 
-        <div class="user_button">
+        <div class="admin_user_show_button">
             <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default">
-                        <%= link_to"マイページ編集",  edit_admin_user_path(@user) %>
+                        <%= link_to"ユーザ編集",  edit_admin_user_path(@user) %>
                 </button>
 
                 <button type="button" class="btn btn-default">

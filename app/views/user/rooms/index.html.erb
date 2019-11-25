@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+    	<div class="col-xs-11">
+			<h1 class="text-center">DM一覧</h1>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th style="text-align:center;">DMメンバー</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="text-align:center;"><% @anotherEntries.each do |e| %>
+									<%= link_to user_room_path(e.room.id) do %>
+										<%= e.user.nickname %>とDMをしよう！
+									<% end %>
+								<% end %>
+
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<button type="button" class="btn btn-info btn-lg btn-block active photo_button">
+				<%= link_to"マイページに戻る", user_end_user_path(current_user) %>
+				</button>
+		</div>
+ 	</div>
+</div>
