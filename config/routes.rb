@@ -18,14 +18,11 @@ Rails.application.routes.draw do
 
     resources :continents,only: [:index, :show, :country]
     get '/continents/:id/country' => 'continents#country', as: 'country'
-    #resources :aricles,only: [:show, :edit]
     patch '/release/:id' => 'schedules#release', as: 'release'
     patch'/nonrelease/:id' => 'schedules#nonrelease', as: 'nonrelease'
     get '/schedules/:id/photos' => 'schedules#photos', as: 'schedule_photos'
     get '/schedules/:id/articles' => 'schedules#articles', as: 'schedule_articles'
     resources :schedules,only: [:show, :edit, :update, :destroy, :new, :create, :release, :nonrelease, :photos, :articles]do
-      #patch '/release' => 'schedules#release', as: 'release'
-      #patch'/nonrelease' => 'schedules#nonrelease', as: 'nonrelease'
       resources :articles,only: [:show, :edit, :new, :update, :destroy, :create]
       resources :comments,only: [:create,:destroy]
       resources :nices,only: [:create, :destroy]
@@ -35,8 +32,6 @@ Rails.application.routes.draw do
     resources :notifications, only: [:index]
     get '/check_out_notifications' => 'notifications#check_out', as: 'check_out'
     resources :abouts,only: [:index]
-    #resources :favrites,only: [:index,:create, :update, :destroy]
-    resources :nices,only: [:index]
     resources :comments,only: [:index]
     resources :end_users,only: [:show, :edit, :update, :destroy,:checks,:finish]
     get '/end_users/:id/checks/' => 'end_users#checks', as: 'checks'

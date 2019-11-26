@@ -1,7 +1,5 @@
 class User::ArticlesController < ApplicationController
-  def index
-   #@articles = Article.find(params[:id])
-  end
+
 
   def show
   	@article = Article.find(params[:id])
@@ -44,7 +42,5 @@ private
     def article_params
       params.require(:article).permit(:schedule_id,:category_id,:date,:start_time,:finish_time,:title,:memo,:evaluation,:photo)
     end
-
-
 
 end

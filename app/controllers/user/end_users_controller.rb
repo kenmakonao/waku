@@ -1,5 +1,5 @@
 class User::EndUsersController < ApplicationController
-  PER = 3
+  PER = 10
   def show
       @user = User.find(params[:id])
 
@@ -38,7 +38,7 @@ class User::EndUsersController < ApplicationController
                           @roomId = cu.room_id
                       end
                   end
-            end
+              end
             unless @isRoom
                 @room = Room.new
                 @entry = Entry.new
@@ -67,7 +67,7 @@ class User::EndUsersController < ApplicationController
   end
   def finish
   end
-  
+
 
 
   private

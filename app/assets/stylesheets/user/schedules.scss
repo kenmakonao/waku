@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .schedule_explanation{
     width : 1050px ;
-    height : 150px ;
+    height : 130px ;
     font-weight: bold;
     border: solid 1px #000000;
     float: left;
@@ -12,9 +12,26 @@
     color: #FF0066;
     font-size: 20px;
     }
-.photo{
+.schedule_photo{
 	margin-top: 0px;
 }
+.schedule_photo{
+  border: 1px solid #ddd;
+  width: 400px;
+  height: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: pointer;
+}
+.schedule_photo img{
+  width: 100%;
+  transition-duration: 0.5s;
+}
+.schedule_photo:hover img{
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
 .table {
   margin-top: 0px;
 }

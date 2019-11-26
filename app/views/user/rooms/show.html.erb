@@ -2,19 +2,18 @@
     <div class="row">
         <div class="col-xs-11">
             <h1 class="text-center">DM</h1>
-
                 <h4>参加者</h4>
                     <% @entries.each do |e| %>
                         <h5><strong><%= attachment_image_tag e.user, :photo, :fill, 50, 50, format: 'jpeg',fallback: "1000.jpg",size:'50x50' %><%= link_to e.user.nickname ,user_end_user_path(e.user) %>さん</a></strong></h5>
                     <% end %>
 
-            <hr>
+<hr>
                         <% if @messages.present? %>
                             <% @messages.each do |m| %>
                                 <strong><%= m.content %></strong>
                                     <small>by <strong><%= link_to m.user.nickname ,user_end_user_path(m.user) %>さん</strong></small>
-            <hr>
-                        <% end %>
+<hr>
+                            <% end %>
                         <% else %>
                             <h3 class="text-center">メッセージはまだありません</h3>
                         <% end %>
@@ -26,7 +25,7 @@
                                 <%= f.submit "投稿する",:class=>"dm_btn"  %>
                         <% end %>
                         <button type="button" class="btn btn-info btn-lg btn-block active photo_button">
-                            <%= link_to "ユーザーに戻る", user_end_user_path(current_user.id) %>
+                            <%= link_to "マイページに戻る", user_end_user_path(current_user.id) %>
                         </button>
         </div>
     </div>

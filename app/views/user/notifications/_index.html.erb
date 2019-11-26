@@ -1,20 +1,16 @@
-
-<div>
-  <h4 class="sub-title">通知</h4>
-  <%# binding.pry %>
-  <% notifications = current_user.notifications.where(checked: false)%>
-  <% if notifications.exists? %>
-    <div class="users-index">
-      <%= render notifications %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-11">
+            <h4 class="sub-title">通知</h4>
+                <% notifications = current_user.notifications.where(checked: false)%>
+                <% if notifications.exists? %>
+                    <div class="users-index">
+                        <%= render notifications %>
+                    </div>
+                <% else %>
+                <p >通知はありません</p>
+                <% end %>
+        </div>
     </div>
-  <% else %>
-    <p >通知はありません</p>
-  <% end %>
 </div>
 
-<style>
-.sub-title{
-  color: green;
-}
-
-</style>

@@ -7,7 +7,7 @@ before_action :authenticate_user!
     myRoomIds = []
 
     @currentEntries.each do |entry|
-    myRoomIds << entry.room.id
+      myRoomIds << entry.room.id
     end
 
     @anotherEntries = Entry.where(room_id: myRoomIds).where("user_id != ?",@user.id)

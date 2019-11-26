@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .article_explanation{
-    width : 1050px ;
+    width : 1040px ;
     height : 130px ;
     font-weight: bold;
     border: solid 1px #000000;
@@ -24,3 +24,31 @@
     margin-bottom: 50px;
 
    }
+.article_table{
+    margin-top: 30px !important;
+}
+
+.article_photo{
+  border: 1px solid #ddd;
+  width: 700px;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.article_photo img{
+  width: 100%;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.article_photo:hover img{
+  opacity: 0.6;
+  transition-duration: 0.3s;
+}
+
+
+
+Resources
+.article_show_button{
+    margin-bottom: 30px;
+    margin-top: 50px;
+}

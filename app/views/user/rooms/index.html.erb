@@ -12,10 +12,9 @@
 						<tr>
 							<td style="text-align:center;"><% @anotherEntries.each do |e| %>
 									<%= link_to user_room_path(e.room.id) do %>
-										<%= e.user.nickname %>とDMをしよう！
+										<%= e.user.nickname %>とDMをしよう！<br>
 									<% end %>
 								<% end %>
-
 							</td>
 						</tr>
 					</tbody>

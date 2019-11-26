@@ -1,52 +1,55 @@
 <div class="container">
-<div class="row">
-    <div class="col-xs-2">
+	<div class="row">
+    	<div class="col-xs-2">
     		<div class="video">
-         		 <%= video_tag "1.mp4", loop: true, autoplay: true, muted: true ,class: 'video-size'%>
-          		<%= video_tag "2.mp4", loop: true, autoplay: true, muted: true ,class: 'video-size'%>
-        		</div>
+     		 	<%= video_tag "1.mp4", loop: true, autoplay: true, muted: true ,class: 'video-size'%>
+      			<%= video_tag "2.mp4", loop: true, autoplay: true, muted: true ,class: 'video-size'%>
+        	</div>
 
-		<div class="profile">
-			<div class="photo">
-				<%= image_tag('1001.jpg',  class: 'blog-image',size: '100x100',fallback: "1001.jpg",size:'100x100') %>
+			<div class="profile">
+				<div class="photo">
+					<%= image_tag('1001.jpg',  class: 'blog-image',size: '100x100',fallback: "1001.jpg",size:'100x100') %>
+				</div>
+
+				<div class="side_button">
+					<div class="registration">
+						<span class="glyphicon glyphicon-user" aria-hidden="true">
+				            <%= link_to"会員登録",new_user_registration_path %>
+				        </span>
+					</div>
+
+					<div class="sign_in">
+						<span class="glyphicon glyphicon-log-in" aria-hidden="true">
+				            <%= link_to"ログイン", new_user_session_path %>
+				        </span>
+			    	</div>
+
+			     	<div class="about">
+						<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
+				            <%= link_to"サイト説明",user_abouts_path %>
+				        </span>
+					</div>
+				</div>
 			</div>
 
-			<div class="side_button">
-				<div class="registration">
-					<span class="glyphicon glyphicon-user" aria-hidden="true">
-			            <%= link_to"会員登録",new_user_registration_path %>
-			        </span>
-				</div>
-				<div class="sign_in">
-					<span class="glyphicon glyphicon-log-in" aria-hidden="true">
-			            <%= link_to"ログイン", new_user_session_path %>
-			        </span>
-			    </div>
-			     <div class="about">
-					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
-			            <%= link_to"サイト説明",user_abouts_path %>
-			        </span>
-				</div>
-			</div>
-		</div>
+			<div class="schedule_rank">
+				<p class="rank_comment">スケジュール<br>ランキング</p>
+				<%  @all_ranks.each_with_index do |schedule,i| %>
+					<p class="rank">第<%= i+1 %>位</p>
+						<%= link_to( user_schedule_path(schedule.id)) do %>
+							<div class="country_name">
+								<%=   schedule.title %>
+							</div>
 
-		<div class="schedule_rank">
-			<p class="rank_comment">スケジュール<br>ランキング</p>
-			<%  @all_ranks.each_with_index do |schedule,i| %>
-			<p class="rank">第<%= i+1 %>位</p>
-				<%= link_to( user_schedule_path(schedule.id)) do %>
-						<div class="country_name">
-							<%=   schedule.title %>
-						</div>
-
-						<div class="country_photo_side">
-							<%= attachment_image_tag schedule, :photo, :fill, 80, 80, format: 'jpeg',fallback: "1001.jpg",size:'80x80' %>
-						</div>
+							<div class="country_photo_side">
+								<%= attachment_image_tag schedule, :photo, :fill, 80, 80, format: 'jpeg',fallback: "1001.jpg",size:'80x80' %>
+							</div>
+						<% end %>
 				<% end %>
-			<% end %>
-		</div>
-		<div class="user_rank">
-			<p class="rank_comment">ユーザ<br>ランキング</p>
+			</div>
+
+			<div class="user_rank">
+				<p class="rank_comment">ユーザ<br>ランキング</p>
 				<%  @All_ranks.each_with_index do |user,i| %>
 					<p class="rank">第<%= i+1 %>位</p>
 						<%= link_to(  user_end_user_path(user.id)) do %>
@@ -57,7 +60,7 @@
 							<div class="user_photo">
 								<%= attachment_image_tag user, :photo, :fill, 80, 80, format: 'jpeg',fallback: "1000.jpg",size:'80x80' %>
 							</div>
-					<% end %>
+						<% end %>
 				<% end %>
 			</div>
 		</div>

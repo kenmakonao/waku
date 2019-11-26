@@ -1,26 +1,30 @@
 ja:
-  activerecord:
-    attributes:
-        category:
+    activerecord:
+        attributes:
+            user:
+                nickname: ニックネーム
+
+            category:
                 icon: アイコン
                 explanation: 説明
 
-        country:
+            country:
                 name: 名前
                 money: 通貨
                 world_heritage: 首都
                 language: 言語
 
 
-        schedule:
+            schedule:
                 start_day: 旅行開始日
                 finish_day: 旅行終了日
                 date: 期間
                 title: タイトル
 
 
-        article:
+            article:
                 start_time: 開始時間
                 finish_time: 終了時間
                 title: タイトル
+
 

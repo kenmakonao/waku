@@ -24,42 +24,42 @@
 						<table class= "table1 table table-bordered">
 							<tr>
 								<th class="country_name">オークランド(NZ)</th>
-								<td><input name="nz" size=8></td>
+								<td><input id="nz" name="nz" size=8></td>
 							</tr>
 
 							<tr>
 								<th class="country_name">ロンドン</th>
-								<td><input name="london" size=8></td>
+								<td><input id="uk" name="london" size=8></td>
 							</tr>
 
 							<tr>
 								<th class="country_name">東京</th>
-								<td><input name="tokyo" size=8></td>
+								<td><input  id="jp" name="tokyo" size=8></td>
 							</tr>
 
 							<tr>
 								<th class="country_name">インド</th>
-								<td><input name="india" size=8></td>
+								<td><input  id="ind" name="india" size=8></td>
 							</tr>
 
 							<tr>
 								<th class="country_name">ブラジル</th>
-								<td><input name="brazil" size=8></td>
+								<td><input  id="br" name="brazil" size=8></td>
 							</tr>
 
 							<tr>
 								<th class="country_name">グアム</th>
-								<td><input name="gamu" size=8></td>
+								<td><input id="gu" name="gamu" size=8></td>
 							</tr>
 
 							<tr>
 								<th class="country_name">アメリカ</th>
-								<td><input name="amerika" size=8></td>
+								<td><input id="us" name="amerika" size=8></td>
 							</tr>
 
 							<tr>
 								<th class="country_name">オーストラリア</th>
-								<td><input name="ostraria" size=8></td>
+								<td><input id="os" name="ostraria" size=8></td>
 							</tr>
 						</table>
 					</blockquote>
@@ -71,6 +71,7 @@
 
 
 <script>
+
 tz_nz = 13 * 60; // ニュージーランドの夏時間はGMT+13
 tz_uk = 0; // イギリスはGMTですね。 
 tz_jp = 9 * 60; // GMT+9
@@ -93,15 +94,23 @@ function update_watch() {
 	os = nowat(now, tz_os)
 	ind  = nowat(now, tz_in)
 
-
-	document.forms[0].elements[0].value = nz
-	document.forms[0].elements[1].value = uk
-	document.forms[0].elements[2].value = jp
-	document.forms[0].elements[3].value = ind
-	document.forms[0].elements[4].value = br
-	document.forms[0].elements[5].value = gu
-	document.forms[0].elements[6].value = us
-	document.forms[0].elements[7].value = os
+	console.log(document.forms[0].elements[0]);
+	$('#nz').val(nz);
+	$('#uk').val(uk);
+	$('#jp').val(jp);
+	$('#ind').val(ind);
+	$('#br').val(br);
+	$('#gu').val(gu);
+	$('#us').val(us);
+	$('#os').val(os);
+	// document.forms[0].elements[0].value = nz
+	//document.forms[0].elements[1].value = uk
+	//document.forms[0].elements[2].value = jp
+	//document.forms[0].elements[3].value = ind
+	//document.forms[0].elements[4].value = br
+	//document.forms[0].elements[5].value = gu
+	//document.forms[0].elements[6].value = us
+	//document.forms[0].elements[7].value = os
 
 	setTimeout('update_watch()', 999); // 1000msec = 1sec
 }

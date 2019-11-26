@@ -1,14 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-11">
-
             <h1 class="text-center">記事　詳細</h1>
                     <div class ="article_photo">
                         <%= attachment_image_tag @article, :photo, :fill, 700, 500, format: 'jpeg' %>
                     </div>
 
 
-                    <table class= "table table-bordered article_table">
+                    <table class= "table table-bordered article_table ">
                         <tr>
                             <th class="col-xs-3">日程</th>
                             <td align="center"><%= @article.date %></td>
@@ -54,9 +53,11 @@
 
                     </table>
 
-                    <button type="button" class="btn btn-default btn-lg btn-block active">
-                        <%= link_to"一覧",  user_schedule_path(@article.schedule.id)%>
-                    </button>
+                    <div class="article_show_button">
+                        <button type="button" class="btn btn-default btn-lg btn-block active">
+                            <%= link_to"一覧",  user_schedule_path(@article.schedule.id)%>
+                        </button>
+                    </div>
         </div>
     </div>
 </div>
@@ -82,19 +83,4 @@
           });
 </script>
 
-<style>
-.article_table{
-    margin-top: 30px;
 
-}
-.article_photo{
-    margin-left: 150px;
-}
-.col-xs-3  {
-    text-align: center;
-}
-.btn{
-    margin-bottom: 30px;
-}
-
-</style>

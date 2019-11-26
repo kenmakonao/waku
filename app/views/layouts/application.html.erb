@@ -1,120 +1,110 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Waku</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <html>
+        <head>
+            <title>Waku</title>
+            <%= csrf_meta_tags %>
+            <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- コード追加　Bootstrap JavaScript読み込みコード-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" rel="stylesheet" type="text/css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-  </head>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+            <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+            <!-- コード追加　Bootstrap JavaScript読み込みコード-->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" rel="stylesheet" type="text/css">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" rel="stylesheet" type="text/css">
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+        </head>
 
-  <body>
+        <body>
 
-    <% if admin_signed_in?%>
-     <header class="admin_header">
-          <p class="main_text"><管理者ページ></p>
-            <ul class="header_tops">
-                <li class ="header_admin">
-                  <%=link_to"カテゴリ一覧",admin_categorys_path,class:"glyphicon glyphicon-plane li1" %>
-                </li>
+            <% if admin_signed_in?%>
+                <header class="admin_header">
+                        <p class="main_text"><管理者ページ></p>
+                            <ul class="header_tops">
+                                <li class ="header_admin">
+                                  <%=link_to"カテゴリ一覧",admin_categorys_path,class:"glyphicon glyphicon-plane li1" %>
+                                </li>
 
-                <li class ="header_admin">
-                  <%=link_to"国一覧",admin_countries_path,class:"glyphicon glyphicon-briefcase li1" %>
-                </li>
+                                <li class ="header_admin">
+                                  <%=link_to"国一覧",admin_countries_path,class:"glyphicon glyphicon-briefcase li1" %>
+                                </li>
 
-                <li class ="header_admin">
-                  <%=link_to"ユーザ一覧",  admin_users_path,class:"glyphicon glyphicon-user li1"  %>
-                  </li>
+                                <li class ="header_admin">
+                                  <%=link_to"ユーザ一覧",  admin_users_path,class:"glyphicon glyphicon-user li1"  %>
+                                  </li>
 
-                  <li class ="header_admin">
-                  <%=link_to"ログアウト",destroy_admin_session_path,method: :delete, class:"glyphicon glyphicon-new-window li1" %>
-                </li>
-              </ul>
-    </header>
-    <% elsif request.fullpath.include?("user")%>
-      <header class="user_header">
-        <div class="photo_main">
-          <%= link_to image_tag('A.jpg',  class: 'blog-image',size: '1500x300'),  user_continents_path%>
-      </div>
-            <ul id="aaa" class="slider" >
-                <li><a href="#"><img src="/image/001.jpg" alt="001" style="width: 350px;height: 300px;"></a></li>
-                <li><a href="#"><img src="/image/002.jpg" alt="002" style="width: 350px;height: 300px;"></a></li>
-                <li><a href="#"><img src="/image/003.jpg" alt="003" style="width: 350px;height: 300px;"></a></li>
-                <li><a href="#"><img src="/image/004.jpg" alt="004" style="width: 350px;height: 300px;"></a></li>
-                <li><a href="#"><img src="/image/005.jpg" alt="005" style="width: 350px;height: 300px;"></a></li>
-                <li><a href="#"><img src="/image/006.jpg" alt="006" style="width: 350px;height: 300px;"></a></li>
-                <li><a href="#"><img src="/image/007.jpg" alt="007" style="width: 350px;height: 300px;"></a></li>
-                <li><a href="#"><img src="/image/008.jpg" alt="008" style="width: 350px;height: 300px;"></a></li>
-            </ul>
+                                  <li class ="header_admin">
+                                  <%=link_to"ログアウト",destroy_admin_session_path,method: :delete, class:"glyphicon glyphicon-new-window li1" %>
+                                </li>
+                            </ul>
+                </header>
 
-      </header>
-    <% else%>
-      <header class="admin_header">
-          <p class="main_sing_in"><管理者ページ></p>
-        </header>
-
-
-      </header>
-    <% end %>
-    <div class ="main_boby">
-      <div class="row">
-        <div class="col-xs-2">
-          <% if request.fullpath.include?("admin")%>
-            <% elsif user_signed_in?%>
-                  <%= render'layouts/sidebar_left_login' %>
+            <% elsif request.fullpath.include?("user")%>
+                <header class="user_header">
+                    <div class="photo_main">
+                        <%= link_to image_tag('A.jpg',  class: 'blog-image',size: '1450x300'),  user_continents_path%>
+                    </div>
+                    <ul id="aaa" class="slider" >
+                        <li><a href="#"><img src="/image/001.jpg" alt="001" style="width: 350px;height: 300px;"></a></li>
+                        <li><a href="#"><img src="/image/002.jpg" alt="002" style="width: 350px;height: 300px;"></a></li>
+                        <li><a href="#"><img src="/image/003.jpg" alt="003" style="width: 350px;height: 300px;"></a></li>
+                        <li><a href="#"><img src="/image/004.jpg" alt="004" style="width: 350px;height: 300px;"></a></li>
+                        <li><a href="#"><img src="/image/005.jpg" alt="005" style="width: 350px;height: 300px;"></a></li>
+                        <li><a href="#"><img src="/image/006.jpg" alt="006" style="width: 350px;height: 300px;"></a></li>
+                        <li><a href="#"><img src="/image/007.jpg" alt="007" style="width: 350px;height: 300px;"></a></li>
+                        <li><a href="#"><img src="/image/008.jpg" alt="008" style="width: 350px;height: 300px;"></a></li>
+                    </ul>
+                </header>
 
             <% else%>
-                  <%= render'layouts/sidebar_left' %>
-          <% end %>
-        </div>
+                <header class="admin_header">
+                    <p class="main_sing_in"><管理者ページ></p>
+                </header>
+            <% end %>
 
 
-        <% if request.fullpath.include?("admin") %>
-          <div class="col-xs-12">
-            <%= yield %>
-          </div>
-        <% else %>
-          <div class="col-xs-10">
-            <%= yield %>
-          </div>
-        <% end %>
+            <div class ="main_boby">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <% if request.fullpath.include?("admin")%>
+                        <% elsif user_signed_in?%>
+                            <%= render'layouts/sidebar_left_login' %>
 
-      </div>
-    </div>
-
+                        <% else%>
+                            <%= render'layouts/sidebar_left' %>
+                        <% end %>
+                    </div>
 
 
+                    <% if request.fullpath.include?("admin") %>
+                        <div class="col-xs-12">
+                            <%= yield %>
+                        </div>
+                    <% else %>
+                        <div class="col-xs-10">
+                            <%= yield %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
 
+            <footer class="footer page-footer">
+                <div class="company_description" style="background-color: yellow;">
 
-
-
-     <footer class="footer page-footer">
-      <div class="" style="background-color: yellow;">
-
-        <h5 class="text-center">会社情報<br>
-          会社名 （株）eamo<br>
-          住所　東京都渋谷区神南1-1-1-1<br>
-          電話番号 xxx-xxx-xxx
-        </h5>
-        <div class="footer-copyright text-center">© 2018 nagano music Inc</div>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
-
+                    <h5 class="text-center">会社情報<br>
+                      会社名 （株）eamo<br>
+                      住所　東京都渋谷区神南1-1-1-1<br>
+                      電話番号 xxx-xxx-xxx
+                    </h5>
+                <div class="footer-copyright text-center">© 2018 nagano music Inc</div>
+            </footer>
+        </body>
+    </html>
 
 <script>
  $('.slider').slick({
     autoplay:true,
-    autoplaySpeed:5000,
+    autoplaySpeed:3000,
     dots:true,
     slidesToShow:4,
     responsive:[

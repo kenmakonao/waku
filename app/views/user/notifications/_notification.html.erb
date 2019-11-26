@@ -1,27 +1,30 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
-
-<div class="form-inline">
-    <span>
-        <%= link_to visitor.nickname,  user_end_user_path(visitor.id) %>
-            <nobr>さんが</nobr>
-    </span>
-    <span>
-        <% case notification.action%>
-            <% when 'follow' then%>
-                <span>あなたをフォローしました!</span>
-            <% when 'nice' then%>
-                <%= link_to "あなたの投稿", user_schedule_path(notification.schedule.id) %>
-                    <span>をいいねしました!</span>
-            <% when 'comment' then%>
-                    <%= link_to "あなたの投稿に",  user_schedule_path(notification.schedule)%>さんがコメントしました!
-            <% when 'message' then%>
-                    <P>あなたにDMしました!</P>
-                <%# else %>
-                        <%#=link_to user_schedule_path(notification.schedule)%>
-                        <%#= image_tag avatar_url(notification.schedule.user).to_s, class: "icon_mini"%>
-        <% end %>
-    </span>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-11">
+            <div class="form-inline">
+                <span>
+                    <%= link_to visitor.nickname,  user_end_user_path(visitor.id) %>
+                        <nobr>さんが</nobr>
+                </span>
+                <span>
+                    <% case notification.action%>
+                        <% when 'follow' then%>
+                            <span>あなたをフォローしました!</span>
+                        <% when 'nice' then%>
+                            <%= link_to "あなたの投稿", user_schedule_path(notification.schedule.id) %>
+                                <span>をいいねしました!</span>
+                        <% when 'comment' then%>
+                                <%= link_to "あなたの投稿に",  user_schedule_path(notification.schedule)%>さんがコメントしました!
+                            <%# else %>
+                                    <%#=link_to user_schedule_path(notification.schedule)%>
+                                    <%#= image_tag avatar_url(notification.schedule.user).to_s, class: "icon_mini"%>
+                    <% end %>
+                </span>
+            </div>
+        </div>
+    </div>
 </div>
 
 

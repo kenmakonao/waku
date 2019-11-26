@@ -23,8 +23,7 @@
         	        <table class= "table table-bordered">
                         <tr>
                             <th class="col-xs-3">日付</th>
-                                <td align="center"><%= f.select :date, [["1日目","1日目"],["2日目", "2日目"], ["３日目", "３日目"], ["４日目", "４日目"], ["５日目", "５日目"], ["６日目", "６日目"], ["7日目", "7日目"],["その他", "その他"]] ,class:"form-control" %>
-        					</td>
+                                <td align="center"><%= f.select :date, [["1日目","1日目"],["2日目", "2日目"], ["３日目", "３日目"], ["４日目", "４日目"], ["５日目", "５日目"], ["６日目", "６日目"], ["7日目", "7日目"],["その他", "その他"]] ,class:"form-control" %></td>
                         </tr>
 
                         <tr>
@@ -39,8 +38,7 @@
 
                         <tr>
                             <th class="col-xs-3">アイコン</th>
-                                <td align="center"><%= f.collection_select :category_id, Category.all,:id,:explanation%>
-        					</td>
+                                <td align="center"><%= f.collection_select :category_id, Category.all,:id,:explanation%></td>
                         </tr>
 
                         <tr>
@@ -64,8 +62,8 @@
                                     <div class="form-group row" id="star">
             					       <%= f.label :evaluation,'評価 ' %>
             					       <%= f.hidden_field :evaluation, id: :review_star %>
-        						        </div>
-        					     </td>
+                                    </div>
+        					    </td>
                         </tr>
                     </table>
 
