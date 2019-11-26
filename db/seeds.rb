@@ -84,3 +84,4 @@ Country.create!(
 	{continent_id: '3',name: 'マダガスカル',money:'アリアリ',world_heritage: 'アリアリ',language: 'マダガスカル語',photo: open("#{Rails.root}/db/fixtures/151.png")}
     ]
     )
+Admin.create!(password: "aaaaaa", email: "a@a")
