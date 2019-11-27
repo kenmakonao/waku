@@ -1,14 +1,9 @@
 class Admin::SchedulesController < ApplicationController
-  # def index
-  	# @ = Schedule.find(params[:id])
-  	# @schedules = Schedule.where(user_id: user.id)
-  # end
 
   def show
   	@schedule = Schedule.find(params[:id])
   	@articles_by_date = @schedule.articles.order(:date).group_by{|a| a.date}
     @articles_by_date.each do |key,articles|
-     #articles.sort_by{|a| a.start_time}
     end
   end
 

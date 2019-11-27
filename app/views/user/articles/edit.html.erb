@@ -51,6 +51,7 @@
                                 </td>
                         </tr>
                     </table>
+
                         <%= f.submit "登録",:class=>"create_btn" %>
                         <button type="button" class="btn btn-danger btn-lg btn-block active">  <%= link_to '削除',user_schedule_article_path(@article.schedule.id,@article.id),method: :delete %>
                         </button>

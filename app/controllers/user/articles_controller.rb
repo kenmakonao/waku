@@ -1,6 +1,5 @@
 class User::ArticlesController < ApplicationController
 
-
   def show
   	@article = Article.find(params[:id])
   end
@@ -14,7 +13,6 @@ class User::ArticlesController < ApplicationController
   end
 
   def create
-    #@schedule.user_id = current_user.id
   	schedule = Schedule.find(params[:schedule_id])
   	@article = Article.new(article_params)
   	@article.schedule_id = params[:schedule_id]
@@ -38,7 +36,7 @@ class User::ArticlesController < ApplicationController
     redirect_to user_schedule_path(params[:schedule_id])
   end
 
-private
+  private
     def article_params
       params.require(:article).permit(:schedule_id,:category_id,:date,:start_time,:finish_time,:title,:memo,:evaluation,:photo)
     end

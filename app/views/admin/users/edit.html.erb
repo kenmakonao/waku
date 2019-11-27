@@ -57,10 +57,9 @@
 		    <%= f.submit "登録",:class=>"create_btn1" %>
 
 
-            	<button type="button" class="btn btn-default center-block btn-lg btn-danger">
-                    <%= link_to"削除", admin_user_path(@user),method: :delete %>
-
-            </div>
+            <button type="button" class="btn btn-default center-block btn-lg btn-danger">
+                <%= link_to"削除", admin_user_path(@user),method: :delete %>
+            </button>
 		<% end %>
 </div>
 

@@ -10,6 +10,7 @@ class Admin::ArticlesController < ApplicationController
   def edit
   	@article = Article.find(params[:id])
   end
+
   def update
   	article = Article.find(params[:id])
     article.schedule_id = params[:schedule_id]
@@ -23,7 +24,7 @@ class Admin::ArticlesController < ApplicationController
     redirect_to admin_schedule_path(params[:schedule_id])
   end
 
-private
+  private
     def article_params
       params.require(:article).permit(:schedule_id,:category_id,:date,:start_time,:finish_time,:title,:memo,:evaluation,:photo)
     end

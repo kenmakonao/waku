@@ -16,7 +16,6 @@
         </head>
 
         <body>
-
             <% if admin_signed_in?%>
                 <header class="admin_header">
                         <p class="main_text"><管理者ページ></p>
@@ -31,9 +30,9 @@
 
                                 <li class ="header_admin">
                                   <%=link_to"ユーザ一覧",  admin_users_path,class:"glyphicon glyphicon-user li1"  %>
-                                  </li>
+                                </li>
 
-                                  <li class ="header_admin">
+                                <li class ="header_admin">
                                   <%=link_to"ログアウト",destroy_admin_session_path,method: :delete, class:"glyphicon glyphicon-new-window li1" %>
                                 </li>
                             </ul>

@@ -1,8 +1,6 @@
 // Place all the styles related to the user/continents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 .continent_name{
 	text-align: center;
 	font-size: 50px;
@@ -22,7 +20,6 @@
 	color: red;
 	margin-top: 20px;
 }
-
 
 .continent_photo{
   border: 1px solid #ddd;
@@ -75,16 +72,17 @@
   margin: 0 auto;
   overflow: hidden;
 }
+
 .countries_photo img{
   width: 100%;
   cursor: pointer;
   transition-duration: 0.5s;
 }
+
 .countries_photo img:hover{
   transform: scale(1.2) rotate(9deg);
   transition-duration: 0.5s;
 }
-
 
 .country_table_country{
     margin-top: 0px;
@@ -109,4 +107,3 @@
   transform: scale(1.2) rotate(9deg);
   transition-duration: 0.5s;
 }
-

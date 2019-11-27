@@ -11,10 +11,12 @@
     margin-bottom: 20px;
     color: #FF0066;
     font-size: 20px;
-    }
+}
+
 .schedule_photo{
 	margin-top: 0px;
 }
+
 .schedule_photo{
   border: 1px solid #ddd;
   width: 400px;
@@ -23,10 +25,12 @@
   overflow: hidden;
   cursor: pointer;
 }
+
 .schedule_photo img{
   width: 100%;
   transition-duration: 0.5s;
 }
+
 .schedule_photo:hover img{
   transform: scale(1.2);
   transition-duration: 0.5s;
@@ -47,61 +51,62 @@
   margin-top: 20px;
 }
 
-
 .schedule_button{
 margin-bottom: 20px!important;
 }
 
 .warning{
-text-align: center;
+ text-align: center;
 
 }
 .info{
-text-align: center;
+ text-align: center;
 
 }
 .success{
-text-align: center;
+ text-align: center;
 
 }
 .active{
-text-align: center;
+ text-align: center;
 
 }
 .danger{
-text-align: center;
-
+ text-align: center;
 }
+
 .comment_btn{
-    color: #2196F3;
+  color: #2196F3;
   border: 1px solid #C0C0C0;
   border-radius: 5px;
   background-color:white;
   padding: 10px;
   text-align: center;
   width: 100px;
+}
 
-}
 .schedule_edit_btn{
-    color: #2196F3;
-    border: 1px solid #C0C0C0;
-    border-radius: 5px;
-    background-color:white;
-    padding: 20px;
-    text-align: center;
-    width: 150px;
-    margin-left: 500px;
-    margin-bottom: 50px;
+  color: #2196F3;
+  border: 1px solid #C0C0C0;
+  border-radius: 5px;
+  background-color:white;
+  padding: 20px;
+  text-align: center;
+  width: 150px;
+  margin-left: 500px;
+  margin-bottom: 50px;
 }
+
 .photo_button{
   margin-top: 30px;
   margin-bottom: 20px;
-
 }
+
 .nice_count{
   list-style: none;
 }
+
 .schedule_article_button{
-    margin-top: 30px;
+  margin-top: 30px;
   margin-bottom: 30px;
 }

@@ -75,6 +75,7 @@ class User::SchedulesController < ApplicationController
     def schedule_params
       params.require(:schedule).permit(:country_id,:start_day,:finish_day,:date,:title,:memo,:photo,:theme)
     end
+
     def status_params
       params.require(:schedule).permit(:status)
     end

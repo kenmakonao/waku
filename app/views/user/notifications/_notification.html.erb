@@ -17,9 +17,6 @@
                                 <span>をいいねしました!</span>
                         <% when 'comment' then%>
                                 <%= link_to "あなたの投稿",  user_schedule_path(notification.schedule)%>コメントしました!
-                            <%# else %>
-                                    <%#=link_to user_schedule_path(notification.schedule)%>
-                                    <%#= image_tag avatar_url(notification.schedule.user).to_s, class: "icon_mini"%>
                     <% end %>
                 </span>
             </div>

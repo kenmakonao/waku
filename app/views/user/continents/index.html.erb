@@ -72,16 +72,16 @@
 
 <script>
 
-tz_nz = 13 * 60; // ニュージーランドの夏時間はGMT+13
-tz_uk = 0; // イギリスはGMTですね。 
-tz_jp = 9 * 60; // GMT+9
+tz_nz = 13 * 60;
+tz_uk = 0;
+tz_jp = 9 * 60;
 tz_in = 5 * 60;
 tz_br = -3 * 60;
 tz_ha = -1 * 60;
 tz_us = -6 * 60;
 tz_os = 1 * 60;
 
-var nz, uk, jp; // 時刻文字列を入れるところ
+var nz, uk, jp;
 
 function update_watch() {
 	now = new Date();
@@ -103,16 +103,8 @@ function update_watch() {
 	$('#gu').val(gu);
 	$('#us').val(us);
 	$('#os').val(os);
-	// document.forms[0].elements[0].value = nz
-	//document.forms[0].elements[1].value = uk
-	//document.forms[0].elements[2].value = jp
-	//document.forms[0].elements[3].value = ind
-	//document.forms[0].elements[4].value = br
-	//document.forms[0].elements[5].value = gu
-	//document.forms[0].elements[6].value = us
-	//document.forms[0].elements[7].value = os
 
-	setTimeout('update_watch()', 999); // 1000msec = 1sec
+	setTimeout('update_watch()', 999);
 }
 
 function nowat(now, tz) {
@@ -134,8 +126,5 @@ function nowat(now, tz) {
 	return hour + ":" + min + ":" + sec;
 }
 update_watch();
-
-
-
 
 </script>

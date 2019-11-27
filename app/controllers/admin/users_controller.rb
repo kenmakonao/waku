@@ -2,8 +2,6 @@ class Admin::UsersController < ApplicationController
   PER = 10
 
   def index
-
-    #@users = User.with_deleted.page(params[:page]).per(PER)
     @users = User.page(params[:page]).per(PER)
   end
 
@@ -15,6 +13,7 @@ class Admin::UsersController < ApplicationController
   def edit
   	@user = User.find(params[:id])
   end
+
   def update
   	user = User.find(params[:id])
   	user.update(user_params)
@@ -27,8 +26,7 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path
   end
 
-
-   private
+  private
     def user_params
       params.require(:user).permit(:photo,:kanzi_last_name,:kanzi_first_name,:kana_last_name,:kana_first_name,:email,:nickname,:sex,:like_country,:self_introduction)
     end

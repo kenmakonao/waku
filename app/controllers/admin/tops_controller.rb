@@ -3,7 +3,7 @@ class Admin::TopsController < ApplicationController
  end
 
   def after_sign_out_path_for(resource)
-     new_admin_session_path # ログアウト後に遷移するpathを設定
+     new_admin_session_path
   end
 
 end

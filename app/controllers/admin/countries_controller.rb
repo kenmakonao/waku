@@ -17,12 +17,11 @@ class Admin::CountriesController < ApplicationController
   end
 
   def create
-    #binding.pry
   	 @country = Country.new(country_params)
   	 if @country.save
   		redirect_to admin_country_path(@country)
   	 else
-  		 render :new
+  		render :new
      end
   end
 
