@@ -4,7 +4,7 @@ class User::EndUsersController < ApplicationController
     @user = User.find(params[:id])
 
     # コメントしたリストを取得
-    @schedules = @user.schedules
+    @schedules = @user.schedules.order(id: "DESC")
     schedules =  Schedule.where(user_id: params[:id])
     schedule_ids = schedules.map{|schedule|schedule.id}
 
