@@ -11,7 +11,7 @@ class User::ContinentsController < ApplicationController
 
   def country
   	@country = Country.find(params[:id])
-  	@schedules = @country.schedules.page(params[:page]).per(PER)
+  	@schedules = @country.schedules.page(params[:page]).per(PER).order(id: "DESC")
   end
 end
 
